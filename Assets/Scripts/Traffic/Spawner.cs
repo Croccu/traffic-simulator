@@ -17,6 +17,15 @@ public class Spawner : MonoBehaviour
     for (int i = 0; i < exitObjects.Length; i++)
     {
       exitWaypoints[i] = exitObjects[i].GetComponent<Waypoint>();
+      if (exitWaypoints[i] == null)
+      {
+        Debug.LogWarning($"GameObject '{exitObjects[i].name}' tagged as 'Exit' is missing a Waypoint component.");
+      }
+    }
+
+    if (exitWaypoints.Length == 0)
+    {
+      Debug.LogWarning("No GameObjects tagged as 'Exit' found in the scene.");
     }
 
     InvokeRepeating(nameof(SpawnCar), 2f, spawnInterval);
