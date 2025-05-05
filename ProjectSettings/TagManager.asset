@@ -7,11 +7,12 @@ TagManager:
   - Car
   - Exit
   - TrafficLight
+  - Intersection
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Car
   - Water
   - UI
   - 
