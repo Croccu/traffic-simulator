@@ -8,6 +8,7 @@ TagManager:
   - Exit
   - TrafficLight
   - Intersection
+  - StopLine
   layers:
   - Default
   - TransparentFX
