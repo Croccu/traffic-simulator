@@ -9,9 +9,11 @@ public class CarController : MonoBehaviour
   public List<Waypoint> path = new List<Waypoint>();
   private int pathIndex = 0;
 
+  private bool isStopped = false;
+
   private void Update()
   {
-    if (path == null || pathIndex >= path.Count) return;
+    if (path == null || pathIndex >= path.Count || isStopped) return;
 
     Waypoint target = path[pathIndex];
     Vector3 direction = target.transform.position - transform.position;
@@ -30,6 +32,26 @@ public class CarController : MonoBehaviour
     if (direction.magnitude < 0.1f)
     {
       pathIndex++;
+    }
+  }
+
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.CompareTag("TrafficLight"))
+    {
+      TrafficLight trafficLight = other.GetComponent<TrafficLight>();
+      if (trafficLight != null && trafficLight.IsRed())
+      {
+        isStopped = true;
+      }
+    }
+  }
+
+  private void OnTriggerExit2D(Collider2D other)
+  {
+    if (other.CompareTag("TrafficLight"))
+    {
+      isStopped = false;
     }
   }
 }
