@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class Spawner : MonoBehaviour
 {
   public GameObject carPrefab;
   public Waypoint spawnWaypoint;
   public float spawnInterval = 3f;
+  public bool randomSpawn = false; // Toggle for random spawn intervals
 
   private Waypoint[] exitWaypoints;
 
@@ -28,7 +30,29 @@ public class Spawner : MonoBehaviour
       Debug.LogWarning("No GameObjects tagged as 'Exit' found in the scene.");
     }
 
-    InvokeRepeating(nameof(SpawnCar), 2f, spawnInterval);
+    StartSpawning();
+  }
+
+  void StartSpawning()
+  {
+    if (randomSpawn)
+    {
+      StartCoroutine(RandomSpawnCoroutine());
+    }
+    else
+    {
+      InvokeRepeating(nameof(SpawnCar), 2f, spawnInterval);
+    }
+  }
+
+  IEnumerator RandomSpawnCoroutine()
+  {
+    while (true)
+    {
+      SpawnCar();
+      float randomInterval = Random.Range(1.5f, 5f); // Random interval between 1.5 and 5 seconds
+      yield return new WaitForSeconds(randomInterval);
+    }
   }
 
   void SpawnCar()
@@ -70,4 +94,3 @@ public class Spawner : MonoBehaviour
     return closest;
   }
 }
-

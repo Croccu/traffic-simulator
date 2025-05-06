@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-  public float speed = 3f;
+  public float speed = 2.5f;
   private float originalSpeed;
 
   [Header("Pathfinding")]
