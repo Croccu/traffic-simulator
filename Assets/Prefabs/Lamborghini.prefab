@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3409068482889874040}
   - component: {fileID: 913142797423931539}
   - component: {fileID: 1278603546604231123}
+  - component: {fileID: 4120448299225755319}
   m_Layer: 6
   m_Name: Lamborghini
   m_TagString: Car
@@ -175,10 +176,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b63eb2ce7aa48769ec10a59d856081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: []
   speed: 2
   turnSpeed: 20
+  safeDistance: 0.5
+  leftTurnConflictRadius: 0.7
   carLayer:
     serializedVersion: 2
     m_Bits: 64
-  conflictCheckRadius: 0.5
+  path: []
+--- !u!114 &4120448299225755319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061413436835980227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0972b9cb2f5df641a48ee181eb19751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  rotationSpeed: 15
