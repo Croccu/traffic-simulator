@@ -291,3 +291,12 @@ Mina tegin algust meie mängu waypointide ehk autode liikumisradade uuendamisega
 
 Homme plaanin ilmselt waypointidega jätkata ja võibolla vajadusel lisada paar punkti juurde, et oleks võimalik keerulisemaid kurve nendega teha. Samuti peame tiimiga ära otsustama, kuidas lahendame sõiduteede tegemise oma mängus.
 
+**JAN**
+9. juuni
+
+"puhkus" läbi ja taas tegutsema. Algus saime koolis sissejuhatava loengu, kuidas midagi toimub ja mis meid ees ootamas on. Peale sissejuhatavat tundi oli ka scrumi tutvustus. Meil oli juba varasemalt projekti etappidega seoses Trello board tehtud, mida otsustame edasi kasutada. 
+
+Küsisime Jaagupilt nõu, et kuidas tema soovitab läheneda teede loomisele. Oleme katsetanud mitmeid variante, aga täna keskendusime Splines tehnikale. Kuna kõik mänguga seosnev on uus läks vaja internetis leiduvaid õpetusi. Peale mitmete errorite lahendamist, sain asja enam vähem tööle. Sellega on parem teid joonistada, kuigi hetkel tundub mulle veidi kahtlane ristmike jne tegevus sellega. Prototüübis kasutus olev tehnika võimaldas ainult 90 kraadiseid teid kasutada.
+
+Homne plaan on splines-e edasi kasutada ja proovida tase või mitu valmis saada, et näha kas see on pädev viis edasi liikumiseks. Hetkel on veel probleemiks tee visuaalne pool, kellegi meist pole photoshopiga või muu sarnase programmiga kogemust ja samuti on need enamus tasulised. 
+
