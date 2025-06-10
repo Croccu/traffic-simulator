@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class WaypointNode : MonoBehaviour
 {
-    public WaypointNode next;
-    public bool isStopPoint;
-    public Transform overrideLookTarget;
-}
+  [Tooltip("Should the car stop here?")]
+  public bool isStopPoint = false;
 
+  [Tooltip("Custom rotation target (optional).")]
+  public Transform overrideLookTarget;
+}
