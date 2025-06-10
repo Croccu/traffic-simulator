@@ -336,3 +336,9 @@ Hommikusel koosolekul arutasime läbi, mida täna tegema peaks ning jagasime tö
 Tänane päev oli üsna frustreeriv selle tõttu, et iga liigutus autode loogikat tehes tundus asju ainult hullemaks tegevat ning ühel hetkel pidin tagasi võtma oma tehtud töö tagasi sinna, kus eile olin lõpetanud. Seega sain täna korralikult treenida oma kannatlikkust. Kindlasti õppisin ka paremini tundma unity loogikat ja kasutasin nii mõndagi asja seal täna esimest korda.
 
 Homme on mul plaan jätkata autodele loogika ehitamist, mis paneks nad hoogu maha võtma, teisele autole liiga lähedale jõudes või koguni peatuma ja siis ka hiljem edasi jälle sõitma. 
+
+Marcus 10. juuni
+
+Päev number kaks, alustasin mängulehtede loomisega, kus esimese sammuna keskendusin nupu kujundamisele. Mul oli Figmas juba olemas idee, milline see nupp võiks välja näha, kuid selle Photoshopis teostamine osutus keeruliseks ja aeganõudvaks. Tööriistade rohkus ja detailne töö stiilidega võtsid rohkem aega, kui olin planeerinud. Kuigi lõpuks sain tulemuse, millega enam-vähem rahule jäin, ei jäänud mul rohkem aega täna, et luua esimene lehekülg valmis.
+See kogemus pani mind mõistma, kui oluline on valida ülesandele sobiv tööriist ning kui kriitiline on osata seda tööriista kasutada. Kui pole varem mõnda tarkvara kasutanud, võib isegi hea idee teostamine muutuda aeglaseks ja frustreerivaks. Samas on ka see osa õppimisest, uue vahendi tundma õppimine võtabki aega ja vajab harjutamist. Täna ei jõudnud ma kõike, mida lootsin teha. Lõpuks ei tasu olla kurb, kui kõik ei saa ühe päevaga valmis. Homme on uus päev, kus saab jätkata juba targemana ja edukamalt.
+
