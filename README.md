@@ -329,3 +329,10 @@ Lahendus tundus alguses keeruline, sest sisaldas palju matemaatikat ja uut loogi
 See kogemus kinnitas, et 2D teede visualiseerimine Unitys nõuab arusaamist geomeetriast ja Bezier kõverate matemaatikast. Õppisin, kuidas kontrollpunktide ja tangendi pikkuste muutmine mõjutab tee kuju ning kuidas neid saab skriptipõhiselt juhtida.
 Edaspidi oskan paremini hinnata spline-põhiste süsteemide tööpõhimõtteid ja neid oma projektides kasutada. Sain juurde enesekindlust uue, tehniliselt keerukama lahenduse integreerimisel. Mõistsin ka, kui oluline on varuda aega, et selliseid süsteeme põhjalikult katsetada ja mõista enne nende täielikku integreerimist meie projekti. Homseks plaaniks oleks anda üle roadi süsteemi osa teistele, ja ise tegeleda edasi lehekülgede loomisega.
 
+Karl 10. juuni
+
+Hommikusel koosolekul arutasime läbi, mida täna tegema peaks ning jagasime tööd ära. Mina jätkasin waypointidega tegelemist ning proovisin ka autodele teha sellist loogikat, et nad omavahel kokku ei põrgaks ja läbi laseks üksteist ristmikutel. Viimane neist aga oli palju raskem teha kui alguses kõlada võib. Lõpuks ma autode loogikat päris tööle ei saanudki, kuid sain tehtud meie mängule õpetustaseme ristmiku koos waypointidega, millel autod igas suunas sõidavad.
+
+Tänane päev oli üsna frustreeriv selle tõttu, et iga liigutus autode loogikat tehes tundus asju ainult hullemaks tegevat ning ühel hetkel pidin tagasi võtma oma tehtud töö tagasi sinna, kus eile olin lõpetanud. Seega sain täna korralikult treenida oma kannatlikkust. Kindlasti õppisin ka paremini tundma unity loogikat ja kasutasin nii mõndagi asja seal täna esimest korda.
+
+Homme on mul plaan jätkata autodele loogika ehitamist, mis paneks nad hoogu maha võtma, teisele autole liiga lähedale jõudes või koguni peatuma ja siis ka hiljem edasi jälle sõitma. 
