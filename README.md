@@ -300,3 +300,12 @@ Küsisime Jaagupilt nõu, et kuidas tema soovitab läheneda teede loomisele. Ole
 
 Homne plaan on splines-e edasi kasutada ja proovida tase või mitu valmis saada, et näha kas see on pädev viis edasi liikumiseks. Hetkel on veel probleemiks tee visuaalne pool, kellegi meist pole photoshopiga või muu sarnase programmiga kogemust ja samuti on need enamus tasulised. 
 
+**Rene**
+9. juuni
+
+Suvepuhkus jäeti pooleli, kooli tagasi. Alguses oli sissejuhataval loengul, kus selgitati, kuidas õppetöö toimub ja mida edaspidi oodata. Pärast seda toimus ka Scrum'i tutvustav tund. Meil oli juba varem projekti etappide jaoks loodud Trello tahvel, mille kasutamist otsustasime jätkata. Küsisime Jaagupilt nõu, kuidas tema soovitab teede loomisele läheneda. Oleme proovinud mitmeid erinevaid lahendusi, kuid hetkel kasutame Spline. Ei tea, kas see hakkab töötama.
+
+Ise ma tegelesin andmebaasi Unity-ga ühendamisega. Hetkel on asi veel segane. Uurisin millist tarkvara selleks kasutada. Valikuid on palju. 
+
+Homme üritan tekitada ühendust mängu ja andmebaasiga.
+
