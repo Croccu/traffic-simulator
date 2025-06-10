@@ -303,7 +303,7 @@ Homne plaan on splines-e edasi kasutada ja proovida tase või mitu valmis saada,
 **Rene**
 9. juuni
 
-Suvepuhkus jäeti pooleli, kooli tagasi. Alguses oli sissejuhataval loengul, kus selgitati, kuidas õppetöö toimub ja mida edaspidi oodata. Pärast seda toimus ka Scrum'i tutvustav tund. Meil oli juba varem projekti etappide jaoks loodud Trello tahvel, mille kasutamist otsustasime jätkata. Küsisime Jaagupilt nõu, kuidas tema soovitab teede loomisele läheneda. Oleme proovinud mitmeid erinevaid lahendusi, kuid hetkel kasutame Spline. Ei tea, kas see hakkab töötama.
+Suvepuhkus jäeti pooleli, kooli tagasi. Alguses oli sissejuhataval loengul, kus selgitati, kuidas õppetöö toimub ja mida edaspidi oodata. Pärast seda toimus ka Scrum'i tutvustav tund. Meil oli juba varem projekti etappide jaoks loodud Trello tahvel, mille kasutamist otsustasime jätkata. 
 
 Ise ma tegelesin andmebaasi Unity-ga ühendamisega. Hetkel on asi veel segane. Uurisin millist tarkvara selleks kasutada. Valikuid on palju. 
 
