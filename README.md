@@ -306,6 +306,16 @@ Homne plaan on splines-e edasi kasutada ja proovida tase või mitu valmis saada,
 Arendusperioodi esimene nädal hakkas meil planeerimise ja stand-upiga, kus vaatasime kuhu olime juba jõudnud, mis meil mängu korralikuks lansseerimiseks funktsionaalsuse poolt veel vaja on. Lisaks sellele korraldame ümber kogu oma mängus toimivad teed ning kuidas need töötavad. Kui oma esimeses iteratsioonis kasutasime tilepalette-i, siis nüüd kavatseme teha kõik ümber töötavate splinedega (mida oleks hiljem mugav kaardi peale justkui joonistada)
 
 Samal ajal kui teised tiimi liikmed proovisid kätt, kuidas Bezieri ja Spline-dega teid ning paremaid waypointe luua siis lugesin mina selle kohta lisainfot et kuidas saaks enda loodud teede asseteid kasutada antud moodusel. Pean selleks tegema photoshopis korrektses formaadis graafika, et seda pärast saaks Unitys kasutada nö "materjalina".
-
 Lisaks sellele vaatasin ka milliseid varasemaid osi saame me mugavalt juba kasutada ja mille täitsa ümber tegema. Esialgu tundus kõik CarControlleriga seonduv ilmselt uute teede ja waypointidega mitte töötav aga eks seda saab juba homme testida.
+
 Homseks kavaks jääbki uute lahenduste integreerimine meie projekti ning veendumine et kõik töötab nii nagu ta peaks.
+
+**Rene**
+9. juuni
+
+Suvepuhkus jäeti pooleli, kooli tagasi. Alguses oli sissejuhataval loengul, kus selgitati, kuidas õppetöö toimub ja mida edaspidi oodata. Pärast seda toimus ka Scrum'i tutvustav tund. Meil oli juba varem projekti etappide jaoks loodud Trello tahvel, mille kasutamist otsustasime jätkata. 
+
+Ise ma tegelesin andmebaasi Unity-ga ühendamisega. Hetkel on asi veel segane. Uurisin millist tarkvara selleks kasutada. Valikuid on palju. 
+
+Homme üritan tekitada ühendust mängu ja andmebaasiga.
+
