@@ -279,8 +279,15 @@ Sel nädalal toimus ka Interaktsioonidisaini kursuse viimane loeng. Koostasime s
 
 Loenguid meil enam ei toimu. Nüüd ootame põnevusega 9. juunit, mil algab meie rakenduse arendusperiood, mis kestab kuni 20. juunini. Seni proovime selleks valmistuda ning võimalusel arendustöödega juba varakult alustada, et vältida ajapuudust ja tagada rakenduse valmimine õigeks ajaks.
 
+**Arendusperioodi meeskonna blogi 09.06-20-06**
 
-**Arendusperioodi blogid**
+Meeskonna blogi – 09.06
+Esimese arenduspäeva hommikul toimus sissejuhatav loeng, kus anti ülevaade projektist ning sellest, mis meid ees ootab. Seejärel tutvustati meile Scrum-meetodit, mille järgi hakkame edaspidi sprintide jooksul arendust läbi viima.
+Päeva eesmärgiks seadsime tutvuda Unity võimalustega 2D vaates teede (roads) loomiseks ja kuvamiseks, et järgmistel päevadel saaksime sellega sisulisemalt edasi tegeleda. Uurisime erinevaid tehnilisi lahendusi ja võrdlesime, kas luua teid käsitsi või kasutada dünaamilisemat lähenemist, näiteks Unity spline-süsteemi või Bezier-kõveraid. Arutelude käigus otsustasime proovida spline-põhist lähenemist, kuna see võimaldaks paindlikumalt luua erineva keerukuse ja kujuga teid. Üks meeskonnaliige leidis internetist sobiva Bezier-põhise lahenduse, mida plaanime järgmistel päevadel edasi uurida ja katsetada. 
+Suhtlust kliendiga täna ei toimunud, kuna tegemist oli sissejuhatava päevaga. Meeskonnatöö sujus hästi – kõik said oma arvamust avaldada ning arutelu käigus jõudsime ühiste tehniliste valikuteni. Rollijaotus on hetkel pigem paindlik ja spontaanne – otseseid rolle me ei jälgi, vaid igaüks tegeleb kokkulepitud ülesannetega. Kuigi töötempo ja rutiin alles kujunevad, oli meeskonna algus positiivne ja suunatud selgele eesmärgile: luua töötav produkt.
+
+
+**Arendusperioodi individuaalsed blogid**
 
 Karl 9. juuni
 
@@ -314,3 +321,11 @@ Suvepuhkus jäeti pooleli, kooli tagasi. Alguses oli sissejuhataval loengul, kus
 Ise ma tegelesin andmebaasi Unity-ga ühendamisega. Hetkel on asi veel segane. Uurisin millist tarkvara selleks kasutada. Valikuid on palju.
 
 Homme üritan tekitada ühendust mängu ja andmebaasiga.
+
+Marcus 9. juuni
+
+Esimene päev arendust, rohkem sisseelamis päev, esimeseks plaaniks olla uurida meie mängu tasemete kujutamis võimalusi. Tegelesin Unitys teede (road) süsteemi kuvamisega 2D vaates. Leidsin internetist sobiva lahenduse, mis kasutab Bezier kõveraid koos matemaatilise loogikaga teede genereerimiseks. Proovisin selle lahenduse põhjal teed joonistada ja mõista, kuidas spline’id töötavad.
+Lahendus tundus alguses keeruline, sest sisaldas palju matemaatikat ja uut loogikat, mida polnud varem kasutanud. Siiski oli huvitav näha, kuidas graafiline tulemus tekib läbi kontrollpunktide muutmise läbi. Pidin mõtlema teistmoodi kui tavalises objektipõhises arenduses, seekord tuli rohkem arvestada, et tee (road) oleks piisavalt sujuv.
+See kogemus kinnitas, et 2D teede visualiseerimine Unitys nõuab arusaamist geomeetriast ja Bezier kõverate matemaatikast. Õppisin, kuidas kontrollpunktide ja tangendi pikkuste muutmine mõjutab tee kuju ning kuidas neid saab skriptipõhiselt juhtida.
+Edaspidi oskan paremini hinnata spline-põhiste süsteemide tööpõhimõtteid ja neid oma projektides kasutada. Sain juurde enesekindlust uue, tehniliselt keerukama lahenduse integreerimisel. Mõistsin ka, kui oluline on varuda aega, et selliseid süsteeme põhjalikult katsetada ja mõista enne nende täielikku integreerimist meie projekti. Homseks plaaniks oleks anda üle roadi süsteemi osa teistele, ja ise tegeleda edasi lehekülgede loomisega.
+
