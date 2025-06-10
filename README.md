@@ -32,7 +32,7 @@ Esmane kontakt kliendiga toimus 5. veebruaril meili teel, mille eesmärk oli kok
 
 **Nädal 1: 03.02- 09.02**
 
-Teise semestri esimene koolinädal, toimusid esimesed loengud, sealhulgas  suveprojekti tutvustav loeng, kus toimus ka juba meeskondade moodustamine. Esimesed sissejuhatavad loengud nii sissejuhatus infosüsteemidesse kui ka interaktsiooni disainis. Tiimi kujunemine läks muretult ja kiirelt, saime paika projekti teema väga sujuvalt, ilma erimeelsusteta, mida valisime infosüsteemide loengus. 
+Teise semestri esimene koolinädal, toimusid esimesed loengud, sealhulgas  suveprojekti tutvustav loeng, kus toimus ka juba meeskondade moodustamine. Esimesed sissejuhatavad loengud nii sissejuhatus infosüsteemidesse kui ka interaktsiooni disainis. Tiimi kujunemine läks muretult ja kiirelt, saime paika projekti teema väga sujuvalt, ilma erimeelsusteta, mida valisime infosüsteemide loengus.
 
 **Sissejuhatus infosüsteemidesse**
 
@@ -72,7 +72,7 @@ Meie ülesandeks jäi erinevate näidete väljamõtlemine – kuidas meie ise om
 
 **Sissejuhatus infosüsteemidesse**
 
-Kolmanda nädala loengu teemaks olid protsessid, täpsemalt äriprotsesside modelleerimine. Tutvusime õppejõu poolt antud materjalidega, mis need äriprotsessid on ning milline võiks üks mudel välja näha. Kasutasime ka esmakordselt Bizagit, mis oli meile kõigile uus tööriist. Iseseisvaks koduseks ülesandeks jäi luua kõigi põhiprotsesside kirjeldus koos rollidega, kes tegutsevad. Igale protsessile pidi ka juurde lisama protsessidiagrammi/tegevusdiagrammi joonise ja täpsustavad tekstikirjeldused. 
+Kolmanda nädala loengu teemaks olid protsessid, täpsemalt äriprotsesside modelleerimine. Tutvusime õppejõu poolt antud materjalidega, mis need äriprotsessid on ning milline võiks üks mudel välja näha. Kasutasime ka esmakordselt Bizagit, mis oli meile kõigile uus tööriist. Iseseisvaks koduseks ülesandeks jäi luua kõigi põhiprotsesside kirjeldus koos rollidega, kes tegutsevad. Igale protsessile pidi ka juurde lisama protsessidiagrammi/tegevusdiagrammi joonise ja täpsustavad tekstikirjeldused.
 
 **Interaktsioonidisain**
 
@@ -93,12 +93,12 @@ Meie poolseks ideeks sai luua interaktiivne 2D liiklusmäng veebikeskkonnas, mis
 **Sissejuhatus infosüsteemidesse**
 
 Selle nädala loengus rääkisime ärinõuete ja protsesside teemal. Tund oli rohkem praktiline, kus saime õppejõudu kuulates kõrvalt ka täiendada eelmisel nädalal loodud  protsessi- ja tegevusdiagramme/skeeme bizagis, sest kahel meie meeskonna liikmetest on macbook, mis tähendas, et bizagit kodus teha ei olnud võimalik. Diagrammid ja skeemid saime valmis nädalavahetusel, mis tähendas, et järgmisel nädalal oli plaanitud juba ka esimene konsultatsioon/ projekti esitlus, et saada tagasisidet, mis on puudu, mida saaks paremaks/täiendada, andes võimaluse meile ka ise küsida täpsustavaid küsimusi oma vaatenurgast. Alustasime ka kodutööga, mis seekord tuli (kirjeldus all)
-Kodutöö kirjeldus: 
+Kodutöö kirjeldus:
 Tegevusdiagrammid: Igale põhiprotsessile üks diagramm (vajadusel ka alamprotsessid eraldi). Funktsionaalsus: Lühike kirjeldus, kuidas süsteem töötab ja reageerib erinevatele olukordadele. Olekudiagramm: Näitab olekute muutusi vastavalt sündmustele ja tegevustele.
 
 **Interaktsioonidisain**
 
-Seekord loengut ei toimunud, oli Vabariigi aastapäev. 
+Seekord loengut ei toimunud, oli Vabariigi aastapäev.
 
 **Järgmise nädala plaan**
 
@@ -112,10 +112,10 @@ Jätkata tegevusdiagrammide loomist, mõelda edasi funktsionaalsuse poolt, vajad
 
 **Sissejuhatus infosüsteemidesse**
 
-Uut teemat me sel nädalal ei võtnud vaid esitasime oma töid seniks valmis tehtud töid, et saada ülevaade kui kaugel kõik oma grupitöödega on, saime tagasisidet ning tegime vajalikke täiendusi. Esitluste käigus oli kasulik näha erinevaid lähenemisviise ning saada juhendajalt ja kaaslastelt konstruktiivset tagasisidet, mis aitas täeindusi teha. Samuti tuli kasuks ka teiste kursusekaaslaste tööde vaatamine, see andis ideid ka endal mõne punkti puhul teise nurga alt läheneda. Peamisteks täiendusteks olid detailide lisamine ja jooniste täiendamine süsteemi ja andmebaasi vaatega. 
+Uut teemat me sel nädalal ei võtnud vaid esitasime oma töid seniks valmis tehtud töid, et saada ülevaade kui kaugel kõik oma grupitöödega on, saime tagasisidet ning tegime vajalikke täiendusi. Esitluste käigus oli kasulik näha erinevaid lähenemisviise ning saada juhendajalt ja kaaslastelt konstruktiivset tagasisidet, mis aitas täeindusi teha. Samuti tuli kasuks ka teiste kursusekaaslaste tööde vaatamine, see andis ideid ka endal mõne punkti puhul teise nurga alt läheneda. Peamisteks täiendusteks olid detailide lisamine ja jooniste täiendamine süsteemi ja andmebaasi vaatega.
 **Järgmise nädala plaan**
 
-Infosüsteemide peamisteks täiendusteks jäi mõnes peatükis pisidetailide lisamine ja jooniste täiendamine süsteemi ja andmebaasi vaatega. 
+Infosüsteemide peamisteks täiendusteks jäi mõnes peatükis pisidetailide lisamine ja jooniste täiendamine süsteemi ja andmebaasi vaatega.
 
 **Nädal 6: 10.03 - 16.03**
 
@@ -143,13 +143,13 @@ Kohtusime oma juhendaja (mängu tellijaga) 21.03, et viia läbi disainisessioon 
 
 **Sissejuhatus infosüsteemidesse**
 
-Oli taas tehtud töö tulemuste esitlemine ja arutelu. Kõigepealt täiendasime dokumenti sündmuste - tegevuste - olemi muutuste tabeliga ning siis saime ükshaaval gruppidega enda tööd esitada ja saime personaalset tagasisidet. Tagasiside oli pigem positiivne ning saime kinnitust, et tehtud töö on kvaliteetne ning oleme teiste gruppidega samal kaugusel. 
+Oli taas tehtud töö tulemuste esitlemine ja arutelu. Kõigepealt täiendasime dokumenti sündmuste - tegevuste - olemi muutuste tabeliga ning siis saime ükshaaval gruppidega enda tööd esitada ja saime personaalset tagasisidet. Tagasiside oli pigem positiivne ning saime kinnitust, et tehtud töö on kvaliteetne ning oleme teiste gruppidega samal kaugusel.
 
 **Interaktsioonidisain**
 
-Kõigepealt saime personaalset tagasisidet rühmadega eelmise kodutöö (persoonad ja stsenaariumid) kohta. Saime esialgseks punktisummaks 8/20, mis võrreldes esimese kodutööga kõvasti kehvem tulemus. Peale seda võtsime ette uue teema, milleks oli kasutajalood ja voodiagrammid. Panime koos esialgsed ideed kirja, kuidas võiksid kasutajalood välja näha. Tol hetkel polnud me veel kindel, kui detailsed need sammud peavad olema. 
+Kõigepealt saime personaalset tagasisidet rühmadega eelmise kodutöö (persoonad ja stsenaariumid) kohta. Saime esialgseks punktisummaks 8/20, mis võrreldes esimese kodutööga kõvasti kehvem tulemus. Peale seda võtsime ette uue teema, milleks oli kasutajalood ja voodiagrammid. Panime koos esialgsed ideed kirja, kuidas võiksid kasutajalood välja näha. Tol hetkel polnud me veel kindel, kui detailsed need sammud peavad olema.
 
-**Järgmise nädala plaan** 
+**Järgmise nädala plaan**
 
 Täiendada persoonasid ja stsenaariumeid õppejõu tagasiside põhjal. Kasutajalugude kirja panemine ja nende täiendamine koos voodiagrammiga.
 
@@ -167,7 +167,7 @@ Ka seda loengut see nädal ei toimunud. Sellel nädalal oli veel eesmärk proovi
 
 **Järgmise nädala plaan**
 
-Jätkata kasutajalugude ja voodiagrammi koostamist. 
+Jätkata kasutajalugude ja voodiagrammi koostamist.
 
 
 **Nädal 9: 01.04 - 06.04**
@@ -179,7 +179,7 @@ Vahenädal sai läbi ja oli aeg uuesti alustada. Peamised ülesanded selleks nä
 Sel nädalal liikusime analüüsist disaini suunas – teemaks olid andmed, informatsioon ja teadmus. Arutasime, mis on andmebaasid, nende liigid ning miks need on infotöös olulised. Samuti käsitlesime andmebaasi haldamise rolle ja süsteemi ülesehitust.
 Loengus selgitas õppejõud ka ERD (Entity-Relationship Diagram) ehk olem-suhte diagrammi põhimõtteid – mida tähendavad erinevad sümbolid, kuidas modelleerida seoseid ja millised andmeobjektid mudelis kajastuvad. Järgmisel nädalal asume ise ERD diagramme looma, et oma süsteemi andmestruktuuri visuaalselt kaardistada.
 
-**Interaktsioonidisain** 
+**Interaktsioonidisain**
 
 Loengus tutvustas õppejõud Mati Mõttus LoFi prototüüpe. LoFi prototüübid on lihtsad ja paindlikud, sobides ideaalselt varajasteks testimiseks, et katsetada funktsioone ja interaktsioone ilma visuaalsete detailideta. HiFi prototüübid on aga detailirohked ja lõplikud, pakkudes täpset lõppkasutaja kogemust.
 Alustasime ka kasutajalugude diagrammi koostamist ja wireframe’ide koostamist. Kuna kasutajalood olid valmis, ei olnud see liigselt raske. Töö tehtud, jääme tagasisidet ootama.
@@ -207,12 +207,12 @@ Plaan on näidata meie tehtud tööd ja saada sellele tagasisidet.
 
 **Sissejuhatus infosüsteemidesse**
 
-Sellel nädalal oli infosüsteemide kursuse fookus ikka veel andmemudelitel. Meil oli vähemalt praeguse idee järgi loodud andmemudel olemas, seega enne loengut sellega me tegelema ei pidanud. 
+Sellel nädalal oli infosüsteemide kursuse fookus ikka veel andmemudelitel. Meil oli vähemalt praeguse idee järgi loodud andmemudel olemas, seega enne loengut sellega me tegelema ei pidanud.
 infosüsteemide loeng toimus seekord zoom-i vahendusel ning meeskonnad said oma andmemudeleid ja ka interaktsioonidisainis tehtud prototüüpe esitleda. Andmemudeli kohta saime positiivset tagasisidet, kuid õppejõud tõi välja ühe asja, mis meil oli tähelepanuta jäänud, nimelt see, et kasutajalt peaks kontot registreerides vanuse asemel küsima sünnikuupäeva, et seda automaatselt arvutataks.
 
 **Interaktsioonidisain**
 
-Ka interaktsioonidisaini aine raames jätkus sama teema, mis eelmiselgi nädalal, ehk siis madala detailsusega või LoFi prototüüpide loomine. Sellel nädalal saime meie enda figmas loodud prototüübi lõpetatud ja funktsionaalseks. Esitlesime seda ka infosüsteemide loengus ning saime ka tagasisidet. Peamiselt tekkis õppejõul küsimusi mängu enda loogika kohta, mis ka mõne koha pealt meil endal päris kindel veel ei ole, sest pole veel saanud sellega päriselt katsetama hakata. 
+Ka interaktsioonidisaini aine raames jätkus sama teema, mis eelmiselgi nädalal, ehk siis madala detailsusega või LoFi prototüüpide loomine. Sellel nädalal saime meie enda figmas loodud prototüübi lõpetatud ja funktsionaalseks. Esitlesime seda ka infosüsteemide loengus ning saime ka tagasisidet. Peamiselt tekkis õppejõul küsimusi mängu enda loogika kohta, mis ka mõne koha pealt meil endal päris kindel veel ei ole, sest pole veel saanud sellega päriselt katsetama hakata.
 Selle nädala seisuga saime ka oma LoFi prototüüpide aruande suuremas osas tehtud, kuna üks tiimiliige aga reisil viibis ei saanud me seda veel täielikult valmis.
 
 **Järgmise nädala plaan**
@@ -223,7 +223,7 @@ Järgmisel nädalal peaksime juba mängu endaga tegelema hakkama, sest plaanime 
 
 **Sissejuhatus infosüsteemidesse**
 
-Sellel nädalal jätkasime andmemudeliga, nimelt tegime valmis andmemudeli objektide kirjelduse, kus selgitasime iga tabeli sisu ja tähendust. Lisaks alustasime CRUD maatriksi loomist. Ka andmebaasi endaga tegime algust, et saaks seal näitepäringuid luua. 
+Sellel nädalal jätkasime andmemudeliga, nimelt tegime valmis andmemudeli objektide kirjelduse, kus selgitasime iga tabeli sisu ja tähendust. Lisaks alustasime CRUD maatriksi loomist. Ka andmebaasi endaga tegime algust, et saaks seal näitepäringuid luua.
 Hakkasime ka oma infosüsteemi projekti esitluse jaoks vaikselt ettevalmistusi tegema, tegime veel viimistlusi oma failis, kohtades kus oskasime, aga tööd on veel teha üsna palju.
 
 **Interaktsioonidisain**
@@ -244,7 +244,7 @@ Meil oli vaja abi CRUD maatriksi lõpetamisega ja seda ka õppejõult saime. Sam
 **Interaktsioonidisain**
 
 Osalesime esmaspäevases loengus. Loengu teemaks oli detailse prototüüpide testimine. See on süsteemi arendamise protsessi faas, kus hinnatakse juba loodud detailseid prototüüpe. Eesmärk on tuvastada kasutatavuse probleeme enne lõpliku süsteemi arendamist.
-Hinnang keskendub prototüüpide kasutusmugavusele, tõhususele ja kasutajate rahulolule. Protsessi käigus viiakse läbi kasutajatestid, kus kasutajad sooritavad ülesandeid, mille abil saadakse teavet prototüübi toimivuse ja kasutajaliidese loogilisuse kohta. Testimise tulemusi analüüsitakse, et teha parandusi disainis. 
+Hinnang keskendub prototüüpide kasutusmugavusele, tõhususele ja kasutajate rahulolule. Protsessi käigus viiakse läbi kasutajatestid, kus kasutajad sooritavad ülesandeid, mille abil saadakse teavet prototüübi toimivuse ja kasutajaliidese loogilisuse kohta. Testimise tulemusi analüüsitakse, et teha parandusi disainis.
 
 **Järgmise nädala plaan:**
 
@@ -285,20 +285,30 @@ Loenguid meil enam ei toimu. Nüüd ootame põnevusega 9. juunit, mil algab meie
 **Karl**
 9. juuni
 
-Esimene arendusperioodi päev 9. juunil algas rahulikult sissejuhatava tunniga, kus selgitati, mis järgmise kahe nädala jooksul saama hakkab. Peale tundi küsisime Jaagupi käest veidike nõu ning siis asusime tööle. 
+Esimene arendusperioodi päev 9. juunil algas rahulikult sissejuhatava tunniga, kus selgitati, mis järgmise kahe nädala jooksul saama hakkab. Peale tundi küsisime Jaagupi käest veidike nõu ning siis asusime tööle.
 
-Mina tegin algust meie mängu waypointide ehk autode liikumisradade uuendamisega. Varem oli see meil lahendatud nii, et iga waypointi punkti pidi käsitsi asetama ning need kõik lõpuks ühendama. Keerukamate kurvide puhul oleks see ülimalt nüri töö, seega otsisin viisi, kuidas saaks seda efektiivsemalt teha. Googeldamise ja ka AI abiga sain peale pikka mässamist üsna hea tulemuse, kus waypointe saab tõmmata ainult 7 punkti abil, ehk algus ja lõpp ning sinna vahele jäävad punktid, millega saab keeramisi teha. Olles punktid oma soovi järgi mängutasemele asetanud loob script nende järgi automaatselt neid samu waypointi punkte, mida enne käsitsi tegema pidi. 
+Mina tegin algust meie mängu waypointide ehk autode liikumisradade uuendamisega. Varem oli see meil lahendatud nii, et iga waypointi punkti pidi käsitsi asetama ning need kõik lõpuks ühendama. Keerukamate kurvide puhul oleks see ülimalt nüri töö, seega otsisin viisi, kuidas saaks seda efektiivsemalt teha. Googeldamise ja ka AI abiga sain peale pikka mässamist üsna hea tulemuse, kus waypointe saab tõmmata ainult 7 punkti abil, ehk algus ja lõpp ning sinna vahele jäävad punktid, millega saab keeramisi teha. Olles punktid oma soovi järgi mängutasemele asetanud loob script nende järgi automaatselt neid samu waypointi punkte, mida enne käsitsi tegema pidi.
 
 Homme plaanin ilmselt waypointidega jätkata ja võibolla vajadusel lisada paar punkti juurde, et oleks võimalik keerulisemaid kurve nendega teha. Samuti peame tiimiga ära otsustama, kuidas lahendame sõiduteede tegemise oma mängus.
 
 **JAN**
 9. juuni
 
-"puhkus" läbi ja taas tegutsema. Algus saime koolis sissejuhatava loengu, kuidas midagi toimub ja mis meid ees ootamas on. Peale sissejuhatavat tundi oli ka scrumi tutvustus. Meil oli juba varasemalt projekti etappidega seoses Trello board tehtud, mida otsustame edasi kasutada. 
+"puhkus" läbi ja taas tegutsema. Algus saime koolis sissejuhatava loengu, kuidas midagi toimub ja mis meid ees ootamas on. Peale sissejuhatavat tundi oli ka scrumi tutvustus. Meil oli juba varasemalt projekti etappidega seoses Trello board tehtud, mida otsustame edasi kasutada.
 
 Küsisime Jaagupilt nõu, et kuidas tema soovitab läheneda teede loomisele. Oleme katsetanud mitmeid variante, aga täna keskendusime Splines tehnikale. Kuna kõik mänguga seosnev on uus läks vaja internetis leiduvaid õpetusi. Peale mitmete errorite lahendamist, sain asja enam vähem tööle. Sellega on parem teid joonistada, kuigi hetkel tundub mulle veidi kahtlane ristmike jne tegevus sellega. Prototüübis kasutus olev tehnika võimaldas ainult 90 kraadiseid teid kasutada.
 
-Homne plaan on splines-e edasi kasutada ja proovida tase või mitu valmis saada, et näha kas see on pädev viis edasi liikumiseks. Hetkel on veel probleemiks tee visuaalne pool, kellegi meist pole photoshopiga või muu sarnase programmiga kogemust ja samuti on need enamus tasulised. 
+Homne plaan on splines-e edasi kasutada ja proovida tase või mitu valmis saada, et näha kas see on pädev viis edasi liikumiseks. Hetkel on veel probleemiks tee visuaalne pool, kellegi meist pole photoshopiga või muu sarnase programmiga kogemust ja samuti on need enamus tasulised.
+
+**RICO**
+9. juuni
+
+Arendusperioodi esimene nädal hakkas meil planeerimise ja stand-upiga, kus vaatasime kuhu olime juba jõudnud, mis meil mängu korralikuks lansseerimiseks funktsionaalsuse poolt veel vaja on. Lisaks sellele korraldame ümber kogu oma mängus toimivad teed ning kuidas need töötavad. Kui oma esimeses iteratsioonis kasutasime tilepalette-i, siis nüüd kavatseme teha kõik ümber töötavate splinedega (mida oleks hiljem mugav kaardi peale justkui joonistada)
+
+Samal ajal kui teised tiimi liikmed proovisid kätt, kuidas Bezieri ja Spline-dega teid ning paremaid waypointe luua siis lugesin mina selle kohta lisainfot et kuidas saaks enda loodud teede asseteid kasutada antud moodusel. Pean selleks tegema photoshopis korrektses formaadis graafika, et seda pärast saaks Unitys kasutada nö "materjalina".
+Lisaks sellele vaatasin ka milliseid varasemaid osi saame me mugavalt juba kasutada ja mille täitsa ümber tegema. Esialgu tundus kõik CarControlleriga seonduv ilmselt uute teede ja waypointidega mitte töötav aga eks seda saab juba homme testida.
+
+Homseks kavaks jääbki uute lahenduste integreerimine meie projekti ning veendumine et kõik töötab nii nagu ta peaks.
 
 **Rene**
 9. juuni
