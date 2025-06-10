@@ -1,0 +1,15 @@
+Font: Baloo Cyrillic  Style: Regular
+Point Size: 141   Padding: 10   SP/PD Ratio: 7.1%
+
+Characters included: 102/104
+Missing characters: 2
+Excluded characters: 0
+
+Characters missing from font file:
+----------------------------------------
+ID: 9	Hex: 9	Char [	]
+ID: 10	Hex: A	Char [
+]
+
+Characters excluded from packing:
+----------------------------------------
