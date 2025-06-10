@@ -287,8 +287,9 @@ Karl 9. juuni
 Esimene arendusperioodi päev 9. juunil algas rahulikult sissejuhatava tunniga, kus selgitati, mis järgmise kahe nädala jooksul saama hakkab. Peale tundi küsisime Jaagupi käest veidike nõu ning siis asusime tööle.
 
 Mina tegin algust meie mängu waypointide ehk autode liikumisradade uuendamisega. Varem oli see meil lahendatud nii, et iga waypointi punkti pidi käsitsi asetama ning need kõik lõpuks ühendama. Keerukamate kurvide puhul oleks see ülimalt nüri töö, seega otsisin viisi, kuidas saaks seda efektiivsemalt teha. Googeldamise ja ka AI abiga sain peale pikka mässamist üsna hea tulemuse, kus waypointe saab tõmmata ainult 7 punkti abil, ehk algus ja lõpp ning sinna vahele jäävad punktid, millega saab keeramisi teha. Olles punktid oma soovi järgi mängutasemele asetanud loob script nende järgi automaatselt neid samu waypointi punkte, mida enne käsitsi tegema pidi.
+Õppisin täna kindlasti c# keelt paremini mõistma ja kuidas see unityga töötab, lisaks veel seda, kuidas võimalikult efektiivselt infot ja abi leida täitsa uue asja kodeerimisel. 
 
-Homme plaanin ilmselt waypointidega jätkata ja võibolla vajadusel lisada paar punkti juurde, et oleks võimalik keerulisemaid kurve nendega teha. Samuti peame tiimiga ära otsustama, kuidas lahendame sõiduteede tegemise oma mängus.
+Homme plaanin ilmselt waypointidega jätkata ja võibolla vajadusel lisada paar punkti juurde, et oleks võimalik keerulisemaid kurve nendega teha. Samuti peame tiimiga ära otsustama, kuidas lahendame sõiduteede tegemise oma mängus, et saaks waypointe vastavalt siis uuendada.
 
 JAN 9. juuni
 
