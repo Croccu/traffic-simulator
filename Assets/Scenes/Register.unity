@@ -3742,6 +3742,7 @@ MonoBehaviour:
   passwordField: {fileID: 975257096}
   feedbackText: {fileID: 1776723881}
   targetSceneName: Login
+  googleSheetPostUrl: https://script.google.com/macros/s/AKfycbx-OmYnK-Lm33KdGzglL_cDVLAKHPITEasAmlxdDu9NdH1Pe60t_I_NTxq1LqgTgHg0YA/exec
 --- !u!4 &1545713008
 Transform:
   m_ObjectHideFlags: 0
