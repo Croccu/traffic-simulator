@@ -166,10 +166,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0972b9cb2f5df641a48ee181eb19751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
+  speed: 4
   rotationSpeed: 13
-  detectionDistance: 2
-  slowDownDistance: 1
-  carLayer:
-    serializedVersion: 2
-    m_Bits: 0
