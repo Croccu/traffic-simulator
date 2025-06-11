@@ -694,7 +694,7 @@ MonoBehaviour:
   usernameField: {fileID: 586133222}
   passwordField: {fileID: 1553118192}
   feedbackText: {fileID: 1312674324}
-  usersDataUrl: https://script.google.com/macros/s/AKfycbxQvj86O-qOmKtlb_ZtDwkORYW3xrnMcRXbMq5txZvI8gwegVTB3zzrqbSDwYAeKXnXQQ/exec
+  usersDataUrl: https://script.google.com/macros/s/AKfycbx-IMMNDIzt6dC0Kqjmwh8vlKKXlEllN2_b9CUsqozSbqwlNMWmovaEFuKoJs766Zf0-Q/exec
   targetScene: Main
 --- !u!4 &629405736
 Transform:
