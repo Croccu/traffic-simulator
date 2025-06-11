@@ -20,6 +20,10 @@ public class BezierCarController : MonoBehaviour
 
     private Collider2D selfCollider;
 
+    // Give Way
+    private bool waitingAtGiveWay = false;
+    private GiveWayZone currentGiveWayZone = null;
+
     void Start()
     {
         currentSpeed = maxSpeed;
@@ -46,6 +50,20 @@ public class BezierCarController : MonoBehaviour
         if (!isMoving || path == null || currentIndex >= path.Count)
             return;
 
+        // Yield logic
+        if (waitingAtGiveWay && currentGiveWayZone != null)
+        {
+            if (currentGiveWayZone.IsIntersectionClear(selfCollider))
+            {
+                waitingAtGiveWay = false;
+            }
+            else
+            {
+                currentSpeed = 0f;
+                return;
+            }
+        }
+
         AdjustSpeedBasedOnCarAhead();
 
         Vector3 target = path[currentIndex];
@@ -66,7 +84,7 @@ public class BezierCarController : MonoBehaviour
         // Move the car
         transform.position += direction.normalized * currentSpeed * Time.deltaTime;
 
-        // Rotate the car smoothly (2D z-axis rotation)
+        // Rotate car in 2D
         if (direction.sqrMagnitude > 0.01f)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
@@ -76,51 +94,67 @@ public class BezierCarController : MonoBehaviour
     }
 
     void AdjustSpeedBasedOnCarAhead()
-{
-    // Check in a circle in front of the car (centered ahead, not on self)
-    Vector2 detectionPoint = (Vector2)transform.position + (Vector2)transform.up * (detectionRadius / 2);
-    Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint, detectionRadius / 2, carLayer);
-
-    bool carDetected = false;
-    float closestDistance = float.MaxValue;
-
-    foreach (Collider2D col in hits)
     {
-        if (col != selfCollider)
+        Vector2 detectionPoint = (Vector2)transform.position + (Vector2)transform.up * (detectionRadius / 2);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint, detectionRadius / 2, carLayer);
+
+        bool carDetected = false;
+        float closestDistance = float.MaxValue;
+
+        foreach (Collider2D col in hits)
         {
-            float dist = Vector2.Distance(transform.position, col.transform.position);
-            if (dist < closestDistance)
+            if (col != selfCollider)
             {
-                closestDistance = dist;
+                float dist = Vector2.Distance(transform.position, col.transform.position);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                }
+                carDetected = true;
             }
-            carDetected = true;
         }
-    }
 
-    if (carDetected)
-    {
-        if (closestDistance < stopDistance)
+        if (carDetected)
         {
-            currentSpeed = 0f;
+            if (closestDistance < stopDistance)
+            {
+                currentSpeed = 0f;
+            }
+            else
+            {
+                float t = (closestDistance - stopDistance) / (detectionRadius - stopDistance);
+                currentSpeed = Mathf.Lerp(0f, maxSpeed, t);
+            }
         }
         else
         {
-            float t = (closestDistance - stopDistance) / (detectionRadius - stopDistance);
-            currentSpeed = Mathf.Lerp(0f, maxSpeed, t);
+            currentSpeed = maxSpeed;
         }
     }
-    else
-    {
-        currentSpeed = maxSpeed;
-    }
-}
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        GiveWayZone zone = other.GetComponent<GiveWayZone>();
+        if (zone != null)
+        {
+            currentGiveWayZone = zone;
+            waitingAtGiveWay = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.GetComponent<GiveWayZone>() == currentGiveWayZone)
+        {
+            currentGiveWayZone = null;
+            waitingAtGiveWay = false;
+        }
+    }
 
     void OnDrawGizmosSelected()
-{
-    Gizmos.color = Color.red;
-    Vector3 detectionCenter = transform.position + transform.up * (detectionRadius / 2);
-    Gizmos.DrawWireSphere(detectionCenter, detectionRadius / 2);
-}
-
+    {
+        Vector3 center = transform.position + transform.up * (detectionRadius / 2);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(center, detectionRadius / 2);
+    }
 }

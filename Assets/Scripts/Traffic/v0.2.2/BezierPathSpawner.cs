@@ -10,9 +10,32 @@ public class BezierPathSpawner : MonoBehaviour
     [Header("Route Options")]
     public List<BezierRoute> availableRoutes = new List<BezierRoute>();
 
-    void Start()
+    private bool isSpawning = false;
+
+    public void StartSpawning()
     {
-        InvokeRepeating(nameof(SpawnCar), 2f, spawnInterval);
+        if (!isSpawning)
+        {
+            InvokeRepeating(nameof(SpawnCar), 0f, spawnInterval);
+            isSpawning = true;
+        }
+    }
+
+    public void StopSpawning()
+    {
+        if (isSpawning)
+        {
+            CancelInvoke(nameof(SpawnCar));
+            isSpawning = false;
+        }
+    }
+
+    public void ToggleSpawning()
+    {
+        if (isSpawning)
+            StopSpawning();
+        else
+            StartSpawning();
     }
 
     void SpawnCar()
