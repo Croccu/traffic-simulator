@@ -1837,6 +1837,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1706586163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &909356286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909356290}
+  - component: {fileID: 909356289}
+  - component: {fileID: 909356288}
+  - component: {fileID: 909356287}
+  m_Layer: 0
+  m_Name: BezierSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &909356287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909356286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0101d34c9085b6c47877af8a9ee56644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefab: {fileID: 9203266816365316705, guid: 93c43d6d99384d747b0aa6e1fd042c33, type: 3}
+  spawnInterval: 2
+  spawnDelay: 2
+  availableRoutes:
+  - name: 
+    spline: {fileID: 838491582}
+  - name: 
+    spline: {fileID: 1413795429}
+  - name: 
+    spline: {fileID: 1333251813}
+  - name: 
+    spline: {fileID: 315405055}
+  - name: 
+    spline: {fileID: 415949977}
+  - name: 
+    spline: {fileID: 2116533492}
+--- !u!114 &909356288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909356286}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af652b70c0c493040bc468f5e3dd70c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefab: {fileID: 0}
+  spawnInterval: 3
+  availableRoutes: []
+--- !u!114 &909356289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909356286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af652b70c0c493040bc468f5e3dd70c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefab: {fileID: 9203266816365316705, guid: 93c43d6d99384d747b0aa6e1fd042c33, type: 3}
+  spawnInterval: 2
+  availableRoutes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!4 &909356290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909356286}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 83.20411, y: -52.897205, z: -0.6356327}
+  m_LocalScale: {x: 0.2573324, y: 0.25204304, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915125174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,21 +4147,9 @@ MonoBehaviour:
   spawnDelay: 2
   availableRoutes:
   - name: 
-    spline: {fileID: 838491582}
-  - name: 
-    spline: {fileID: 1413795429}
-  - name: 
-    spline: {fileID: 1333251813}
-  - name: 
     spline: {fileID: 880600189}
   - name: 
     spline: {fileID: 1042522966}
-  - name: 
-    spline: {fileID: 315405055}
-  - name: 
-    spline: {fileID: 415949977}
-  - name: 
-    spline: {fileID: 2116533492}
   - name: 
     spline: {fileID: 201364543}
   - name: 
@@ -4662,3 +4746,4 @@ SceneRoots:
   - {fileID: 1706586163}
   - {fileID: 1979551065}
   - {fileID: 915125176}
+  - {fileID: 909356290}
