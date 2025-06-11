@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackgroundTrafficBlurred_0: 1776820601501540964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
