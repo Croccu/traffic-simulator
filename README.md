@@ -339,6 +339,14 @@ Tänane päev oli üsna frustreeriv selle tõttu, et iga liigutus autode loogika
 
 Homme on mul plaan jätkata autodele loogika ehitamist, mis paneks nad hoogu maha võtma, teisele autole liiga lähedale jõudes või koguni peatuma ja siis ka hiljem edasi jälle sõitma. 
 
+
+Rene 10. juuni
+
+Teine päev, asi edeneb. Tulin kell 9 kooli. Tegin 5 tundi andmebaasi asja, kuni sain aru, et GameFuse ei lähe tööle. Tegin pivoti ja läksin lihtsama lahenduse peale. Võtsin ette ja tegin Google Sheetsist pinnapealse andmebaasi, mille ühendasin Unity-ga ära. Nüüd kasutajat registreerides jõuavad andmed Google Sheeti tabelisse. Pärast seda tegin valmis ka nupud, mida saab kasutada, et UI paremini välja näeks.
+
+Homme üritan krüpteerida kasutaja parool registreerimisel ning ühendada sisse logimise stseen andmebaasiga.
+
+
 Marcus 10. juuni
 
 Päev number kaks, alustasin mängu lehtekülgede loomisega, kus esimese sammuna keskendusin nupu kujundamisele. Mul oli Figmas juba olemas idee, milline see nupp võiks välja näha, kuid selle Photoshopis teostamine osutus keeruliseks ja aeganõudvaks. Tööriistade rohkus ja detailne töö stiilidega võtsid rohkem aega, kui olin planeerinud. Kuigi lõpuks sain tulemuse, millega enam-vähem rahule jäin, ei jäänud mul rohkem aega täna, et luua esimene lehekülg valmis.
