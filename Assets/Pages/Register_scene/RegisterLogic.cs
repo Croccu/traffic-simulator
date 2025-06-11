@@ -1,22 +1,29 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class RegisterLogic : MonoBehaviour
 {
+    [Header("UI References")]
     public TMP_InputField usernameField;
     public TMP_InputField emailField;
     public TMP_InputField passwordField;
     public TMP_Text feedbackText;
-    public string targetSceneName; // Field to specify the scene to load
+
+    [Header("Scene & API Settings")]
+    public string targetSceneName; // Scene to load after success
+    [TextArea]
+    public string googleSheetPostUrl; // Google Apps Script Web App URL
 
     public void OnRegisterButtonClick()
     {
-        string username = usernameField.text;
-        string email = emailField.text;
+        string username = usernameField.text.Trim();
+        string email = emailField.text.Trim();
         string password = passwordField.text;
 
-        // Validate input fields
+        // Validation checks
         if (string.IsNullOrEmpty(username))
         {
             feedbackText.text = "Kasutajanimi ei tohi olla tühi.";
@@ -35,24 +42,90 @@ public class RegisterLogic : MonoBehaviour
             return;
         }
 
-        // Simulate registration success
-        feedbackText.text = "Registreerimine õnnestus!";
-        Debug.Log($"Kasutaja registreeritud: {username}, {email}");
+        // Start coroutine to send data to Google Sheets
+        StartCoroutine(SendDataToGoogleSheet(username, email, password));
+    }
 
-        // Load the target scene
-        if (!string.IsNullOrEmpty(targetSceneName))
+    // Add this to your existing Unity code:
+
+    [Header("Debug Settings")]
+    public bool showDebugLogs = true;
+
+    private IEnumerator SendDataToGoogleSheet(string username, string email, string password)
+    {
+        // Create JSON data
+        var jsonData = new RegisterData
         {
-            SceneManager.LoadScene(targetSceneName);
-        }
-        else
+            username = username,
+            email = email,
+            password = password
+        };
+
+        string json = JsonUtility.ToJson(jsonData);
+
+        if (showDebugLogs)
+            Debug.Log("Sending data: " + json);
+
+        using (UnityWebRequest www = new UnityWebRequest(googleSheetPostUrl, "POST"))
         {
-            Debug.LogError("Sihtstseeni nimi pole määratud!");
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            www.downloadHandler = new DownloadHandlerBuffer();
+            www.SetRequestHeader("Content-Type", "application/json");
+            www.timeout = 10; // 10 seconds timeout
+
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.Success)
+            {
+                if (showDebugLogs)
+                    Debug.Log("Response: " + www.downloadHandler.text);
+
+                feedbackText.text = "Registreerimine õnnestus!";
+                yield return new WaitForSeconds(1.5f); // Show success message
+
+                if (!string.IsNullOrEmpty(targetSceneName))
+                    SceneManager.LoadScene(targetSceneName);
+            }
+            else
+            {
+                string errorMessage = "Viga registreerimisel";
+
+                try
+                {
+                    var errorResponse = JsonUtility.FromJson<ErrorResponse>(www.downloadHandler.text);
+                    if (!string.IsNullOrEmpty(errorResponse.message))
+                        errorMessage += ": " + errorResponse.message;
+                }
+                catch { }
+
+                feedbackText.text = errorMessage;
+                Debug.LogError($"Error: {www.error}\nResponse: {www.downloadHandler.text}");
+            }
         }
+    }
+
+    [System.Serializable]
+    private class ErrorResponse
+    {
+        public string result;
+        public string message;
     }
 
     private bool IsValidEmail(string email)
     {
-        // Basic email validation
-        return System.Text.RegularExpressions.Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+        return System.Text.RegularExpressions.Regex.IsMatch(
+            email,
+            @"^[^@\s]+@[^@\s]+\.[^@\s]+$"
+        );
+    }
+
+
+    [System.Serializable]
+    private class RegisterData
+    {
+        public string username;
+        public string email;
+        public string password;
     }
 }
