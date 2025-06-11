@@ -9,7 +9,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
         previewObject = Instantiate(prefabToSpawn);
-        previewObject.GetComponent<Collider2D>().enabled = false; // Optional
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -20,7 +20,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        previewObject.GetComponent<Collider2D>().enabled = true; // Optional
+        
         previewObject = null;
     }
 }
