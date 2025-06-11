@@ -281,13 +281,15 @@ Loenguid meil enam ei toimu. Nüüd ootame põnevusega 9. juunit, mil algab meie
 
 **Arendusperioodi meeskonna blogi 09.06-20-06**
 
-Meeskonna blogi – 09.06
+**Meeskonna blogi 9. juuni**
 Esimese arenduspäeva hommikul toimus sissejuhatav loeng, kus anti ülevaade projektist ning sellest, mis meid ees ootab. Seejärel tutvustati meile Scrum-meetodit, mille järgi hakkame edaspidi sprintide jooksul arendust läbi viima.
 Päeva eesmärgiks seadsime tutvuda Unity võimalustega 2D vaates teede (roads) loomiseks ja kuvamiseks, et järgmistel päevadel saaksime sellega sisulisemalt edasi tegeleda. Uurisime erinevaid tehnilisi lahendusi ja võrdlesime, kas luua teid käsitsi või kasutada dünaamilisemat lähenemist, näiteks Unity spline-süsteemi või Bezier-kõveraid. Arutelude käigus otsustasime proovida spline-põhist lähenemist, kuna see võimaldaks paindlikumalt luua erineva keerukuse ja kujuga teid. Üks meeskonnaliige leidis internetist sobiva Bezier-põhise lahenduse, mida plaanime järgmistel päevadel edasi uurida ja katsetada. 
 Suhtlust kliendiga täna ei toimunud, kuna tegemist oli sissejuhatava päevaga. Meeskonnatöö sujus hästi, kõik said oma arvamust avaldada ning arutelu käigus jõudsime ühiste tehniliste valikuteni. Rollijaotus on hetkel pigem paindlik ja spontaanne, otseseid rolle me ei jälgi, vaid igaüks tegeleb kokkulepitud ülesannetega. Kuigi töötempo ja rutiin alles kujunevad, oli meeskonna algus positiivne ja suunatud selgele eesmärgile: luua töötav produkt.
 
+**Meeskonna blogi 10. juuni**
+Hommik algas taas varakult. Esmalt kohale jõudes vaatasime korra kriitilise pilguga enda eelmise päeva blogid üle ning seejärel tegime standup meetingu. Kindlat plaani ei osanud küll paika panna, kui kaugele me omadega jõuame, aga seadsime mõned eesmärgid mida sooviks võimalikult kaugele valmis saada. Kindlasti tahtsime lõpuks spline-süsteemi enda projekti alla seada, et saaks hakata leveleid looma. See tekitas veidi raskuseid, et kõik ilusti tööle saada, aga see õnnestus. Sellele lisaks oli vaja teele uus materjal külge saada, vanal olid koledad jooned juures, aga see nõudis omakorda photoshopi kasutust, millega meil kellelgi kogemust ei ole.  Alustasime ka mängu lehtede valmistamisega, esimeseks ülesandeks sai luua visuaalne nupu disain. See sai valmis ja nüüd on võimalik vaateid edasi luua. Taaskord tuli takistuseks photoshopi kasutus. Veel tahtsime näha, kuidas uue joonistatud waypoint süsteemiga autod sõitma hakkavad ja kuidas nad reegleid järgivad. Samuti hakkasime testima, kuidas ja millist andmebaasi projektiga siduda. Valikuid on palju, aga mõned ideed juba on. Algselt otsustasime ristmikud ka splinedega teha, aga mingi hetk võtsime koos vastu otsuse, et teeme need ikkagi valmis assetitega ja splinedega joonistame ainult teed juurde. Suhtlust kliendiga täna veel endiselt ei toimunud, sest on veel kõvasti nokitseda, enne kui midagi näidata on, kuid homme peaks ikkagi kliendiga ühendust võtma ja uurima, millal talle üldse sobiks kokku saada. Rollijaotus on endiselt paindlik. Lõpetame iseseisvalt eelmisest päevast pooleli jäänud funktsiooni või võtame jooksvalt uue, mis järgmisena oluline tundub. Meeskonnatöö on hea, arutelu ja ideed, kuidas midagi võiks teha ja jagame omavahel ideid, kuidas midagi äkki paremini saaks teha ning enesetunne on endiselt positiivne.
 
-**Arendusperioodi individuaalsed blogid**
+**Arendusperioodi individuaalsed blogid 09.06-20.06**
 
 Karl 9. juuni
 
@@ -336,3 +338,27 @@ Hommikusel koosolekul arutasime läbi, mida täna tegema peaks ning jagasime tö
 Tänane päev oli üsna frustreeriv selle tõttu, et iga liigutus autode loogikat tehes tundus asju ainult hullemaks tegevat ning ühel hetkel pidin tagasi võtma oma tehtud töö tagasi sinna, kus eile olin lõpetanud. Seega sain täna korralikult treenida oma kannatlikkust. Kindlasti õppisin ka paremini tundma unity loogikat ja kasutasin nii mõndagi asja seal täna esimest korda.
 
 Homme on mul plaan jätkata autodele loogika ehitamist, mis paneks nad hoogu maha võtma, teisele autole liiga lähedale jõudes või koguni peatuma ja siis ka hiljem edasi jälle sõitma. 
+
+
+Rene 10. juuni
+
+Teine päev, asi edeneb. Tulin kell 9 kooli. Tegin 5 tundi andmebaasi asja, kuni sain aru, et GameFuse ei lähe tööle. Tegin pivoti ja läksin lihtsama lahenduse peale. Võtsin ette ja tegin Google Sheetsist pinnapealse andmebaasi, mille ühendasin Unity-ga ära. Nüüd kasutajat registreerides jõuavad andmed Google Sheeti tabelisse. Pärast seda tegin valmis ka nupud, mida saab kasutada, et UI paremini välja näeks.
+
+Homme üritan krüpteerida kasutaja parool registreerimisel ning ühendada sisse logimise stseen andmebaasiga.
+
+
+Marcus 10. juuni
+
+Päev number kaks, alustasin mängu lehtekülgede loomisega, kus esimese sammuna keskendusin nupu kujundamisele. Mul oli Figmas juba olemas idee, milline see nupp võiks välja näha, kuid selle Photoshopis teostamine osutus keeruliseks ja aeganõudvaks. Tööriistade rohkus ja detailne töö stiilidega võtsid rohkem aega, kui olin planeerinud. Kuigi lõpuks sain tulemuse, millega enam-vähem rahule jäin, ei jäänud mul rohkem aega täna, et luua esimene lehekülg valmis.
+See kogemus pani mind mõistma, kui oluline on valida ülesandele sobiv tööriist ning kui kriitiline on osata seda tööriista kasutada. Kui pole varem mõnda tarkvara kasutanud, võib isegi hea idee teostamine muutuda aeglaseks ja frustreerivaks. Samas on ka see osa õppimisest, uue vahendi tundma õppimine võtabki aega ja vajab harjutamist. Täna ei jõudnud ma kõike, mida lootsin teha. Lõpuks ei tasu olla kurb, kui kõik ei saa ühe päevaga valmis. Homme on uus päev, kus saab jätkata juba targemana ja edukamalt.
+
+JAN 10. juuni
+
+Uus päev uue hooga. Peale hommikust koosolekut jäi mulle esimese asjana tegeleda ristmikega, kuidas teha neid paremaks. Kõigepealt otsisin veidi internetis ringi, kas olemasolevaid spline saab kuidagi paremini ristmikeks genereerida. Teed on nendega juba üpris hea joonistada, aga teised liiklusolukorrad veidi keerulisemad. Vahepeal võtsime vastu otsuse, et teeme ristmikud assetina ja teed jätkame samamoodi edasi. See muutis veidi mu tänast plaani. Uueks eesmärgiks oli uurida, kas ja kuidas saab spline kohe assetitega ühendada, et ei peaks manuaalselt piksel piksli haaval teid omavahel sobitama. Pärast pikka pusimist sain esialgse versiooni tööle. See vajab aga kõvasti mudimist, sest see jääb vahepeal veidi viltu ja laiused peab klappima saama. Tänase päeva suurimaks probleemiks jäi kahe endpointiga sidumine. Starting anchor point töötas ilusti, aga end anchor pointil jäi vahe sisse. Homme on plaan jätkata teede sidumisega ja see paremini töötama saada, hetkel seob see ainult siis, kui play vajutada game views.
+
+RICO 10. juuni
+
+Teisipäev kulus suuresti mingite probleemide lahendamisele. Päeva alguses panin arvutile peale photoshopi et eelnevalt välja toodud splinedele lisada visuaalne tee asset. Peale seda struktureerisin ning puhastasin meie projekti. Viskasin välja ebaolulised koodi osad mis nüüdseks ei leia kasutust enam ning ühtlasi mingid pildid, materjalid etc. 
+Lisaks nendele hakkasin kombineerima erinevaid waypointi töötamise loogikaid ning tegin algust kolmanda iteratsiooniga _waypointide_ ja _pathfindiguga_. Nende idee on kombineerida originaalseid punktidega waypointe kui ka teiste välja mõeldud spline waypointe, et oleks mugavam segmenteerida teed ning et oleks võimalik koostada need kaardid nii et igat individuaalsed sõidurada ei pea ette mõtlema.
+
+Küll aga eilse koodimise käigus esines hulga probleeme. Mingist hetkest ei olnud võimalik mul enam Unity Engines scene'i salvestada ning Engine hakkas mingeid erroreid loopima. Probleemi diagoosides ei saanud küll väga palju targemaks ning lõpuks lasin endal arvutist kõik kuni Unity Hubist ja Enginest kuni lokaalsete failidena arvutist maha, vaatasin mingid Unity settingud üle ja see tundus esialgu ära lahendama need probleemid. Jääb vaid loota et homne päev on parem ning probleeme vähem.
