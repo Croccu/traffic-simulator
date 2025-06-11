@@ -1,44 +1,49 @@
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.SceneManagement;
+#endif
 
+[ExecuteAlways]
 public class SplineAnchorSnapper : MonoBehaviour
 {
     public PathCreator splinePathCreator;
-    public Transform anchorPoint; // Set to intersection anchor transform
-
-    public enum SnapPoint { Start, End }
-    public SnapPoint snapAt = SnapPoint.Start;
+    public Transform anchorPoint;  // Anchor to snap to
+    public bool snapStart = true;  // Snap start if true, else snap end
 
     public void Snap()
     {
-        if (splinePathCreator == null || anchorPoint == null)
-        {
-            Debug.LogWarning("Assign splinePathCreator and anchorPoint before snapping.");
-            return;
-        }
+        if (splinePathCreator == null || anchorPoint == null) return;
 
         var path = splinePathCreator.path;
-        if (path == null)
-        {
-            Debug.LogWarning("Spline Path is null.");
-            return;
-        }
+        if (path == null) return;
 
-        // Convert anchor world position to spline local space
         Vector3 localPos = splinePathCreator.transform.InverseTransformPoint(anchorPoint.position);
+        int pointIndex = snapStart ? 0 : path.NumPoints - 1;
 
-        if (snapAt == SnapPoint.Start)
+        path.MovePoint(pointIndex, (Vector2)localPos);
+        AdjustControlPoints(path, pointIndex);
+
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
         {
-            path.MovePoint(0, (Vector2)localPos);
+            EditorUtility.SetDirty(splinePathCreator);
+            EditorSceneManager.MarkSceneDirty(splinePathCreator.gameObject.scene);
         }
-        else // Snap at End
-        {
-            path.MovePoint(path.NumPoints - 1, (Vector2)localPos);
-        }
+#endif
     }
 
-    // Optional: snap automatically on start
-    void Start()
+    void Update()
     {
         Snap();
+    }
+
+    void AdjustControlPoints(Path path, int anchorIndex)
+    {
+        Vector2 anchorPos = path[anchorIndex];
+        if (anchorIndex - 1 >= 0)
+            path.MovePoint(anchorIndex - 1, Vector2.Lerp(path[anchorIndex - 1], anchorPos, 0.5f));
+        if (anchorIndex + 1 < path.NumPoints)
+            path.MovePoint(anchorIndex + 1, Vector2.Lerp(path[anchorIndex + 1], anchorPos, 0.5f));
     }
 }
