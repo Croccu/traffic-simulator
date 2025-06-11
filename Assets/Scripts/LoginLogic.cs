@@ -13,7 +13,7 @@ public class LoginLogic : MonoBehaviour
     public TMP_Text feedbackText;
 
     [Header("API Settings")]
-    public string usersDataUrl = "YOUR_GET_SCRIPT_URL";
+    public string usersDataUrl = "https://script.google.com/macros/s/AKfycbx-IMMNDIzt6dC0Kqjmwh8vlKKXlEllN2_b9CUsqozSbqwlNMWmovaEFuKoJs766Zf0-Q/exec";
     public string targetScene = "Main";
 
     private UserData[] allUsers;
