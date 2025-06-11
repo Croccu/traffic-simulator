@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 193537663}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -72, y: 17, z: -6.1369443}
+  m_LocalPosition: {x: -72, y: -42, z: -6.1369443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -675,11 +675,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1147409480688369611, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -746
+      value: -745
       objectReference: {fileID: 0}
     - target: {fileID: 1147409480688369611, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 433
+      value: 456
       objectReference: {fileID: 0}
     - target: {fileID: 1147409480688369611, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -696,6 +696,14 @@ PrefabInstance:
     - target: {fileID: 1259159949153911129, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
       propertyPath: m_text
       value: TAGASI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259159949153911129, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_fontSize
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259159949153911129, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -771,7 +779,7 @@ GameObject:
   - component: {fileID: 731130333}
   - component: {fileID: 731130332}
   m_Layer: 5
-  m_Name: Loo_Kasutaja
+  m_Name: Logi_sissehead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,7 +801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369, y: 416}
+  m_AnchoredPosition: {x: 369, y: 357}
   m_SizeDelta: {x: 1406.7289, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731130332
@@ -1300,7 +1308,7 @@ Transform:
   m_GameObject: {fileID: 1632515300}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 87.64783, y: -50, z: -6.1369443}
+  m_LocalPosition: {x: 87.64783, y: -109, z: -6.1369443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
