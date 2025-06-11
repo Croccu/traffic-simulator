@@ -59,7 +59,7 @@ public class LoginLogic : MonoBehaviour
         {
             feedbackText.text = "Login successful!";
             PlayerPrefs.SetString("LoggedInUser", username);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.1f);
             SceneManager.LoadScene(targetScene);
         }
         else
