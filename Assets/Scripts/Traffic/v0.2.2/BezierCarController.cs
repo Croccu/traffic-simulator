@@ -20,9 +20,10 @@ public class BezierCarController : MonoBehaviour
 
     private Collider2D selfCollider;
 
-    // Give Way
     private bool waitingAtGiveWay = false;
     private GiveWayZone currentGiveWayZone = null;
+
+    public BezierRouteSpline currentSpline;
 
     void Start()
     {
@@ -33,10 +34,7 @@ public class BezierCarController : MonoBehaviour
     public void InitializePath(List<Vector3> pathPoints)
     {
         if (pathPoints == null || pathPoints.Count < 2)
-        {
-            Debug.LogError("Path is invalid or too short.");
             return;
-        }
 
         path = pathPoints;
         currentIndex = 0;
@@ -45,18 +43,20 @@ public class BezierCarController : MonoBehaviour
         currentSpeed = maxSpeed;
     }
 
+    public void SetCurrentSpline(BezierRouteSpline spline)
+    {
+        currentSpline = spline;
+    }
+
     void Update()
     {
         if (!isMoving || path == null || currentIndex >= path.Count)
             return;
 
-        // Yield logic
         if (waitingAtGiveWay && currentGiveWayZone != null)
         {
             if (currentGiveWayZone.IsIntersectionClear(selfCollider))
-            {
                 waitingAtGiveWay = false;
-            }
             else
             {
                 currentSpeed = 0f;
@@ -70,27 +70,49 @@ public class BezierCarController : MonoBehaviour
         Vector3 direction = target - transform.position;
 
         if (direction.magnitude < 0.05f)
-        {
             currentIndex++;
-            if (currentIndex >= path.Count)
-            {
-                isMoving = false;
-                return;
-            }
-            target = path[currentIndex];
-            direction = target - transform.position;
+
+        if (currentIndex >= path.Count)
+        {
+            TrySwitchToNextSpline();
+            return;
         }
 
-        // Move the car
         transform.position += direction.normalized * currentSpeed * Time.deltaTime;
 
-        // Rotate car in 2D
         if (direction.sqrMagnitude > 0.01f)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
+    }
+
+    void TrySwitchToNextSpline()
+    {
+        if (currentSpline != null && currentSpline.nextSplines.Count > 0)
+        {
+            List<BezierRouteSpline> validOptions = new List<BezierRouteSpline>();
+            foreach (var next in currentSpline.nextSplines)
+            {
+                if (next != null)
+                {
+                    next.GenerateWaypoints();
+                    if (next.waypoints != null && next.waypoints.Count >= 2)
+                        validOptions.Add(next);
+                }
+            }
+
+            if (validOptions.Count > 0)
+            {
+                BezierRouteSpline chosen = validOptions[Random.Range(0, validOptions.Count)];
+                currentSpline = chosen;
+                InitializePath(new List<Vector3>(chosen.waypoints));
+                return;
+            }
+        }
+
+        isMoving = false;
     }
 
     void AdjustSpeedBasedOnCarAhead()
@@ -107,9 +129,8 @@ public class BezierCarController : MonoBehaviour
             {
                 float dist = Vector2.Distance(transform.position, col.transform.position);
                 if (dist < closestDistance)
-                {
                     closestDistance = dist;
-                }
+
                 carDetected = true;
             }
         }
@@ -117,9 +138,7 @@ public class BezierCarController : MonoBehaviour
         if (carDetected)
         {
             if (closestDistance < stopDistance)
-            {
                 currentSpeed = 0f;
-            }
             else
             {
                 float t = (closestDistance - stopDistance) / (detectionRadius - stopDistance);
@@ -127,9 +146,7 @@ public class BezierCarController : MonoBehaviour
             }
         }
         else
-        {
             currentSpeed = maxSpeed;
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
