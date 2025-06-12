@@ -14,7 +14,7 @@ public class LoginLogic : MonoBehaviour
 
     [Header("API Settings")]
     public string usersDataUrl = "https://script.google.com/macros/s/AKfycbx-IMMNDIzt6dC0Kqjmwh8vlKKXlEllN2_b9CUsqozSbqwlNMWmovaEFuKoJs766Zf0-Q/exec";
-    public string targetScene = "Main";
+    public string targetScene = "Menu"; // Scene to load on successful login
 
     private UserData[] allUsers;
 
@@ -59,6 +59,7 @@ public class LoginLogic : MonoBehaviour
         {
             feedbackText.text = "Login successful!";
             PlayerPrefs.SetString("LoggedInUser", username);
+            PlayerPrefs.SetString("LoggedInEmail", matchedUser.email);
             yield return new WaitForSeconds(0.1f);
             SceneManager.LoadScene(targetScene);
         }
