@@ -16,10 +16,6 @@ public class BezierRouteSpline : MonoBehaviour
     [Header("Connected Next Splines")]
     public List<BezierRouteSpline> nextSplines = new List<BezierRouteSpline>();
 
-    /// <summary>
-    /// Generates waypoints using cubic Bezier interpolation.
-    /// Each segment uses 4 control points and is sampled at the specified resolution.
-    /// </summary>
     public void GenerateWaypoints()
     {
         waypoints.Clear();
@@ -49,9 +45,6 @@ public class BezierRouteSpline : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Cubic Bezier curve calculation.
-    /// </summary>
     private Vector3 CalculateBezier(float t, Vector3 a, Vector3 b, Vector3 c, Vector3 d)
     {
         return Mathf.Pow(1 - t, 3) * a +
@@ -60,18 +53,12 @@ public class BezierRouteSpline : MonoBehaviour
                Mathf.Pow(t, 3) * d;
     }
 
-    /// <summary>
-    /// Ensures waypoints are generated when the scene starts playing.
-    /// </summary>
     private void Start()
     {
         if (waypoints == null || waypoints.Count < 2)
             GenerateWaypoints();
     }
 
-    /// <summary>
-    /// Draws gizmos for the Bezier path and connected splines.
-    /// </summary>
     private void OnDrawGizmos()
     {
         GenerateWaypoints();
@@ -89,7 +76,6 @@ public class BezierRouteSpline : MonoBehaviour
                 Gizmos.DrawLine(controlPoints[i].position, controlPoints[i + 1].position);
         }
 
-        // Draw connection lines to next splines
         Gizmos.color = Color.cyan;
         if (waypoints.Count > 0)
         {
@@ -103,12 +89,11 @@ public class BezierRouteSpline : MonoBehaviour
         }
     }
 
-public void ConnectTo(BezierRouteSpline other)
-{
-    if (other != null && !nextSplines.Contains(other))
+    public void ConnectTo(BezierRouteSpline other)
     {
-        nextSplines.Add(other);
+        if (other != null && !nextSplines.Contains(other))
+        {
+            nextSplines.Add(other);
+        }
     }
-}
-
 }
