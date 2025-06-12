@@ -18,9 +18,38 @@ public class BezierSplineSpawner : MonoBehaviour
     [Header("Available Routes")]
     public List<Route> availableRoutes = new List<Route>();
 
+    private bool isSpawning = false;
+
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnCar), spawnDelay, spawnInterval);
+        // Optional auto-start:
+        // StartSpawning();
+    }
+
+    public void StartSpawning()
+    {
+        if (!isSpawning)
+        {
+            InvokeRepeating(nameof(SpawnCar), spawnDelay, spawnInterval);
+            isSpawning = true;
+        }
+    }
+
+    public void StopSpawning()
+    {
+        if (isSpawning)
+        {
+            CancelInvoke(nameof(SpawnCar));
+            isSpawning = false;
+        }
+    }
+
+    public void ToggleSpawning()
+    {
+        if (isSpawning)
+            StopSpawning();
+        else
+            StartSpawning();
     }
 
     void SpawnCar()
@@ -59,7 +88,10 @@ public class BezierSplineSpawner : MonoBehaviour
     public void SetSpawnInterval(float interval)
     {
         spawnInterval = interval;
-        CancelInvoke(nameof(SpawnCar));
-        InvokeRepeating(nameof(SpawnCar), spawnDelay, spawnInterval);
+        if (isSpawning)
+        {
+            CancelInvoke(nameof(SpawnCar));
+            InvokeRepeating(nameof(SpawnCar), spawnDelay, spawnInterval);
+        }
     }
 }
