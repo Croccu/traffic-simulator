@@ -15,8 +15,7 @@ public class RegisterLogic : MonoBehaviour
     [Header("Scene & API Settings")]
     public string targetSceneName; // Scene to load after success
     [TextArea]
-    public string googleSheetPostUrl; // Google Apps Script Web App URL
-
+    public string googleSheetPostUrl = "https://script.google.com/macros/s/AKfycbx-IMMNDIzt6dC0Kqjmwh8vlKKXlEllN2_b9CUsqozSbqwlNMWmovaEFuKoJs766Zf0-Q/exec";
     public void OnRegisterButtonClick()
     {
         string username = usernameField.text.Trim();

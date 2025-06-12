@@ -53,37 +53,39 @@ public class BezierSplineSpawner : MonoBehaviour
     }
 
     void SpawnCar()
+{
+    if (carPrefab == null || availableRoutes.Count == 0)
     {
-        if (carPrefab == null || availableRoutes.Count == 0)
-        {
-            Debug.LogWarning("Spawner setup incomplete.");
-            return;
-        }
-
-        Route chosenRoute = availableRoutes[Random.Range(0, availableRoutes.Count)];
-
-        if (chosenRoute.spline == null || chosenRoute.spline.waypoints.Count < 2)
-        {
-            Debug.LogWarning("Invalid spline or insufficient waypoints.");
-            return;
-        }
-
-        Vector3 startPos = chosenRoute.spline.waypoints[0];
-        Vector3 nextPos = chosenRoute.spline.waypoints[1];
-        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, (nextPos - startPos).normalized);
-
-        GameObject car = Instantiate(carPrefab, startPos, rotation);
-
-        BezierCarController carController = car.GetComponent<BezierCarController>();
-        if (carController != null)
-        {
-            carController.InitializePath(new List<Vector3>(chosenRoute.spline.waypoints));
-        }
-        else
-        {
-            Debug.LogError("Car prefab missing BezierCarController.");
-        }
+        Debug.LogWarning("Spawner setup incomplete.");
+        return;
     }
+
+    Route chosenRoute = availableRoutes[Random.Range(0, availableRoutes.Count)];
+
+    if (chosenRoute.spline == null || chosenRoute.spline.waypoints.Count < 2)
+    {
+        Debug.LogWarning("Invalid spline or insufficient waypoints.");
+        return;
+    }
+
+    Vector3 startPos = chosenRoute.spline.waypoints[0];
+    Vector3 nextPos = chosenRoute.spline.waypoints[1];
+    Quaternion rotation = Quaternion.LookRotation(Vector3.forward, (nextPos - startPos).normalized);
+
+    GameObject car = Instantiate(carPrefab, startPos, rotation);
+
+    BezierCarController carController = car.GetComponent<BezierCarController>();
+    if (carController != null)
+    {
+        carController.InitializePath(new List<Vector3>(chosenRoute.spline.waypoints));
+        carController.SetCurrentSpline(chosenRoute.spline); // ✅ Critical line added
+    }
+    else
+    {
+        Debug.LogError("Car prefab missing BezierCarController.");
+    }
+}
+
 
     public void SetSpawnInterval(float interval)
     {

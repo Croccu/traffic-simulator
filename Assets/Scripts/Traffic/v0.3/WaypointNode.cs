@@ -19,7 +19,7 @@ public class WaypointNode : MonoBehaviour
     else if (isEntry)
       Gizmos.color = Color.green;
     else
-      Gizmos.color = Color.cyan;
+      Gizmos.color = Color.cyan; 
 
     Gizmos.DrawSphere(transform.position, 0.1f);
 

@@ -167,9 +167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 4
-  rotationSpeed: 13
+  rotationSpeed: 16
   detectionRadius: 0.5
   stopDistance: 1
   carLayer:
     serializedVersion: 2
     m_Bits: 64
+  currentSpline: {fileID: 0}
