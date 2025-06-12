@@ -232,7 +232,7 @@ public class Path {
     }
 
 
-    void AutoSetAllAffectedControlPoints(int updatedAnchorIndex)
+    public void AutoSetAllAffectedControlPoints(int updatedAnchorIndex)
     {
         for (int i = updatedAnchorIndex-3; i <= updatedAnchorIndex +3; i+=3)
         {
@@ -245,7 +245,7 @@ public class Path {
         AutoSetStartAndEndControls();
     }
 
-    void AutoSetAllControlPoints()
+    public void AutoSetAllControlPoints()
     {
         for (int i = 0; i < points.Count; i+=3)
         {
