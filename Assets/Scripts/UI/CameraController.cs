@@ -10,7 +10,14 @@ public class CameraController : MonoBehaviour
 
     [Header("Panning Settings")]
     [SerializeField] float panSpeed = 10f;
-    [SerializeField] float panBorderThickness = 10f; // pixels from screen edge
+    [SerializeField] float panBorderThickness = 10f;
+
+    [Header("Movement Bounds")]
+    [SerializeField] Vector2 minBounds = new Vector2(-50, -50);
+    [SerializeField] Vector2 maxBounds = new Vector2(50, 50);
+
+    [Header("Keyboard Controls")]
+    [SerializeField] float keyboardPanSpeed = 10f;
 
     Camera cam;
 
@@ -28,6 +35,8 @@ public class CameraController : MonoBehaviour
 
         HandleZoom();
         HandlePan();
+        HandleKeyboardPan();
+        ClampPosition();
     }
 
     void HandleZoom()
@@ -53,6 +62,8 @@ public class CameraController : MonoBehaviour
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             return;
 
+        float speedMultiplier = Input.GetKey(KeyCode.LeftShift) ? 3f : 1f;
+
         Vector3 move = Vector3.zero;
         Vector3 mousePos = Input.mousePosition;
 
@@ -69,7 +80,38 @@ public class CameraController : MonoBehaviour
         if (move.sqrMagnitude > 0f)
         {
             Vector3 worldMove = cam.orthographic ? new Vector3(move.x, move.y, 0f) : new Vector3(move.x, 0f, move.y);
-            transform.Translate(worldMove.normalized * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(worldMove.normalized * panSpeed * speedMultiplier * Time.deltaTime, Space.World);
         }
+    }
+
+    void HandleKeyboardPan()
+    {
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        if (x != 0f || y != 0f)
+        {
+            float speedMultiplier = Input.GetKey(KeyCode.LeftShift) ? 3f : 1f;
+            Vector3 move = cam.orthographic ? new Vector3(x, y, 0f) : new Vector3(x, 0f, y);
+            transform.Translate(move.normalized * keyboardPanSpeed * speedMultiplier * Time.deltaTime, Space.World);
+        }
+    }
+
+    void ClampPosition()
+    {
+        Vector3 pos = transform.position;
+
+        if (cam.orthographic)
+        {
+            pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
+            pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
+        }
+        else
+        {
+            pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
+            pos.z = Mathf.Clamp(pos.z, minBounds.y, maxBounds.y); // note: z for depth
+        }
+
+        transform.position = pos;
     }
 }
