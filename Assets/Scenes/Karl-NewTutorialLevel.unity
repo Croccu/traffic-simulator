@@ -5042,7 +5042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73697b5c46dbabcf8eec57c189b14747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 5
+  zoomSpeed: 0.5
   minZoom: 5
   maxZoom: 20
   panSpeed: 10
