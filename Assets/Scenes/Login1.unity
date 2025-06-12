@@ -885,6 +885,38 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 170
       objectReference: {fileID: 0}
+    - target: {fileID: 3400453315390918246, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400453315390918246, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400453315390918246, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 243385607}
+    - target: {fileID: 3400453315390918246, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400453315390918246, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSceneByName
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400453315390918246, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400453315390918246, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Landing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400453315390918246, guid: 66ec54f0ebf084ce7977bae8c1397936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
