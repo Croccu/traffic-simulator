@@ -48,7 +48,7 @@ public class BezierCarController : MonoBehaviour
         currentSpline = spline;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (!isMoving || path == null || currentIndex >= path.Count)
             return;
@@ -69,7 +69,7 @@ public class BezierCarController : MonoBehaviour
         Vector3 target = path[currentIndex];
         Vector3 direction = target - transform.position;
 
-        if (direction.magnitude < 0.1f)
+        if (direction.magnitude < 0.05f)
             currentIndex++;
 
         if (currentIndex >= path.Count)
@@ -78,13 +78,13 @@ public class BezierCarController : MonoBehaviour
             return;
         }
 
-        transform.position += direction.normalized * currentSpeed * Time.fixedDeltaTime;
+        transform.position += direction.normalized * currentSpeed * Time.deltaTime;
 
         if (direction.sqrMagnitude > 0.01f)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -141,14 +141,12 @@ public class BezierCarController : MonoBehaviour
                 currentSpeed = 0f;
             else
             {
-                float t = Mathf.Clamp01((closestDistance - stopDistance) / (detectionRadius - stopDistance));
-                currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed * t, Time.fixedDeltaTime * 5f); // smooth deceleration
+                float t = (closestDistance - stopDistance) / (detectionRadius - stopDistance);
+                currentSpeed = Mathf.Lerp(0f, maxSpeed, t);
             }
         }
         else
-        {
-            currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.fixedDeltaTime * 3f); // smooth acceleration
-        }
+            currentSpeed = maxSpeed;
     }
 
     void OnTriggerEnter2D(Collider2D other)
