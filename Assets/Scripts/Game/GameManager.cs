@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+      Debug.Log("GameManager Awake");
       if (instance == null)
         instance = this;
       else
