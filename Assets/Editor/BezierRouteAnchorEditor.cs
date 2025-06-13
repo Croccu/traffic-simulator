@@ -10,7 +10,7 @@ public class BezierRouteAnchorEditor : Editor
 
     void OnSceneGUI()
     {
-        BezierRouteSpline[] allSplines = FindObjectsOfType<BezierRouteSpline>();
+        BezierRouteSpline[] allSplines = Object.FindObjectsByType<BezierRouteSpline>(FindObjectsSortMode.None);
 
         foreach (var splineA in allSplines)
         {

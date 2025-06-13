@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1133924262559440488}
-  - component: {fileID: 783487983464383385}
-  - component: {fileID: 1723042874806081750}
   - component: {fileID: 7182571345318243122}
   m_Layer: 0
   m_Name: BezierSpawner (1)
@@ -34,40 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &783487983464383385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683818938386937710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af652b70c0c493040bc468f5e3dd70c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carPrefab: {fileID: 9203266816365316705, guid: 93c43d6d99384d747b0aa6e1fd042c33, type: 3}
-  spawnInterval: 2
-  availableRoutes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1723042874806081750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683818938386937710}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af652b70c0c493040bc468f5e3dd70c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carPrefab: {fileID: 0}
-  spawnInterval: 3
-  availableRoutes: []
 --- !u!114 &7182571345318243122
 MonoBehaviour:
   m_ObjectHideFlags: 0
