@@ -5,8 +5,8 @@ using UnityEngine;
 public class BezierRouteAnchorEditor : Editor
 {
     // Connection threshold
-    private const float connectThreshold = 0.5f;
-    private const float proximityRange = 2.0f;
+    private const float connectThreshold = 0.2f;
+    private const float proximityRange = 1.0f;
 
     void OnSceneGUI()
     {
