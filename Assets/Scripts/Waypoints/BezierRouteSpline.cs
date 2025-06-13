@@ -17,33 +17,43 @@ public class BezierRouteSpline : MonoBehaviour
     public List<BezierRouteSpline> nextSplines = new List<BezierRouteSpline>();
 
     public void GenerateWaypoints()
+{
+    waypoints.Clear();
+
+    if (controlPoints.Count == 2)
     {
-        waypoints.Clear();
-
-        if (controlPoints.Count < 4 || controlPoints.Count % 3 != 1)
+        // Simple linear interpolation
+        for (int i = 0; i <= resolutionPerSegment; i++)
         {
-            Debug.LogWarning($"{name}: Control points must follow the 4 + 3n pattern.");
-            return;
+            float t = i / (float)resolutionPerSegment;
+            Vector3 point = Vector3.Lerp(controlPoints[0].position, controlPoints[1].position, t);
+            waypoints.Add(point);
         }
+        return;
+    }
 
-        for (int i = 0; i < (controlPoints.Count - 1) / 3; i++)
+    if (controlPoints.Count < 4 || controlPoints.Count % 3 != 1)
+    {
+        Debug.LogWarning($"{name}: Control points must follow the 4 + 3n pattern.");
+        return;
+    }
+
+    for (int i = 0; i < (controlPoints.Count - 1) / 3; i++)
+    {
+        Vector3 p0 = controlPoints[i * 3].position;
+        Vector3 p1 = controlPoints[i * 3 + 1].position;
+        Vector3 p2 = controlPoints[i * 3 + 2].position;
+        Vector3 p3 = controlPoints[i * 3 + 3].position;
+
+        for (int j = 0; j <= resolutionPerSegment; j++)
         {
-            Transform t0 = controlPoints[i * 3];
-            Transform t1 = controlPoints[i * 3 + 1];
-            Transform t2 = controlPoints[i * 3 + 2];
-            Transform t3 = controlPoints[i * 3 + 3];
-
-            if (t0 == null || t1 == null || t2 == null || t3 == null)
-                continue;
-
-            for (int j = 0; j <= resolutionPerSegment; j++)
-            {
-                float t = j / (float)resolutionPerSegment;
-                Vector3 point = CalculateBezier(t, t0.position, t1.position, t2.position, t3.position);
-                waypoints.Add(point);
-            }
+            float t = j / (float)resolutionPerSegment;
+            Vector3 point = CalculateBezier(t, p0, p1, p2, p3);
+            waypoints.Add(point);
         }
     }
+}
+
 
     private Vector3 CalculateBezier(float t, Vector3 a, Vector3 b, Vector3 c, Vector3 d)
     {
