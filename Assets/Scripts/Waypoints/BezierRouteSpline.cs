@@ -61,33 +61,54 @@ public class BezierRouteSpline : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        GenerateWaypoints();
+    GenerateWaypoints();
 
-        Gizmos.color = Color.yellow;
-        for (int i = 0; i < waypoints.Count - 1; i++)
-        {
-            Gizmos.DrawLine(waypoints[i], waypoints[i + 1]);
-        }
+    // Draw main spline path
+    Gizmos.color = Color.yellow;
+    for (int i = 0; i < waypoints.Count - 1; i++)
+    {
+        Gizmos.DrawLine(waypoints[i], waypoints[i + 1]);
+    }
 
-        Gizmos.color = Color.gray;
-        for (int i = 0; i < controlPoints.Count - 1; i++)
-        {
-            if (controlPoints[i] != null && controlPoints[i + 1] != null)
-                Gizmos.DrawLine(controlPoints[i].position, controlPoints[i + 1].position);
-        }
+    // Draw control lines
+    Gizmos.color = Color.gray;
+    for (int i = 0; i < controlPoints.Count - 1; i++)
+    {
+        if (controlPoints[i] != null && controlPoints[i + 1] != null)
+            Gizmos.DrawLine(controlPoints[i].position, controlPoints[i + 1].position);
+    }
 
-        Gizmos.color = Color.cyan;
-        if (waypoints.Count > 0)
+    // Draw semi-transparent start and end nodes
+    if (waypoints.Count > 0)
+    {
+        Color greenTransparent = new Color(0f, 1f, 0f, 0.4f);
+        Color redTransparent = new Color(1f, 0f, 0f, 0.4f);
+
+        Gizmos.color = greenTransparent;
+        Gizmos.DrawSphere(waypoints[0], 0.15f); // Start point
+
+        Gizmos.color = redTransparent;
+        Gizmos.DrawSphere(waypoints[waypoints.Count - 1], 0.15f); // End point
+    }
+
+    // Draw connection lines to next splines
+    if (waypoints.Count > 0)
+    {
+        foreach (var next in nextSplines)
         {
-            foreach (var next in nextSplines)
+            if (next != null && next.waypoints.Count > 0)
             {
-                if (next != null && next.waypoints.Count > 0)
-                {
-                    Gizmos.DrawLine(waypoints[waypoints.Count - 1], next.waypoints[0]);
-                }
+                Vector3 endA = waypoints[waypoints.Count - 1];
+                Vector3 startB = next.waypoints[0];
+                float distance = Vector3.Distance(endA, startB);
+
+                Gizmos.color = distance < 0.5f ? Color.green : Color.red;
+                Gizmos.DrawLine(endA, startB);
             }
         }
     }
+    }
+
 
     public void ConnectTo(BezierRouteSpline other)
     {

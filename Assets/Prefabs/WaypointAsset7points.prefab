@@ -152,12 +152,6 @@ MonoBehaviour:
   - {fileID: 2759109346750800345}
   - {fileID: 8872889299632006938}
   - {fileID: 3021707797482665963}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   resolutionPerSegment: 20
   waypoints:
   - {x: 7.38, y: 2.7288408, z: 0.044105973}
