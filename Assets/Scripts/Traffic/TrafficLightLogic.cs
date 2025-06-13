@@ -1,16 +1,38 @@
 using UnityEngine;
+using System.Collections;
 
 public class TrafficLightLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject redLight;
+    public GameObject yellowLight;
+    public GameObject greenLight;
+
     void Start()
     {
-        
+        StartCoroutine(SwitchLights());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SwitchLights()
     {
-        
+        while (true)
+        {
+            SetActiveLight(redLight);
+            yield return new WaitForSeconds(5f);
+
+            SetActiveLight(yellowLight);
+            yield return new WaitForSeconds(2f);
+
+            SetActiveLight(greenLight);
+            yield return new WaitForSeconds(5f);
+        }
+    }
+
+    void SetActiveLight(GameObject active)
+    {
+        redLight.SetActive(false);
+        yellowLight.SetActive(false);
+        greenLight.SetActive(false);
+
+        active.SetActive(true);
     }
 }

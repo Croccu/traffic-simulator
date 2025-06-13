@@ -103,12 +103,12 @@ TextureImporter:
       name: traffic light_0
       rect:
         serializedVersion: 2
-        x: 521
-        y: 112
-        width: 225
-        height: 608
+        x: 563
+        y: 345
+        width: 142
+        height: 346
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fe67c310e2d8c4769bb81c2a48f08f80
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      traffic light_0: 7651617235530356186
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
