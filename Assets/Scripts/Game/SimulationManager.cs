@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SimulationManager : MonoBehaviour
 {
   public static SimulationManager Instance { get; private set; }
@@ -16,6 +16,12 @@ public class SimulationManager : MonoBehaviour
     }
 
     DontDestroyOnLoad(gameObject);
+  }
+  public void RestartScene()
+  {
+    Instance = null;         // Clear static reference
+    Destroy(gameObject);     // Destroy the current instance
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
   }
 
   public void StartSimulation()
