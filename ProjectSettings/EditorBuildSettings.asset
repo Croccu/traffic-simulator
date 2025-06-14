@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Leaderboard.unity
     guid: a3add5231bfe94cbc8a19c3be99a69df
+  - enabled: 1
+    path: Assets/Scenes/Rene-Level.unity
+    guid: 0b6d92bf2df9e47fb86024a60caace3e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
