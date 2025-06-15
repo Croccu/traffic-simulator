@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5d3846190828c43589513dda0b2a869a
+guid: f857bf8c1b2044807bbad13dbfd581b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8889544303796543369
-    second: pausexbutts_0
+      213: 2108019475250242708
+    second: pauseeex_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pausexbutts_0
+      name: pauseeex_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 684
-        height: 705
+        width: 725
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98fd3ea02710e5b70800000000000000
-      internalID: 8889544303796543369
+      spriteID: 49465e14b80314d10800000000000000
+      internalID: 2108019475250242708
       vertices: []
       indices: 
       edges: []
