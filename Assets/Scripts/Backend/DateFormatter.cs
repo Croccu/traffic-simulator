@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Text.RegularExpressions;
 
 public class DateFormatter : MonoBehaviour
 {
@@ -14,13 +15,12 @@ public class DateFormatter : MonoBehaviour
     void FormatInput(string input)
     {
         if (isUpdating) return;
-
         isUpdating = true;
 
-        // Remove all non-digit characters
-        string digitsOnly = System.Text.RegularExpressions.Regex.Replace(input, @"\D", "");
+        
+        string digitsOnly = Regex.Replace(input, @"\D", "");
 
-        // Format the input as MM/DD/YYYY
+        
         if (digitsOnly.Length > 2)
         {
             digitsOnly = digitsOnly.Insert(2, "/");
@@ -30,7 +30,7 @@ public class DateFormatter : MonoBehaviour
             digitsOnly = digitsOnly.Insert(5, "/");
         }
 
-        // Limit the length to 10 characters (MM/DD/YYYY)
+        
         if (digitsOnly.Length > 10)
         {
             digitsOnly = digitsOnly.Substring(0, 10);
@@ -39,14 +39,14 @@ public class DateFormatter : MonoBehaviour
         inputField.text = digitsOnly;
         isUpdating = false;
     }
+
     void Update()
     {
-        // Check if the caret is not at the end of the text
+        
         if (inputField.caretPosition != inputField.text.Length)
         {
-            // Move the caret to the end of the text
             inputField.caretPosition = inputField.text.Length;
         }
     }
-
 }
+
