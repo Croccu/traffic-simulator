@@ -11,11 +11,13 @@ public class RegisterLogic : MonoBehaviour
     public TMP_InputField emailField;
     public TMP_InputField passwordField;
     public TMP_Text feedbackText;
+    public GameObject feedbackPanel; // <<< UUS: paneel tagasiside jaoks (nt punase taustaga)
 
     [Header("Scene & API Settings")]
-    public string targetSceneName; // Scene to load after success
+    public string targetSceneName;
     [TextArea]
-    public string googleSheetPostUrl = "https://script.google.com/macros/s/AKfycbx-IMMNDIzt6dC0Kqjmwh8vlKKXlEllN2_b9CUsqozSbqwlNMWmovaEFuKoJs766Zf0-Q/exec";
+    public string googleSheetPostUrl = "https://script.google.com/macros/s/..."; // sinu URL
+
     public void OnRegisterButtonClick()
     {
         string username = usernameField.text.Trim();
@@ -25,34 +27,33 @@ public class RegisterLogic : MonoBehaviour
         // Validation checks
         if (string.IsNullOrEmpty(username))
         {
-            feedbackText.text = "Kasutajanimi ei tohi olla tühi.";
+            feedbackText.text = "Kasutajanimi ei tohi olla tühi";
+            feedbackPanel.SetActive(true);
             return;
         }
 
         if (!IsValidEmail(email))
         {
-            feedbackText.text = "E-posti aadress ei ole sobiv.";
+            feedbackText.text = "E-posti aadress ei ole sobiv";
+            feedbackPanel.SetActive(true);
             return;
         }
 
         if (password.Length < 6)
         {
-            feedbackText.text = "Parool peab olema vähemalt 6 tähemärki pikk.";
+            feedbackText.text = "Parooli pikkus peab olema vähemalt 6 tähemärki";
+            feedbackPanel.SetActive(true);
             return;
         }
 
-        // Start coroutine to send data to Google Sheets
         StartCoroutine(SendDataToGoogleSheet(username, email, password));
     }
-
-    // Add this to your existing Unity code:
 
     [Header("Debug Settings")]
     public bool showDebugLogs = true;
 
     private IEnumerator SendDataToGoogleSheet(string username, string email, string password)
     {
-        // Create JSON data
         var jsonData = new RegisterData
         {
             username = username,
@@ -71,7 +72,7 @@ public class RegisterLogic : MonoBehaviour
             www.uploadHandler = new UploadHandlerRaw(bodyRaw);
             www.downloadHandler = new DownloadHandlerBuffer();
             www.SetRequestHeader("Content-Type", "application/json");
-            www.timeout = 10; // 10 seconds timeout
+            www.timeout = 10;
 
             yield return www.SendWebRequest();
 
@@ -81,7 +82,9 @@ public class RegisterLogic : MonoBehaviour
                     Debug.Log("Response: " + www.downloadHandler.text);
 
                 feedbackText.text = "Registreerimine õnnestus!";
-                yield return new WaitForSeconds(1.5f); // Show success message
+                feedbackPanel.SetActive(true); // <<< Näita edu paneeli
+                yield return new WaitForSeconds(1.5f);
+                feedbackPanel.SetActive(false); // <<< Peida paneel
 
                 if (!string.IsNullOrEmpty(targetSceneName))
                     SceneManager.LoadScene(targetSceneName);
@@ -99,6 +102,7 @@ public class RegisterLogic : MonoBehaviour
                 catch { }
 
                 feedbackText.text = errorMessage;
+                feedbackPanel.SetActive(true); // <<< Näita error paneeli
                 Debug.LogError($"Error: {www.error}\nResponse: {www.downloadHandler.text}");
             }
         }
@@ -119,7 +123,6 @@ public class RegisterLogic : MonoBehaviour
         );
     }
 
-
     [System.Serializable]
     private class RegisterData
     {
@@ -128,3 +131,4 @@ public class RegisterLogic : MonoBehaviour
         public string password;
     }
 }
+
