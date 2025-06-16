@@ -103,9 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 4
-  rotationSpeed: 15
+  rotationSpeed: 280
   detectionRadius: 0.6
   stopDistance: 1.5
+  waypointThreshold: 0.2
   carLayer:
     serializedVersion: 2
     m_Bits: 64
