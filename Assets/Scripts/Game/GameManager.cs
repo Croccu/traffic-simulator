@@ -4,13 +4,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int carsPassed = 0;
+    public int carsDespawned = 0;
 
 
     private void Awake()
     {
       Debug.Log("GameManager Awake");
-      if (instance == null)
-        instance = this;
+      if (instance == null) instance = this;
       else
         Destroy(gameObject);
     }
@@ -20,5 +20,11 @@ public class GameManager : MonoBehaviour
     {
       carsPassed++;
       Debug.Log("Cars Passed: " + carsPassed);
+    }
+
+    public void CarDespawned()
+    {
+      carsDespawned++;
+      Debug.Log("Cars Despawned: " + carsDespawned);
     }
 }
