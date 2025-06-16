@@ -24,6 +24,9 @@ public class BezierCarController : MonoBehaviour
     private bool waitingAtGiveWay = false;
     private GiveWayZone currentGiveWayZone = null;
 
+    private bool atTrafficLight = false;
+    private TrafficLightLogic currentTrafficLight = null;
+
     public BezierRouteSpline currentSpline;
 
     void Start()
@@ -53,6 +56,17 @@ public class BezierCarController : MonoBehaviour
     {
         if (!isMoving || path == null || currentIndex >= path.Count) return;
 
+        // Stop at red traffic light
+        if (atTrafficLight && currentTrafficLight != null)
+        {
+            if (currentTrafficLight.CurrentState == TrafficLightLogic.LightState.Red)
+            {
+                currentSpeed = 0f;
+                return;
+            }
+        }
+
+        // Give way logic
         if (waitingAtGiveWay && currentGiveWayZone != null)
         {
             if (currentGiveWayZone.IsIntersectionClear(selfCollider))
@@ -80,10 +94,8 @@ public class BezierCarController : MonoBehaviour
             target = path[currentIndex];
         }
 
-        // Move smoothly
         transform.position = Vector3.MoveTowards(transform.position, target, currentSpeed * Time.deltaTime);
 
-        // Rotate smoothly
         Vector3 direction = target - transform.position;
         if (direction.sqrMagnitude > 0.001f)
         {
@@ -170,6 +182,15 @@ public class BezierCarController : MonoBehaviour
         {
             currentSpeedLimit = speedZone.speedLimit;
         }
+
+        if (other.CompareTag("TrafficLightTrigger"))
+        {
+            currentTrafficLight = other.GetComponentInParent<TrafficLightLogic>();
+            if (currentTrafficLight != null)
+            {
+                atTrafficLight = true;
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -178,6 +199,15 @@ public class BezierCarController : MonoBehaviour
         {
             currentGiveWayZone = null;
             waitingAtGiveWay = false;
+        }
+
+        if (other.CompareTag("TrafficLightTrigger"))
+        {
+            if (other.GetComponentInParent<TrafficLightLogic>() == currentTrafficLight)
+            {
+                atTrafficLight = false;
+                currentTrafficLight = null;
+            }
         }
     }
 
