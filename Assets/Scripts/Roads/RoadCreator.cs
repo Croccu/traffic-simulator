@@ -7,7 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class RoadCreator : MonoBehaviour
 {
-
     [Range(.05f, 1.5f)]
     public float spacing = 1;
     public float roadWidth = 1;
@@ -19,9 +18,6 @@ public class RoadCreator : MonoBehaviour
         Path path = GetComponent<PathCreator>().path;
         Vector2[] points = path.CalculateEvenlySpacedPoints(spacing);
         GetComponent<MeshFilter>().mesh = CreateRoadMesh(points, path.IsClosed);
-
-        int textureRepeat = Mathf.RoundToInt(tiling * points.Length * spacing * .05f);
-        GetComponent<MeshRenderer>().sharedMaterial.mainTextureScale = new Vector2(1, textureRepeat);
     }
 
     Mesh CreateRoadMesh(Vector2[] points, bool isClosed)
@@ -48,13 +44,12 @@ public class RoadCreator : MonoBehaviour
             forward.Normalize();
             Vector2 left = new Vector2(-forward.y, forward.x);
 
-            verts[vertIndex] = points[i] + left * roadWidth * .5f;
-            verts[vertIndex + 1] = points[i] - left * roadWidth * .5f;
+            verts[vertIndex] = points[i] + left * roadWidth * 0.5f;
+            verts[vertIndex + 1] = points[i] - left * roadWidth * 0.5f;
 
-            float completionPercent = i / (float)(points.Length - 1);
-            float v = 1 - Mathf.Abs(2 * completionPercent - 1);
-            uvs[vertIndex] = new Vector2(0, v);
-            uvs[vertIndex + 1] = new Vector2(1, v);
+            float distance = i * spacing;
+            uvs[vertIndex] = new Vector2(0, distance * tiling);
+            uvs[vertIndex + 1] = new Vector2(1, distance * tiling);
 
             if (i < points.Length - 1 || isClosed)
             {
@@ -78,10 +73,9 @@ public class RoadCreator : MonoBehaviour
 
         return mesh;
     }
-    
-    void Start()
-{
-    UpdateRoad();
-}
 
+    void Start()
+    {
+        UpdateRoad();
+    }
 }
