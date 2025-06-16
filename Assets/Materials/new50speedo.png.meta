@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      new50speedo_0: 250732969244482117
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,7 +7,7 @@ public class ItemPlacer : MonoBehaviour
     private GameObject previewObject;
     private bool isPlacing = false;
 
-    public float rotationStep = 45f; // Rotate in 45-degree increments
+    public float rotationStep = 45f;
 
     void Update()
     {
@@ -18,15 +18,12 @@ public class ItemPlacer : MonoBehaviour
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         previewObject.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
 
-        // Rotate with arrow keys
+        // Rotate
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q))
-        {
             previewObject.transform.Rotate(0, 0, rotationStep);
-        }
+
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.E))
-        {
             previewObject.transform.Rotate(0, 0, -rotationStep);
-        }
 
         // Place with left-click
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -41,10 +38,20 @@ public class ItemPlacer : MonoBehaviour
 
         previewObject = Instantiate(prefabToPlace);
         isPlacing = true;
+        Transform detection = previewObject.transform.Find("DetectionZone");
+        if (detection != null)
+            detection.gameObject.SetActive(true);
     }
 
     void PlaceItem()
     {
+        if (previewObject != null)
+        {
+            Transform detection = previewObject.transform.Find("DetectionZone");
+            if (detection != null)
+                detection.gameObject.SetActive(false);
+        }
+
         previewObject = null;
         isPlacing = false;
     }
