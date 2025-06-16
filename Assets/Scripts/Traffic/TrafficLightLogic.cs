@@ -16,12 +16,35 @@ public class TrafficLightLogic : MonoBehaviour
     public enum LightState { Red, Green }
     public LightState CurrentState { get; private set; }
 
+    private Coroutine lightRoutine;
+
     void Start()
     {
         if (delay < 0f)
             delay = redDuration;
 
-        StartCoroutine(SwitchLights());
+        // Start coroutine only if simulation is already running
+        if (SimulationManager.Instance != null && SimulationManager.Instance.SimulationRunning)
+        {
+            lightRoutine = StartCoroutine(SwitchLights());
+        }
+    }
+
+    void OnEnable()
+    {
+        // Subscribe to simulation start if not already running
+        StartCoroutine(WaitForSimulationStart());
+    }
+
+    IEnumerator WaitForSimulationStart()
+    {
+        // Wait until SimulationManager exists and simulation is started
+        while (SimulationManager.Instance == null || !SimulationManager.Instance.SimulationRunning)
+        {
+            yield return null;
+        }
+        if (lightRoutine == null)
+            lightRoutine = StartCoroutine(SwitchLights());
     }
 
     IEnumerator SwitchLights()
