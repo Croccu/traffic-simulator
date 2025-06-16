@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class BezierCarController : MonoBehaviour
 {
     private List<Vector3> path;
@@ -8,16 +9,16 @@ public class BezierCarController : MonoBehaviour
 
     [Header("Car Settings")]
     public float maxSpeed = 5f;
-    public float rotationSpeed = 5f;
+    public float rotationSpeed = 15f; // degrees per second
     public float detectionRadius = 2f;
-    public float stopDistance = 1f;
+    public float stopDistance = 1.5f;
+    public float waypointThreshold = 0.2f;
 
     private float currentSpeed;
     private bool isMoving = false;
 
     [Header("Detection")]
     public LayerMask carLayer;
-
     private Collider2D selfCollider;
 
     private bool waitingAtGiveWay = false;
@@ -33,8 +34,7 @@ public class BezierCarController : MonoBehaviour
 
     public void InitializePath(List<Vector3> pathPoints)
     {
-        if (pathPoints == null || pathPoints.Count < 2)
-            return;
+        if (pathPoints == null || pathPoints.Count < 2) return;
 
         path = pathPoints;
         currentIndex = 0;
@@ -68,23 +68,30 @@ public class BezierCarController : MonoBehaviour
 
         Vector3 target = path[currentIndex];
         Vector3 direction = target - transform.position;
+        float distance = direction.magnitude;
 
-        if (direction.magnitude < 0.05f)
-            currentIndex++;
-
-        if (currentIndex >= path.Count)
+        if (distance < waypointThreshold)
         {
-            TrySwitchToNextSpline();
-            return;
+            currentIndex++;
+            if (currentIndex >= path.Count)
+            {
+                TrySwitchToNextSpline();
+                return;
+            }
+            target = path[currentIndex];
+            direction = target - transform.position;
         }
 
-        transform.position += direction.normalized * currentSpeed * Time.deltaTime;
+        // Movement
+        Vector3 moveDir = direction.normalized;
+        transform.position += moveDir * currentSpeed * Time.deltaTime;
 
-        if (direction.sqrMagnitude > 0.01f)
+        // Rotation
+        if (moveDir.sqrMagnitude > 0.001f)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-            Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg - 90f;
+            Quaternion targetRot = Quaternion.Euler(0f, 0f, angle);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -130,7 +137,6 @@ public class BezierCarController : MonoBehaviour
                 float dist = Vector2.Distance(transform.position, col.transform.position);
                 if (dist < closestDistance)
                     closestDistance = dist;
-
                 carDetected = true;
             }
         }
@@ -146,7 +152,9 @@ public class BezierCarController : MonoBehaviour
             }
         }
         else
+        {
             currentSpeed = maxSpeed;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
