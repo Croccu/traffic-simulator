@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1b04a09894df743548708b9ef53804c2
+guid: 7c7e8fbe8aa0e4d9fb41a9f0d341afee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5726891718606915370
-    second: rest6rtBtn_0
+      213: 4299814162526944431
+    second: RestartImage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rest6rtBtn_0
+      name: RestartImage_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 725
-        height: 725
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d8fe45035ef580b0800000000000000
-      internalID: -5726891718606915370
+      spriteID: facbc9d03320cab30800000000000000
+      internalID: 4299814162526944431
       vertices: []
       indices: 
       edges: []

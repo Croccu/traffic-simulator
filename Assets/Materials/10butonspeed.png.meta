@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f857bf8c1b2044807bbad13dbfd581b7
+guid: de437176dd8d84bb1a7073bd0ddbf822
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2108019475250242708
-    second: pauseeex_0
+      213: -1860602811384089292
+    second: 10butonspeed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pauseeex_0
+      name: 10butonspeed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 725
-        height: 725
+        width: 455
+        height: 456
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 49465e14b80314d10800000000000000
-      internalID: 2108019475250242708
+      spriteID: 435bb57d99fcd26e0800000000000000
+      internalID: -1860602811384089292
       vertices: []
       indices: 
       edges: []

@@ -1,19 +1,15 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UiButtonController : MonoBehaviour
 {
     [Header("Sign Panel Toggle")]
-    public GameObject signPanel; // Assign the UI panel to show/hide
+    public GameObject signPanel;
 
-    [Header("Play/Pause Button Toggle")]
-    public Image playPauseButtonImage;  // Assign the button's Image component
-    public Sprite playSprite;           // Sprite to show when in "play" state
-    public Sprite pauseSprite;          // Sprite to show when in "pause" state
-
+    [Header("Play/Pause Toggle")]
+    public GameObject playImage;   
+    public GameObject pauseImage;  
     private bool isPlaying = false;
 
-    // Toggles the sign panel on or off
     public void ToggleSignPanel()
     {
         if (signPanel != null)
@@ -26,32 +22,32 @@ public class UiButtonController : MonoBehaviour
         }
     }
 
-    // Toggles play/pause state and updates the icon
     public void TogglePlayPause()
     {
         isPlaying = !isPlaying;
 
-        if (playPauseButtonImage != null)
+        if (playImage != null && pauseImage != null)
         {
-            playPauseButtonImage.sprite = isPlaying ? pauseSprite : playSprite;
+            playImage.SetActive(!isPlaying);
+            pauseImage.SetActive(isPlaying);
         }
         else
         {
-            Debug.LogWarning("UiButtonController: playPauseButtonImage is not assigned!");
+            Debug.LogWarning("UiButtonController: One or both icon GameObjects not assigned!");
         }
 
-        // Optional: Your game logic (e.g., time scale)
         if (isPlaying)
         {
             Debug.Log("Playing...");
-            // Time.timeScale = 1;
+            
         }
         else
         {
             Debug.Log("Paused.");
-            // Time.timeScale = 0;
+            
         }
     }
 }
+
 
 
