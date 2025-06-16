@@ -26,6 +26,10 @@ public class BezierCarController : MonoBehaviour
 
     public BezierRouteSpline currentSpline;
 
+    // Dynamic traffic light logic
+    private TrafficLightLogic currentTrafficLight = null;
+    private bool atTrafficLight = false;
+
     void Start()
     {
         currentSpeed = maxSpeed;
@@ -53,11 +57,22 @@ public class BezierCarController : MonoBehaviour
         if (!isMoving || path == null || currentIndex >= path.Count)
             return;
 
+        // Stop at give way zone if needed
         if (waitingAtGiveWay && currentGiveWayZone != null)
         {
             if (currentGiveWayZone.IsIntersectionClear(selfCollider))
                 waitingAtGiveWay = false;
             else
+            {
+                currentSpeed = 0f;
+                return;
+            }
+        }
+
+        // Stop at red traffic light if at intersection
+        if (atTrafficLight && currentTrafficLight != null)
+        {
+            if (currentTrafficLight.CurrentState == TrafficLightLogic.LightState.Red)
             {
                 currentSpeed = 0f;
                 return;
@@ -159,11 +174,19 @@ public class BezierCarController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // Give way logic
         GiveWayZone zone = other.GetComponent<GiveWayZone>();
         if (zone != null)
         {
             currentGiveWayZone = zone;
             waitingAtGiveWay = true;
+        }
+
+        // Traffic light logic
+        if (other.CompareTag("TrafficLightTrigger"))
+        {
+            currentTrafficLight = other.GetComponentInParent<TrafficLightLogic>();
+            atTrafficLight = currentTrafficLight != null;
         }
     }
 
@@ -173,6 +196,15 @@ public class BezierCarController : MonoBehaviour
         {
             currentGiveWayZone = null;
             waitingAtGiveWay = false;
+        }
+
+        if (other.CompareTag("TrafficLightTrigger"))
+        {
+            if (other.GetComponentInParent<TrafficLightLogic>() == currentTrafficLight)
+            {
+                atTrafficLight = false;
+                currentTrafficLight = null;
+            }
         }
     }
 

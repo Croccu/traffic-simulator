@@ -7,6 +7,14 @@ public class TrafficLightLogic : MonoBehaviour
     public GameObject yellowLight;
     public GameObject greenLight;
 
+    [Header("Light Timings (seconds)")]
+    public float redDuration = 5f;
+    public float yellowDuration = 2f;
+    public float greenDuration = 5f;
+
+    public enum LightState { Red, Yellow, Green }
+    public LightState CurrentState { get; private set; }
+
     void Start()
     {
         StartCoroutine(SwitchLights());
@@ -17,12 +25,15 @@ public class TrafficLightLogic : MonoBehaviour
         while (true)
         {
             SetActiveLight(redLight);
+            CurrentState = LightState.Red;
             yield return new WaitForSeconds(5f);
 
             SetActiveLight(yellowLight);
+            CurrentState = LightState.Yellow;
             yield return new WaitForSeconds(2f);
 
             SetActiveLight(greenLight);
+            CurrentState = LightState.Green;
             yield return new WaitForSeconds(5f);
         }
     }

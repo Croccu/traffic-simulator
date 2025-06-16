@@ -111,6 +111,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   currentSpline: {fileID: 0}
+  trafficLightLogic: {fileID: 0}
 --- !u!70 &-5619514240620033583
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
