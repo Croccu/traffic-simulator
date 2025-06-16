@@ -8,14 +8,14 @@ public class BezierCarController : MonoBehaviour
 
     [Header("Car Settings")]
     public float maxSpeed = 5f;
-    public float rotationSpeed = 5f;
+    public float rotationSpeed = 280f;
     public float detectionRadius = 2f;
     public float stopDistance = 1f;
+    public float waypointReachThreshold = 0.1f;
 
     private float currentSpeed;
+    private float currentSpeedLimit;
     private bool isMoving = false;
-    private float originalMaxSpeed;
-    private bool inSpeedZone = false;
 
     [Header("Detection")]
     public LayerMask carLayer;
@@ -28,21 +28,20 @@ public class BezierCarController : MonoBehaviour
 
     void Start()
     {
-        currentSpeed = maxSpeed;
-        originalMaxSpeed = maxSpeed;
+        currentSpeedLimit = maxSpeed;
+        currentSpeed = currentSpeedLimit;
         selfCollider = GetComponent<Collider2D>();
     }
 
     public void InitializePath(List<Vector3> pathPoints)
     {
-        if (pathPoints == null || pathPoints.Count < 2)
-            return;
+        if (pathPoints == null || pathPoints.Count < 2) return;
 
         path = pathPoints;
         currentIndex = 0;
         transform.position = path[0];
         isMoving = true;
-        currentSpeed = maxSpeed;
+        currentSpeed = currentSpeedLimit;
     }
 
     public void SetCurrentSpline(BezierRouteSpline spline)
@@ -52,8 +51,7 @@ public class BezierCarController : MonoBehaviour
 
     void Update()
     {
-        if (!isMoving || path == null || currentIndex >= path.Count)
-            return;
+        if (!isMoving || path == null || currentIndex >= path.Count) return;
 
         if (waitingAtGiveWay && currentGiveWayZone != null)
         {
@@ -69,24 +67,29 @@ public class BezierCarController : MonoBehaviour
         AdjustSpeedBasedOnCarAhead();
 
         Vector3 target = path[currentIndex];
-        Vector3 direction = target - transform.position;
+        float distance = Vector3.Distance(transform.position, target);
 
-        if (direction.magnitude < 0.05f)
-            currentIndex++;
-
-        if (currentIndex >= path.Count)
+        if (distance < waypointReachThreshold)
         {
-            TrySwitchToNextSpline();
-            return;
+            currentIndex++;
+            if (currentIndex >= path.Count)
+            {
+                TrySwitchToNextSpline();
+                return;
+            }
+            target = path[currentIndex];
         }
 
-        transform.position += direction.normalized * currentSpeed * Time.deltaTime;
+        // Move smoothly
+        transform.position = Vector3.MoveTowards(transform.position, target, currentSpeed * Time.deltaTime);
 
-        if (direction.sqrMagnitude > 0.01f)
+        // Rotate smoothly
+        Vector3 direction = target - transform.position;
+        if (direction.sqrMagnitude > 0.001f)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -94,7 +97,7 @@ public class BezierCarController : MonoBehaviour
     {
         if (currentSpline != null && currentSpline.nextSplines.Count > 0)
         {
-            List<BezierRouteSpline> validOptions = new List<BezierRouteSpline>();
+            List<BezierRouteSpline> validOptions = new();
             foreach (var next in currentSpline.nextSplines)
             {
                 if (next != null)
@@ -144,12 +147,12 @@ public class BezierCarController : MonoBehaviour
             else
             {
                 float t = (closestDistance - stopDistance) / (detectionRadius - stopDistance);
-                currentSpeed = Mathf.Lerp(0f, maxSpeed, t);
+                currentSpeed = Mathf.Lerp(0f, currentSpeedLimit, t);
             }
         }
         else
         {
-            currentSpeed = maxSpeed;
+            currentSpeed = currentSpeedLimit;
         }
     }
 
@@ -165,8 +168,7 @@ public class BezierCarController : MonoBehaviour
         var speedZone = other.GetComponent<SpeedZone>();
         if (speedZone != null)
         {
-            maxSpeed = speedZone.speedLimit;
-            inSpeedZone = true;
+            currentSpeedLimit = speedZone.speedLimit;
         }
     }
 
@@ -176,12 +178,6 @@ public class BezierCarController : MonoBehaviour
         {
             currentGiveWayZone = null;
             waitingAtGiveWay = false;
-        }
-
-        if (inSpeedZone && other.GetComponent<SpeedZone>() != null)
-        {
-            maxSpeed = originalMaxSpeed;
-            inSpeedZone = false;
         }
     }
 
