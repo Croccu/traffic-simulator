@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class BezierCarController : MonoBehaviour
 {
     private List<Vector3> path;
@@ -9,13 +8,14 @@ public class BezierCarController : MonoBehaviour
 
     [Header("Car Settings")]
     public float maxSpeed = 5f;
-    public float rotationSpeed = 15f; // degrees per second
+    public float rotationSpeed = 5f;
     public float detectionRadius = 2f;
-    public float stopDistance = 1.5f;
-    public float waypointThreshold = 0.2f;
+    public float stopDistance = 1f;
 
     private float currentSpeed;
     private bool isMoving = false;
+    private float originalMaxSpeed;
+    private bool inSpeedZone = false;
 
     [Header("Detection")]
     public LayerMask carLayer;
@@ -26,19 +26,17 @@ public class BezierCarController : MonoBehaviour
 
     public BezierRouteSpline currentSpline;
 
-    // Dynamic traffic light logic
-    private TrafficLightLogic currentTrafficLight = null;
-    private bool atTrafficLight = false;
-
     void Start()
     {
         currentSpeed = maxSpeed;
+        originalMaxSpeed = maxSpeed;
         selfCollider = GetComponent<Collider2D>();
     }
 
     public void InitializePath(List<Vector3> pathPoints)
     {
-        if (pathPoints == null || pathPoints.Count < 2) return;
+        if (pathPoints == null || pathPoints.Count < 2)
+            return;
 
         path = pathPoints;
         currentIndex = 0;
@@ -57,7 +55,6 @@ public class BezierCarController : MonoBehaviour
         if (!isMoving || path == null || currentIndex >= path.Count)
             return;
 
-        // Stop at give way zone if needed
         if (waitingAtGiveWay && currentGiveWayZone != null)
         {
             if (currentGiveWayZone.IsIntersectionClear(selfCollider))
@@ -69,44 +66,27 @@ public class BezierCarController : MonoBehaviour
             }
         }
 
-        // Stop at red traffic light if at intersection
-        if (atTrafficLight && currentTrafficLight != null)
-        {
-            if (currentTrafficLight.CurrentState == TrafficLightLogic.LightState.Red)
-            {
-                currentSpeed = 0f;
-                return;
-            }
-        }
-
         AdjustSpeedBasedOnCarAhead();
 
         Vector3 target = path[currentIndex];
         Vector3 direction = target - transform.position;
-        float distance = direction.magnitude;
 
-        if (distance < waypointThreshold)
-        {
+        if (direction.magnitude < 0.05f)
             currentIndex++;
-            if (currentIndex >= path.Count)
-            {
-                TrySwitchToNextSpline();
-                return;
-            }
-            target = path[currentIndex];
-            direction = target - transform.position;
+
+        if (currentIndex >= path.Count)
+        {
+            TrySwitchToNextSpline();
+            return;
         }
 
-        // Movement
-        Vector3 moveDir = direction.normalized;
-        transform.position += moveDir * currentSpeed * Time.deltaTime;
+        transform.position += direction.normalized * currentSpeed * Time.deltaTime;
 
-        // Rotation
-        if (moveDir.sqrMagnitude > 0.001f)
+        if (direction.sqrMagnitude > 0.01f)
         {
-            float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg - 90f;
-            Quaternion targetRot = Quaternion.Euler(0f, 0f, angle);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -152,6 +132,7 @@ public class BezierCarController : MonoBehaviour
                 float dist = Vector2.Distance(transform.position, col.transform.position);
                 if (dist < closestDistance)
                     closestDistance = dist;
+
                 carDetected = true;
             }
         }
@@ -174,19 +155,18 @@ public class BezierCarController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Give way logic
-        GiveWayZone zone = other.GetComponent<GiveWayZone>();
+        var zone = other.GetComponent<GiveWayZone>();
         if (zone != null)
         {
             currentGiveWayZone = zone;
             waitingAtGiveWay = true;
         }
 
-        // Traffic light logic
-        if (other.CompareTag("TrafficLightTrigger"))
+        var speedZone = other.GetComponent<SpeedZone>();
+        if (speedZone != null)
         {
-            currentTrafficLight = other.GetComponentInParent<TrafficLightLogic>();
-            atTrafficLight = currentTrafficLight != null;
+            maxSpeed = speedZone.speedLimit;
+            inSpeedZone = true;
         }
     }
 
@@ -198,13 +178,10 @@ public class BezierCarController : MonoBehaviour
             waitingAtGiveWay = false;
         }
 
-        if (other.CompareTag("TrafficLightTrigger"))
+        if (inSpeedZone && other.GetComponent<SpeedZone>() != null)
         {
-            if (other.GetComponentInParent<TrafficLightLogic>() == currentTrafficLight)
-            {
-                atTrafficLight = false;
-                currentTrafficLight = null;
-            }
+            maxSpeed = originalMaxSpeed;
+            inSpeedZone = false;
         }
     }
 
