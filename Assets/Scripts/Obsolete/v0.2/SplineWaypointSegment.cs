@@ -39,7 +39,7 @@ public class SplineWaypointSegment : MonoBehaviour
 
     for (int i = 0; i < nodes.Count - 1; i++)
     {
-      nodes[i].connectedNodes.Add(nodes[i + 1]);
+      nodes[i].nextNodes.Add(nodes[i + 1]);
     }
   }
 }

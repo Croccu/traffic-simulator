@@ -77,7 +77,7 @@ public class CarAgent : MonoBehaviour
 
       if (current == goal) return currentPath;
 
-      foreach (var neighbor in current.connectedNodes)
+      foreach (var neighbor in current.nextNodes)
       {
         if (neighbor == null || visited.Contains(neighbor)) continue;
         var newPath = new List<WaypointNode>(currentPath) { neighbor };
