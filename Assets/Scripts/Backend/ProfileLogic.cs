@@ -8,6 +8,7 @@ public class ProfileLogic : MonoBehaviour
     [Header("UI References")]
     public TMP_InputField usernameField;
     public TMP_InputField emailField;
+    public TMP_InputField newPasswordField; // this is always shown, but empty by default
     public TMP_Text feedbackText;
     public GameObject feedbackPanel;
     public TMP_Text editButtonLabel;
@@ -22,13 +23,14 @@ public class ProfileLogic : MonoBehaviour
         string username = PlayerPrefs.GetString("LoggedInUser", "");
         string email = PlayerPrefs.GetString("LoggedInEmail", "");
 
-        Debug.Log($"Laaditud profiil: {username}, {email}");
-
         usernameField.text = username;
         emailField.text = email;
+        newPasswordField.text = "";
 
         usernameField.interactable = false;
         emailField.interactable = false;
+        newPasswordField.interactable = false;
+
         editButtonLabel.text = "Muuda andmeid";
         feedbackPanel.SetActive(false);
     }
@@ -39,9 +41,11 @@ public class ProfileLogic : MonoBehaviour
 
         usernameField.interactable = isEditMode;
         emailField.interactable = isEditMode;
+        newPasswordField.interactable = isEditMode;
 
         if (isEditMode)
         {
+            newPasswordField.text = "";
             editButtonLabel.text = "Kinnita";
         }
         else
@@ -55,11 +59,27 @@ public class ProfileLogic : MonoBehaviour
     {
         string newUsername = usernameField.text.Trim();
         string newEmail = emailField.text.Trim();
+        string newPassword = newPasswordField.text.Trim();
         string oldEmail = PlayerPrefs.GetString("LoggedInEmail", "");
 
+        // Basic checks
         if (string.IsNullOrEmpty(newUsername) || string.IsNullOrEmpty(newEmail))
         {
-            feedbackText.text = "Väljad ei tohi olla tühjad";
+            feedbackText.text = "Kasutajanimi ja e-post ei tohi olla tühjad";
+            feedbackPanel.SetActive(true);
+            yield break;
+        }
+
+        if (!IsValidEmail(newEmail))
+        {
+            feedbackText.text = "E-posti aadress ei ole sobiv";
+            feedbackPanel.SetActive(true);
+            yield break;
+        }
+
+        if (!string.IsNullOrEmpty(newPassword) && newPassword.Length < 6)
+        {
+            feedbackText.text = "Parool peab olema vähemalt 6 tähemärki pikk";
             feedbackPanel.SetActive(true);
             yield break;
         }
@@ -69,7 +89,8 @@ public class ProfileLogic : MonoBehaviour
             profileUpdate = true,
             oldEmail = oldEmail,
             newUsername = newUsername,
-            newEmail = newEmail
+            newEmail = newEmail,
+            newPassword = string.IsNullOrEmpty(newPassword) ? null : newPassword
         };
 
         string json = JsonUtility.ToJson(updateData);
@@ -97,13 +118,18 @@ public class ProfileLogic : MonoBehaviour
             PlayerPrefs.SetString("LoggedInEmail", newEmail);
 
             feedbackText.text = "Andmed edukalt uuendatud!";
-            feedbackPanel.SetActive(true);
         }
         else
         {
             feedbackText.text = response.message ?? "Tundmatu viga";
-            feedbackPanel.SetActive(true);
         }
+
+        feedbackPanel.SetActive(true);
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        return System.Text.RegularExpressions.Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
     }
 
     [System.Serializable]
@@ -113,6 +139,7 @@ public class ProfileLogic : MonoBehaviour
         public string oldEmail;
         public string newUsername;
         public string newEmail;
+        public string newPassword;
     }
 
     [System.Serializable]
@@ -122,5 +149,9 @@ public class ProfileLogic : MonoBehaviour
         public string message;
     }
 }
+
+
+
+
 
 
