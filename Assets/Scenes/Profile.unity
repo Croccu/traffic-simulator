@@ -4236,7 +4236,7 @@ MonoBehaviour:
   feedbackText: {fileID: 1361136802}
   feedbackPanel: {fileID: 1276450173}
   editButtonLabel: {fileID: 129138790}
-  updateProfileUrl: https://script.google.com/macros/s/AKfycbwDaBbOglZxfo9l0FtmvZ4B12-WcIqf0TeZDQkyCRkT1J4ix4uw66ZpR7z2D9qRGlNtxQ/exec
+  updateProfileUrl: https://script.google.com/macros/s/AKfycbzWsQk1eDZ7l92ovVI5ZqGXnwmwFOam6_ln4JeGomuH_dpcV689GoiiX6Gft5JYF9dOZA/exec
 --- !u!4 &2111202339
 Transform:
   m_ObjectHideFlags: 0
