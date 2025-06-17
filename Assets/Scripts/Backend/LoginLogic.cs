@@ -13,7 +13,7 @@ public class LoginLogic : MonoBehaviour
     public GameObject feedbackPanel;
 
     [Header("API Settings")]
-    public string loginApiUrl = "https://script.google.com/macros/s/AKfycbx-IMMNDIzt6dC0Kqjmwh8vlKKXlEllN2_b9CUsqozSbqwlNMWmovaEFuKoJs766Zf0-Q/exec";
+    public string loginApiUrl = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
     public string targetScene = "Menu";
 
     public void OnLoginButtonClick()
@@ -64,9 +64,12 @@ public class LoginLogic : MonoBehaviour
         {
             feedbackText.text = "Sisselogimine õnnestus!";
             feedbackPanel.SetActive(true);
+
             PlayerPrefs.SetString("LoggedInUser", response.username);
+            PlayerPrefs.SetString("LoggedInEmail", response.email);
             PlayerPrefs.SetString("LoggedInCity", response.city ?? "");
             PlayerPrefs.SetString("LoggedInCountry", response.country ?? "");
+
             yield return new WaitForSeconds(1.5f);
             feedbackPanel.SetActive(false);
             SceneManager.LoadScene(targetScene);
@@ -92,10 +95,13 @@ public class LoginLogic : MonoBehaviour
         public string result;
         public string message;
         public string username;
+        public string email; 
         public string city;
         public string country;
     }
 }
+
+
 
 
 

@@ -1392,7 +1392,7 @@ MonoBehaviour:
   passwordField: {fileID: 547343091}
   feedbackText: {fileID: 1844518016}
   feedbackPanel: {fileID: 2052329727}
-  loginApiUrl: https://script.google.com/macros/s/AKfycbxjuDyxyU5WM6NUMnWVSTtgnrqS4MFvrJrSgv4q8vfGKA5rsIsMzTjVKwTMQaG9n1rPlw/exec
+  loginApiUrl: https://script.google.com/macros/s/AKfycbw5EUZgLaZ4DrCEZRHDJncmpDcdsDoN9DzxmfsRxWuackrEZMUhO4yKFJPu2W9Sl920OQ/exec
   targetScene: Menu
 --- !u!4 &1190848686
 Transform:
