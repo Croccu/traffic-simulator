@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2287903595452857110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1872430462029150919}
+  m_Layer: 0
+  m_Name: P0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1872430462029150919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287903595452857110}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.8, y: -144.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4926413552731316942}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3900709203160355139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166794833078425995}
+  m_Layer: 0
+  m_Name: P1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &166794833078425995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3900709203160355139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3, y: -33.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4926413552731316942}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6164266936040654148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4926413552731316942}
+  - component: {fileID: 7582361548118754401}
+  m_Layer: 0
+  m_Name: Waypoint 2 point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4926413552731316942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164266936040654148}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.00006703205}
+  m_LocalPosition: {x: -1.24, y: 21.27, z: -0.0450244}
+  m_LocalScale: {x: 0.084199995, y: 0.070599996, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1872430462029150919}
+  - {fileID: 166794833078425995}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180.008}
+--- !u!114 &7582361548118754401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164266936040654148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e9abe50dfad8e459dea0eaa77e4880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlPoints:
+  - {fileID: 1872430462029150919}
+  - {fileID: 166794833078425995}
+  resolutionPerSegment: 20
+  waypoints:
+  - {x: -0.9384549, y: 22.223839, z: 0.044105973}
+  - {x: -0.9405073, y: 21.831303, z: 0.044105973}
+  - {x: -0.94255966, y: 21.438766, z: 0.044105973}
+  - {x: -0.944612, y: 21.04623, z: 0.044105973}
+  - {x: -0.9466644, y: 20.653694, z: 0.044105973}
+  - {x: -0.94871676, y: 20.261158, z: 0.044105973}
+  - {x: -0.9507692, y: 19.868622, z: 0.044105973}
+  - {x: -0.95282155, y: 19.476086, z: 0.044105973}
+  - {x: -0.9548739, y: 19.08355, z: 0.044105973}
+  - {x: -0.9569263, y: 18.691013, z: 0.044105973}
+  - {x: -0.95897865, y: 18.298477, z: 0.044105973}
+  - {x: -0.961031, y: 17.905941, z: 0.044105973}
+  - {x: -0.9630834, y: 17.513405, z: 0.044105973}
+  - {x: -0.96513575, y: 17.120869, z: 0.044105973}
+  - {x: -0.9671881, y: 16.728333, z: 0.044105973}
+  - {x: -0.96924055, y: 16.335796, z: 0.044105973}
+  - {x: -0.9712929, y: 15.943261, z: 0.044105973}
+  - {x: -0.9733453, y: 15.550725, z: 0.044105973}
+  - {x: -0.97539765, y: 15.158189, z: 0.044105973}
+  - {x: -0.97745, y: 14.765653, z: 0.044105973}
+  - {x: -0.9795024, y: 14.3731165, z: 0.044105973}
+  nextSplines: []
