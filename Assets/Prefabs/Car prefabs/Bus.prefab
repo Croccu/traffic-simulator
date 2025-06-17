@@ -106,7 +106,7 @@ MonoBehaviour:
   rotationSpeed: 280
   detectionRadius: 0.6
   stopDistance: 1.5
-  waypointThreshold: 0.2
+  waypointReachThreshold: 0.1
   carLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -146,7 +146,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.51, y: 5.95}
+  m_Size: {x: 1.84, y: 5.95}
   m_Direction: 0
 --- !u!50 &-4748066172779443128
 Rigidbody2D:
