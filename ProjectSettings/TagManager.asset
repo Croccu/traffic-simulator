@@ -8,6 +8,7 @@ TagManager:
   - Exit
   - Intersection
   - TrafficLightTrigger
+  - Waypoint
   layers:
   - Default
   - TransparentFX

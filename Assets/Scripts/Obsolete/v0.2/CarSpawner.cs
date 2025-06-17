@@ -25,9 +25,9 @@ public class CarSpawner : MonoBehaviour
     Vector3 spawnPos = entry.transform.position;
     Quaternion spawnRot = Quaternion.identity;
 
-    if (entry.connectedNodes.Count > 0)
+    if (entry.nextNodes.Count > 0)
     {
-      Vector3 dir = entry.connectedNodes[0].transform.position - entry.transform.position;
+      Vector3 dir = entry.nextNodes[0].transform.position - entry.transform.position;
       spawnRot = Quaternion.LookRotation(Vector3.forward, dir.normalized);
     }
 

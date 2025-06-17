@@ -3,8 +3,8 @@ guid: 40cc94c01ea704336bf27df9cb884868
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7792287539931913096
-    second: Group 25-3_0
+      213: -3947559091384773983
+    second: Group 25-3(katki)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Group 25-3_0
+      name: Group 25-3(katki)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 874e7aa84cb3cd390800000000000000
-      internalID: -7792287539931913096
+      spriteID: 1a29524ebe37739c0800000000000000
+      internalID: -3947559091384773983
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Group 25-3_0: -7792287539931913096
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
