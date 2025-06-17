@@ -1,0 +1,655 @@
+fileFormatVersion: 2
+guid: ea7ee2d4fb762437cad448df96e1e741
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7460952297560643240
+    second: housestransparent-Photoroom_0
+  - first:
+      213: -246339494142291485
+    second: housestransparent-Photoroom_1
+  - first:
+      213: -4444541317059388622
+    second: housestransparent-Photoroom_2
+  - first:
+      213: 5972221293599174203
+    second: housestransparent-Photoroom_3
+  - first:
+      213: 238282279067482171
+    second: housestransparent-Photoroom_4
+  - first:
+      213: -7638974767650545132
+    second: housestransparent-Photoroom_5
+  - first:
+      213: 1836411788373673672
+    second: housestransparent-Photoroom_6
+  - first:
+      213: 3300041312389862417
+    second: housestransparent-Photoroom_7
+  - first:
+      213: -1365253221662153616
+    second: housestransparent-Photoroom_8
+  - first:
+      213: -2825837149218920898
+    second: housestransparent-Photoroom_9
+  - first:
+      213: -3742555409366982231
+    second: housestransparent-Photoroom_10
+  - first:
+      213: -8536298962377971380
+    second: housestransparent-Photoroom_11
+  - first:
+      213: 2221076333095410447
+    second: housestransparent-Photoroom_12
+  - first:
+      213: 862524844192116778
+    second: housestransparent-Photoroom_13
+  - first:
+      213: 4610677258788588105
+    second: housestransparent-Photoroom_14
+  - first:
+      213: 8979512066234811461
+    second: housestransparent-Photoroom_15
+  - first:
+      213: 7135264004644757727
+    second: housestransparent-Photoroom_16
+  - first:
+      213: 3936014973620710872
+    second: housestransparent-Photoroom_17
+  - first:
+      213: -4391472635298069193
+    second: housestransparent-Photoroom_18
+  - first:
+      213: -727697553011469443
+    second: housestransparent-Photoroom_19
+  - first:
+      213: 417062624529071915
+    second: housestransparent-Photoroom_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1052
+        width: 258
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85963c94a6f557890800000000000000
+      internalID: -7460952297560643240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 1044
+        width: 103
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e1df750983d49cf0800000000000000
+      internalID: -246339494142291485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1047
+        width: 123
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bd0276831d152c0800000000000000
+      internalID: -4444541317059388622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1054
+        width: 133
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ea005df9791e250800000000000000
+      internalID: 5972221293599174203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 1054
+        width: 293
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b387618687c8e4300800000000000000
+      internalID: 238282279067482171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 762
+        width: 172
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412640efbe8ecf590800000000000000
+      internalID: -7638974767650545132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_6
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 733
+        width: 239
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c64a53bace3c7910800000000000000
+      internalID: 1836411788373673672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 895
+        width: 416
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1149c19d61a1ccd20800000000000000
+      internalID: 3300041312389862417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 719
+        width: 393
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 074ae56ad65ad0de0800000000000000
+      internalID: -1365253221662153616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_9
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 709
+        width: 109
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3624bfa51c98c8d0800000000000000
+      internalID: -2825837149218920898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_10
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 560
+        width: 338
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1e6702fa5cf0cc0800000000000000
+      internalID: -3742555409366982231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 557
+        width: 168
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49ecea2259f88980800000000000000
+      internalID: -8536298962377971380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 443
+        width: 114
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0bdd2d3829d2de10800000000000000
+      internalID: 2221076333095410447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_13
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 492
+        width: 151
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a203504a6cd48fb00800000000000000
+      internalID: 862524844192116778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 298
+        width: 159
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ac018d98a6cff30800000000000000
+      internalID: 4610677258788588105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 319
+        width: 273
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 544824416a2ad9c70800000000000000
+      internalID: 8979512066234811461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_16
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 301
+        width: 260
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd06b77decc850360800000000000000
+      internalID: 7135264004644757727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_17
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 311
+        width: 206
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dde74db3c88f9630800000000000000
+      internalID: 3936014973620710872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_18
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 63
+        width: 98
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735c53cb7ea5e03c0800000000000000
+      internalID: -4391472635298069193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_19
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 63
+        width: 317
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7394d85ee2b6e5f0800000000000000
+      internalID: -727697553011469443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housestransparent-Photoroom_20
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 63
+        width: 383
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2fb5205f34b9c500800000000000000
+      internalID: 417062624529071915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
