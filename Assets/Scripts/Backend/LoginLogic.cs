@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
 using System.Collections;
-using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class LoginLogic : MonoBehaviour
@@ -11,85 +10,93 @@ public class LoginLogic : MonoBehaviour
     public TMP_InputField usernameField;
     public TMP_InputField passwordField;
     public TMP_Text feedbackText;
+    public GameObject feedbackPanel;
 
     [Header("API Settings")]
-    public string usersDataUrl = "https://script.google.com/macros/s/AKfycbx-IMMNDIzt6dC0Kqjmwh8vlKKXlEllN2_b9CUsqozSbqwlNMWmovaEFuKoJs766Zf0-Q/exec";
-    public string targetScene = "Menu"; // Scene to load on successful login
-
-    private UserData[] allUsers;
+    public string loginApiUrl = "https://script.google.com/macros/s/AKfycbx-IMMNDIzt6dC0Kqjmwh8vlKKXlEllN2_b9CUsqozSbqwlNMWmovaEFuKoJs766Zf0-Q/exec";
+    public string targetScene = "Menu";
 
     public void OnLoginButtonClick()
     {
-        StartCoroutine(CheckLoginCredentials());
+        string username = usernameField.text.Trim();
+        string password = passwordField.text.Trim();
+
+        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+        {
+            feedbackText.text = "Palun sisesta kasutajanimi ja parool";
+            feedbackPanel.SetActive(true);
+            return;
+        }
+
+        StartCoroutine(SendLoginRequest(username, password));
     }
 
-    IEnumerator CheckLoginCredentials()
+    private IEnumerator SendLoginRequest(string username, string password)
     {
-        // First download all user data
-        UnityWebRequest www = UnityWebRequest.Get(usersDataUrl);
+        LoginRequest loginData = new LoginRequest
+        {
+            loginRequest = true,
+            username = username,
+            password = password
+        };
+
+        string json = JsonUtility.ToJson(loginData);
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
+
+        UnityWebRequest www = new UnityWebRequest(loginApiUrl, "POST");
+        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        www.downloadHandler = new DownloadHandlerBuffer();
+        www.SetRequestHeader("Content-Type", "application/json");
+
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            feedbackText.text = "Connection error. Try again later.";
+            feedbackText.text = "Ühenduse viga.";
+            feedbackPanel.SetActive(true);
+            Debug.LogError(www.error);
             yield break;
         }
 
-        // Parse JSON data
-        try
-        {
-            string jsonString = "{\"users\":" + www.downloadHandler.text + "}";
-            allUsers = JsonHelper.FromJson<UserData>(jsonString);
-        }
-        catch
-        {
-            feedbackText.text = "Data format error.";
-            yield break;
-        }
+        LoginResponse response = JsonUtility.FromJson<LoginResponse>(www.downloadHandler.text);
 
-        // Check credentials
-        string username = usernameField.text.Trim();
-        string password = passwordField.text;
-
-        var matchedUser = allUsers.FirstOrDefault(user =>
-            user.username == username &&
-            user.password == password);
-
-        if (matchedUser != null)
+        if (response.result == "success")
         {
-            feedbackText.text = "Login successful!";
-            PlayerPrefs.SetString("LoggedInUser", username);
-            PlayerPrefs.SetString("LoggedInEmail", matchedUser.email);
-            yield return new WaitForSeconds(0.1f);
+            feedbackText.text = "Sisselogimine õnnestus!";
+            feedbackPanel.SetActive(true);
+            PlayerPrefs.SetString("LoggedInUser", response.username);
+            PlayerPrefs.SetString("LoggedInCity", response.city ?? "");
+            PlayerPrefs.SetString("LoggedInCountry", response.country ?? "");
+            yield return new WaitForSeconds(1.5f);
+            feedbackPanel.SetActive(false);
             SceneManager.LoadScene(targetScene);
         }
         else
         {
-            feedbackText.text = "Invalid username or password";
+            feedbackText.text = response.message ?? "Vale kasutajanimi või parool";
+            feedbackPanel.SetActive(true);
         }
     }
 
     [System.Serializable]
-    private class UserData
+    private class LoginRequest
     {
+        public bool loginRequest;
         public string username;
-        public string email;
         public string password;
     }
 
-    // Helper class for array JSON parsing
-    public static class JsonHelper
+    [System.Serializable]
+    private class LoginResponse
     {
-        public static T[] FromJson<T>(string json)
-        {
-            Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(json);
-            return wrapper.users;
-        }
-
-        [System.Serializable]
-        private class Wrapper<T>
-        {
-            public T[] users;
-        }
+        public string result;
+        public string message;
+        public string username;
+        public string city;
+        public string country;
     }
 }
+
+
+
+

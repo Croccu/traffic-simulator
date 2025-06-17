@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6937654007002648767}
   - component: {fileID: 5110634973181945987}
   - component: {fileID: 1356178518478538592}
+  - component: {fileID: 5346262225226262034}
   m_Layer: 0
   m_Name: StopSign prefab
   m_TagString: Untagged
@@ -154,6 +155,19 @@ MonoBehaviour:
   carLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5346262225226262034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120524819455177772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ddb44b9731d3d541b61790260f84529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopDuration: 2
 --- !u!1 &7262787466352028495
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,9 @@ public class BezierCarController : MonoBehaviour
     private bool atTrafficLight = false;
     private TrafficLightLogic currentTrafficLight = null;
 
+    private bool isStoppingTemporarily = false;
+    private float stopReleaseTime = 0f;
+
     public BezierRouteSpline currentSpline;
 
     void Start()
@@ -56,13 +59,25 @@ public class BezierCarController : MonoBehaviour
     {
         if (!isMoving || path == null || currentIndex >= path.Count) return;
 
-        // Stop at red traffic light
         if (atTrafficLight && currentTrafficLight != null)
         {
             if (currentTrafficLight.CurrentState == TrafficLightLogic.LightState.Red)
             {
                 currentSpeed = 0f;
                 return;
+            }
+        }
+
+        if (isStoppingTemporarily)
+        {
+            if (Time.time < stopReleaseTime)
+            {
+                currentSpeed = 0f;
+                return;
+            }
+            else
+            {
+                isStoppingTemporarily = false;
             }
         }
 
@@ -190,6 +205,13 @@ public class BezierCarController : MonoBehaviour
             {
                 atTrafficLight = true;
             }
+        }
+
+        var stopMarker = other.GetComponent<StopMarker>();
+        if (stopMarker != null)
+        {
+            isStoppingTemporarily = true;
+            stopReleaseTime = Time.time + stopMarker.stopDuration;
         }
     }
 

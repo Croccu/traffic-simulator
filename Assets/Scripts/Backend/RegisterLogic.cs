@@ -10,21 +10,30 @@ public class RegisterLogic : MonoBehaviour
     public TMP_InputField usernameField;
     public TMP_InputField emailField;
     public TMP_InputField passwordField;
+    public TMP_InputField countryField;
+    public TMP_InputField cityField;
+    public TMP_InputField birthdateField; // oodatud formaat: dd/mm/yyyy
     public TMP_Text feedbackText;
-    public GameObject feedbackPanel; // <<< UUS: paneel tagasiside jaoks (nt punase taustaga)
+    public GameObject feedbackPanel;
 
     [Header("Scene & API Settings")]
     public string targetSceneName;
     [TextArea]
     public string googleSheetPostUrl = "https://script.google.com/macros/s/..."; // sinu URL
 
+    [Header("Debug Settings")]
+    public bool showDebugLogs = true;
+
     public void OnRegisterButtonClick()
     {
         string username = usernameField.text.Trim();
         string email = emailField.text.Trim();
         string password = passwordField.text;
+        string country = countryField.text.Trim();
+        string city = cityField.text.Trim();
+        string birthdate = birthdateField.text.Trim();
 
-        // Validation checks
+        // Kontrollid
         if (string.IsNullOrEmpty(username))
         {
             feedbackText.text = "Kasutajanimi ei tohi olla tühi";
@@ -46,19 +55,26 @@ public class RegisterLogic : MonoBehaviour
             return;
         }
 
-        StartCoroutine(SendDataToGoogleSheet(username, email, password));
+        if (string.IsNullOrEmpty(country) || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(birthdate))
+        {
+            feedbackText.text = "Palun täida kõik väljad (riik, linn, sünnikuupäev)";
+            feedbackPanel.SetActive(true);
+            return;
+        }
+
+        StartCoroutine(SendDataToGoogleSheet(username, email, password, country, city, birthdate));
     }
 
-    [Header("Debug Settings")]
-    public bool showDebugLogs = true;
-
-    private IEnumerator SendDataToGoogleSheet(string username, string email, string password)
+    private IEnumerator SendDataToGoogleSheet(string username, string email, string password, string country, string city, string birthdate)
     {
         var jsonData = new RegisterData
         {
             username = username,
             email = email,
-            password = password
+            password = password,
+            country = country,
+            city = city,
+            birthdate = birthdate
         };
 
         string json = JsonUtility.ToJson(jsonData);
@@ -82,9 +98,9 @@ public class RegisterLogic : MonoBehaviour
                     Debug.Log("Response: " + www.downloadHandler.text);
 
                 feedbackText.text = "Registreerimine õnnestus!";
-                feedbackPanel.SetActive(true); // <<< Näita edu paneeli
+                feedbackPanel.SetActive(true);
                 yield return new WaitForSeconds(1.5f);
-                feedbackPanel.SetActive(false); // <<< Peida paneel
+                feedbackPanel.SetActive(false);
 
                 if (!string.IsNullOrEmpty(targetSceneName))
                     SceneManager.LoadScene(targetSceneName);
@@ -102,17 +118,10 @@ public class RegisterLogic : MonoBehaviour
                 catch { }
 
                 feedbackText.text = errorMessage;
-                feedbackPanel.SetActive(true); // <<< Näita error paneeli
+                feedbackPanel.SetActive(true);
                 Debug.LogError($"Error: {www.error}\nResponse: {www.downloadHandler.text}");
             }
         }
-    }
-
-    [System.Serializable]
-    private class ErrorResponse
-    {
-        public string result;
-        public string message;
     }
 
     private bool IsValidEmail(string email)
@@ -129,6 +138,17 @@ public class RegisterLogic : MonoBehaviour
         public string username;
         public string email;
         public string password;
+        public string country;
+        public string city;
+        public string birthdate;
+    }
+
+    [System.Serializable]
+    private class ErrorResponse
+    {
+        public string result;
+        public string message;
     }
 }
+
 
