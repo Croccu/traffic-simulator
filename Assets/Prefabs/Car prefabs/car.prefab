@@ -170,6 +170,7 @@ MonoBehaviour:
   rotationSpeed: 17
   detectionRadius: 0.5
   stopDistance: 1
+  waypointReachThreshold: 0.1
   carLayer:
     serializedVersion: 2
     m_Bits: 64
