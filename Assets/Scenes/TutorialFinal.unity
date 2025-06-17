@@ -207,9 +207,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarterPack
       objectReference: {fileID: 0}
+    - target: {fileID: 7002695146389988443, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: 'spawners.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174937189767462293, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: carPrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1550113369694347721, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
@@ -910,6 +917,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e97d96835e24416e8c9fff787a02921, type: 3}
+--- !u!1 &575770483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575770485}
+  - component: {fileID: 575770484}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &575770484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575770483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2717206091f9c4d0bac7851bad37d1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carsPassed: 0
+  carsDespawned: 0
+--- !u!4 &575770485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575770483}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0628109, y: -0.8958416, z: -10.029822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &626184948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3598414509500577361, guid: 7e97d96835e24416e8c9fff787a02921, type: 3}
@@ -5608,3 +5661,4 @@ SceneRoots:
   - {fileID: 867556904}
   - {fileID: 2014674567}
   - {fileID: 1698334662}
+  - {fileID: 575770485}
