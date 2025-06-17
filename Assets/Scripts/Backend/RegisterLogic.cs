@@ -28,7 +28,7 @@ public class RegisterLogic : MonoBehaviour
     {
         string username = usernameField.text.Trim();
         string email = emailField.text.Trim();
-        string password = passwordField.text;
+        string password = passwordField.text.Trim(); // <- Trim lisatud
         string country = countryField.text.Trim();
         string city = cityField.text.Trim();
         string birthdate = birthdateField.text.Trim();
