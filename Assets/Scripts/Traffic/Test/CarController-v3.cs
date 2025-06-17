@@ -74,8 +74,17 @@ public class CarController_v3 : MonoBehaviour
         if (distance < waypointReachThreshold)
         {
             pathIndex++;
+
             if (pathIndex >= bezierPath.Count)
             {
+                // ✅ Despawn here if current node is an exit
+                if (currentNode != null && currentNode.isExit)
+                {
+                    GameManager.instance.CarDespawned();
+                    Destroy(gameObject);
+                    return;
+                }
+
                 AdvanceToNextSegment();
                 return;
             }
@@ -103,13 +112,6 @@ public class CarController_v3 : MonoBehaviour
         }
 
         currentNode = currentNode.nextNodes[Random.Range(0, currentNode.nextNodes.Count)];
-
-        if (currentNode.isExit)
-        {
-            isMoving = false;
-            return;
-        }
-
         GenerateNextBezierPath();
     }
 
