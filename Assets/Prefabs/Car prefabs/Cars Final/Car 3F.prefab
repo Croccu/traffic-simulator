@@ -166,14 +166,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2383364ac652f4c4e84f055abd157501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
-  rotationSpeed: 280
+  maxSpeed: 3
+  rotationSpeed: 200
   waypointReachThreshold: 0.1
   bezierStep: 0.02
+  accelerationRate: 3
   carLayer:
     serializedVersion: 2
-    m_Bits: 64
-  detectionLength: 1.4
-  detectionWidth: 0.6
+    m_Bits: 0
+  detectionLength: 1
+  detectionWidth: 0.45
   stopDistance: 0.7
+  parallelDetectRange: 2
+  parallelAngleThreshold: 20
+  switchCooldown: 1.5
+  debugDrawSwitch: 0
+  switchDuration: 0.5
+  laneMergeCheckRadius: 0.7
+  rearDetectLength: 0.7
+  rearDetectWidth: 0.45
   currentNode: {fileID: 0}
