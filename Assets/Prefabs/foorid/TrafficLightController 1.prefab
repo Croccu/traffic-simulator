@@ -48,4 +48,4 @@ MonoBehaviour:
   - {fileID: 0}
   redDuration: 5
   greenDuration: 5
-  startDelay: 0
+  startDelay: 5
