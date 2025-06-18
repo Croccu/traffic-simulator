@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pairedLights:
-  - {fileID: 0}
+  - {fileID: 6749839579666398502, guid: ea89f1558ef8c4174b65c20d3378765c, type: 3}
   redDuration: 5
   greenDuration: 5
+  startDelay: 5
