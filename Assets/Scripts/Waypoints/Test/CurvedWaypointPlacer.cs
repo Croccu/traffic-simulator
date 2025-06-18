@@ -149,6 +149,7 @@ public class CurvedWaypointPlacer : MonoBehaviour
         }
 
         GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(waypointPrefab, transform);
+        PrefabUtility.UnpackPrefabInstance(go, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
         go.transform.position = position;
 
         string name = useDoubleSuffix ? $"{waypointPrefix}{suffix}" : $"{waypointPrefix}{namingIndex++}";
