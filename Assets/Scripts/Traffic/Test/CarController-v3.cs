@@ -77,7 +77,6 @@ public class CarController_v3 : MonoBehaviour
 
             if (pathIndex >= bezierPath.Count)
             {
-                // ✅ Despawn here if current node is an exit
                 if (currentNode != null && currentNode.isExit)
                 {
                     GameManager.instance.CarDespawned();
@@ -105,27 +104,33 @@ public class CarController_v3 : MonoBehaviour
 
     void AdvanceToNextSegment()
     {
-        if (currentNode == null || currentNode.nextNodes.Count == 0)
+        if (currentNode == null || currentNode.outgoingCurves.Count == 0)
         {
             isMoving = false;
             return;
         }
 
-        currentNode = currentNode.nextNodes[Random.Range(0, currentNode.nextNodes.Count)];
-        GenerateNextBezierPath();
+        BezierWaypointSegment nextCurve = currentNode.outgoingCurves[Random.Range(0, currentNode.outgoingCurves.Count)];
+        currentNode = nextCurve.endNode;
+        GenerateBezierPathFrom(nextCurve);
     }
 
     void GenerateNextBezierPath()
     {
-        BezierWaypointSegment segment = currentNode.GetComponent<BezierWaypointSegment>();
-        if (segment == null || segment.endNode == null)
+        if (currentNode == null || currentNode.outgoingCurves.Count == 0)
         {
-            Debug.LogWarning("No valid Bezier segment found on node: " + currentNode.name);
             isMoving = false;
             return;
         }
 
-        Vector3 p0 = currentNode.transform.position;
+        BezierWaypointSegment segment = currentNode.outgoingCurves[Random.Range(0, currentNode.outgoingCurves.Count)];
+        GenerateBezierPathFrom(segment);
+        currentNode = segment.endNode;
+    }
+
+    void GenerateBezierPathFrom(BezierWaypointSegment segment)
+    {
+        Vector3 p0 = segment.transform.position;
         Vector3 p1 = segment.controlPoint;
         Vector3 p2 = segment.endNode.transform.position;
 
@@ -139,7 +144,6 @@ public class CarController_v3 : MonoBehaviour
         }
 
         pathIndex = 0;
-        currentNode = segment.endNode;
     }
 
     void AdjustSpeedBasedOnCarAhead()

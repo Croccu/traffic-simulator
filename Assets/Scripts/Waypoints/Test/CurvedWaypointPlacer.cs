@@ -6,10 +6,16 @@ using System.Collections.Generic;
 public class CurvedWaypointPlacer : MonoBehaviour
 {
     public GameObject waypointPrefab;
-    public float snapRadius = 1f;
+    public float snapRadius = 0.25f;
+
+    [Header("Naming")]
+    public string waypointPrefix = "WP";
+    public int namingIndex = 1;
+    public bool useDoubleSuffix = false;
 
     private List<Vector3> clickedPoints = new();
     private float curvatureOffset = 0f;
+    private float controlXOffset = 0f;
     private int curveIndex = 1;
     private bool readyToConfirm = false;
     private bool spaceHeld = false;
@@ -27,7 +33,6 @@ public class CurvedWaypointPlacer : MonoBehaviour
 
         Event e = Event.current;
         HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
-
         Vector2 mousePos = HandleUtility.GUIPointToWorldRay(e.mousePosition).origin;
 
         if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Space)
@@ -35,16 +40,25 @@ public class CurvedWaypointPlacer : MonoBehaviour
         if (e.type == EventType.KeyUp && e.keyCode == KeyCode.Space)
             spaceHeld = false;
 
-        if (readyToConfirm && e.type == EventType.ScrollWheel && spaceHeld)
+        if (readyToConfirm && e.type == EventType.ScrollWheel)
         {
-            curvatureOffset += e.delta.y * 0.1f;
-            e.Use();
+            if (spaceHeld)
+            {
+                curvatureOffset += e.delta.y * 0.1f;
+                e.Use();
+            }
+            else if (e.control || e.command)
+            {
+                controlXOffset += e.delta.y * 0.1f;
+                e.Use();
+            }
         }
 
         if (e.type == EventType.MouseDown && e.button == 1)
         {
             clickedPoints.Clear();
             curvatureOffset = 0f;
+            controlXOffset = 0f;
             readyToConfirm = false;
             e.Use();
             return;
@@ -60,8 +74,7 @@ public class CurvedWaypointPlacer : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
                 if (hit.collider != null)
                 {
-                    Vector3 snapped = TrySnapToExistingWaypoint(hit.point, clickedPoints.Count == 0 || clickedPoints.Count == 2);
-                    clickedPoints.Add(snapped);
+                    clickedPoints.Add(hit.point);
                     if (clickedPoints.Count == 3)
                         readyToConfirm = true;
                     e.Use();
@@ -79,6 +92,7 @@ public class CurvedWaypointPlacer : MonoBehaviour
                 PlaceBezierWaypoints();
                 clickedPoints.Clear();
                 curvatureOffset = 0f;
+                controlXOffset = 0f;
                 readyToConfirm = false;
                 curveIndex++;
                 e.Use();
@@ -89,42 +103,57 @@ public class CurvedWaypointPlacer : MonoBehaviour
         DrawPreview();
     }
 
-    Vector3 TrySnapToExistingWaypoint(Vector3 point, bool allowSnap)
-    {
-        if (!allowSnap) return point;
-
-        foreach (GameObject wp in GameObject.FindGameObjectsWithTag("Waypoint"))
-        {
-            if (Vector3.Distance(wp.transform.position, point) <= snapRadius)
-                return wp.transform.position;
-        }
-        return point;
-    }
-
     void PlaceBezierWaypoints()
     {
         Vector3 p0 = clickedPoints[0];
-        Vector3 p1 = clickedPoints[1] + Vector3.up * curvatureOffset;
+        Vector3 p1 = clickedPoints[1] + new Vector3(controlXOffset, curvatureOffset, 0f);
         Vector3 p2 = clickedPoints[2];
 
-        GameObject start = InstantiateWaypoint(p0, $"{curveIndex}.1");
-        GameObject end = InstantiateWaypoint(p2, $"{curveIndex}.2");
+        GameObject start = FindOrCreateWaypoint(p0, $"{curveIndex}.1");
+        GameObject end = FindOrCreateWaypoint(p2, $"{curveIndex}.2");
 
         Link(start, end);
 
-        var bezier = start.AddComponent<BezierWaypointSegment>();
+        // Create or find the "Segments" parent
+        GameObject parent = GameObject.Find("Segments");
+        if (parent == null)
+            parent = new GameObject("Segments");
+
+        // Create the segment under the parent
+        WaypointNode startNode = start.GetComponent<WaypointNode>();
+        int id = startNode.outgoingCurves.Count;
+        GameObject segmentObj = new GameObject($"Segment_{startNode.name}_{id}");
+
+        segmentObj.transform.SetParent(parent.transform);
+        segmentObj.transform.position = p0;
+
+        var bezier = segmentObj.AddComponent<BezierWaypointSegment>();
+
         bezier.controlPoint = p1;
         bezier.endNode = end.GetComponent<WaypointNode>();
+
+        // Attach it to the start node
+        startNode.outgoingCurves.Add(bezier);
 
         TryLinkToExisting(p0, start);
         TryLinkFromExisting(p2, end);
     }
 
-    GameObject InstantiateWaypoint(Vector3 pos, string label)
+
+    GameObject FindOrCreateWaypoint(Vector3 position, string suffix)
     {
+        foreach (GameObject wp in GameObject.FindGameObjectsWithTag("Waypoint"))
+        {
+            if (Vector3.Distance(wp.transform.position, position) <= snapRadius)
+                return wp;
+        }
+
         GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(waypointPrefab, transform);
-        go.transform.position = pos;
-        go.name = $"Curve{label}";
+        go.transform.position = position;
+
+        string name = useDoubleSuffix ? $"{waypointPrefix}{suffix}" : $"{waypointPrefix}{namingIndex++}";
+        go.name = name;
+
         return go;
     }
 
@@ -144,7 +173,6 @@ public class CurvedWaypointPlacer : MonoBehaviour
             {
                 var existing = wp.GetComponent<WaypointNode>();
                 var newNode = newFirst.GetComponent<WaypointNode>();
-
                 if (existing != null && newNode != null && existing != newNode)
                 {
                     if (!existing.nextNodes.Contains(newNode))
@@ -165,14 +193,15 @@ public class CurvedWaypointPlacer : MonoBehaviour
 
                 if (existing != null && newNode != null && existing != newNode)
                 {
-                    // This is where existing node gets a new .nextNode = newLast
                     if (!existing.nextNodes.Contains(newNode))
                         existing.nextNodes.Add(newNode);
+
+                    if (!newNode.nextNodes.Contains(existing))
+                        newNode.nextNodes.Add(existing);
                 }
             }
         }
     }
-
 
     void DrawPreview()
     {
@@ -192,7 +221,7 @@ public class CurvedWaypointPlacer : MonoBehaviour
             Vector3 p1 = clickedPoints[1];
             Vector3 p2 = clickedPoints[2];
 
-            Vector3 control = p1 + Vector3.up * curvatureOffset;
+            Vector3 control = p1 + new Vector3(controlXOffset, curvatureOffset, 0f);
             lastControlPoint = control;
 
             Handles.color = new Color(0f, 1f, 1f, 0.1f);
@@ -209,7 +238,10 @@ public class CurvedWaypointPlacer : MonoBehaviour
             );
 
             if (newControl != control)
+            {
+                controlXOffset = newControl.x - p1.x;
                 curvatureOffset = newControl.y - p1.y;
+            }
 
             Handles.color = Color.green;
             Vector3 prev = p0;
@@ -222,7 +254,8 @@ public class CurvedWaypointPlacer : MonoBehaviour
                 prev = pt;
             }
 
-            Handles.Label(p2 + Vector3.up * 0.3f, "Drag handle or SPACE + Scroll\nClick to confirm");
+            Handles.Label(p2 + Vector3.up * 0.3f,
+                $"Drag handle or:\nSPACE + Scroll → Y Offset ({curvatureOffset:F2})\nCTRL/CMD + Scroll → X Offset ({controlXOffset:F2})\nDouble-Click to confirm");
         }
     }
 }

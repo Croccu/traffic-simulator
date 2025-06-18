@@ -6,9 +6,11 @@ using UnityEditor;
 
 public class WaypointNode : MonoBehaviour
 {
-    public List<WaypointNode> nextNodes = new();
+    [SerializeField] public List<WaypointNode> nextNodes = new(); // Still used for logic
     public bool isEntry = false;
     public bool isExit = false;
+
+    [SerializeField] public List<BezierWaypointSegment> outgoingCurves = new();
 
     private static HashSet<WaypointNode> drawnLabels = new();
 
@@ -26,34 +28,26 @@ public class WaypointNode : MonoBehaviour
 
         Gizmos.DrawSphere(transform.position, 0.1f);
 
-        // nextNodes (green bezier or straight lines)
-        Gizmos.color = Color.green;
-        foreach (WaypointNode next in nextNodes)
+        // ✅ Draw bezier curves from outgoingCurves
+        foreach (BezierWaypointSegment segment in outgoingCurves)
         {
-            if (next == null) continue;
+            if (segment == null || segment.endNode == null) continue;
 
-            BezierWaypointSegment bezier = GetComponent<BezierWaypointSegment>();
-            if (bezier != null && bezier.endNode == next)
-            {
-                Vector3 p0 = transform.position;
-                Vector3 p1 = bezier.controlPoint;
-                Vector3 p2 = next.transform.position;
+            Vector3 p0 = transform.position;
+            Vector3 p1 = segment.controlPoint;
+            Vector3 p2 = segment.endNode.transform.position;
 
-                Vector3 prev = p0;
-                int segments = 20;
-                for (int i = 1; i <= segments; i++)
-                {
-                    float t = i / (float)segments;
-                    Vector3 pt = Mathf.Pow(1 - t, 2) * p0 +
-                                 2 * (1 - t) * t * p1 +
-                                 Mathf.Pow(t, 2) * p2;
-                    Gizmos.DrawLine(prev, pt);
-                    prev = pt;
-                }
-            }
-            else
+            Gizmos.color = Color.green;
+            Vector3 prev = p0;
+            int segments = 20;
+            for (int i = 1; i <= segments; i++)
             {
-                Gizmos.DrawLine(transform.position, next.transform.position);
+                float t = i / (float)segments;
+                Vector3 pt = Mathf.Pow(1 - t, 2) * p0 +
+                             2 * (1 - t) * t * p1 +
+                             Mathf.Pow(t, 2) * p2;
+                Gizmos.DrawLine(prev, pt);
+                prev = pt;
             }
         }
 
@@ -80,15 +74,15 @@ public class WaypointNode : MonoBehaviour
                 Handles.Label(transform.position + Vector3.up * 0.4f + Vector3.left * 0.2f, incomingCount.ToString(), style);
             }
 
-            // Outgoing count (cyan, right)
-            if (nextNodes.Count >= 2)
+            // Outgoing count (cyan, right) now reflects curve count
+            if (outgoingCurves.Count >= 2)
             {
                 GUIStyle outStyle = new GUIStyle
                 {
                     normal = { textColor = Color.cyan },
                     fontSize = 10
                 };
-                Handles.Label(transform.position + Vector3.up * 0.4f + Vector3.right * 0.2f, $"→{nextNodes.Count}", outStyle);
+                Handles.Label(transform.position + Vector3.up * 0.4f + Vector3.right * 0.2f, $"→{outgoingCurves.Count}", outStyle);
             }
         }
 #endif
