@@ -168,11 +168,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   rotationSpeed: 280
-  waypointReachThreshold: 0.05
+  waypointReachThreshold: 0.1
   bezierStep: 0.02
   carLayer:
     serializedVersion: 2
-    m_Bits: 0
-  detectionRadius: 2
-  stopDistance: 1
+    m_Bits: 64
+  detectionLength: 1.4
+  detectionWidth: 0.6
+  stopDistance: 0.7
   currentNode: {fileID: 0}

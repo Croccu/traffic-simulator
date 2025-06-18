@@ -173,6 +173,7 @@ MonoBehaviour:
   carLayer:
     serializedVersion: 2
     m_Bits: 64
-  detectionRadius: 0.5
-  stopDistance: 1
+  detectionLength: 1.4
+  detectionWidth: 0.6
+  stopDistance: 0.7
   currentNode: {fileID: 0}
