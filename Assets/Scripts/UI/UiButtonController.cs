@@ -5,12 +5,15 @@ public class UiButtonController : MonoBehaviour
     [Header("Sign Panel Toggle")]
     public GameObject signPanel;
 
+    [Header("Traffic Light Panel Toggle")]
+    public GameObject trafficLightPanel; // ✅ NEW PANEL
+
     [Header("Play/Pause Toggle")]
     public GameObject playImage;
     public GameObject pauseImage;
-    private static bool isPlaying = false; // Changed to static
+    private static bool isPlaying = false;
 
-    public static bool IsPlaying => isPlaying; // Public static getter
+    public static bool IsPlaying => isPlaying;
 
     public void ToggleSignPanel()
     {
@@ -21,6 +24,18 @@ public class UiButtonController : MonoBehaviour
         else
         {
             Debug.LogWarning("UiButtonController: signPanel is not assigned!");
+        }
+    }
+
+    public void ToggleTrafficLightPanel() // ✅ NEW METHOD
+    {
+        if (trafficLightPanel != null)
+        {
+            trafficLightPanel.SetActive(!trafficLightPanel.activeSelf);
+        }
+        else
+        {
+            Debug.LogWarning("UiButtonController: trafficLightPanel is not assigned!");
         }
     }
 
@@ -38,13 +53,6 @@ public class UiButtonController : MonoBehaviour
             Debug.LogWarning("UiButtonController: One or both icon GameObjects not assigned!");
         }
 
-        if (isPlaying)
-        {
-            Debug.Log("Playing...");
-        }
-        else
-        {
-            Debug.Log("Paused.");
-        }
+        Debug.Log(isPlaying ? "Playing..." : "Paused.");
     }
 }
