@@ -67,8 +67,6 @@ public class LoginLogic : MonoBehaviour
 
             PlayerPrefs.SetString("LoggedInUser", response.username);
             PlayerPrefs.SetString("LoggedInEmail", response.email);
-            PlayerPrefs.SetString("LoggedInCity", response.city ?? "");
-            PlayerPrefs.SetString("LoggedInCountry", response.country ?? "");
 
             yield return new WaitForSeconds(1.5f);
             feedbackPanel.SetActive(false);
@@ -95,11 +93,10 @@ public class LoginLogic : MonoBehaviour
         public string result;
         public string message;
         public string username;
-        public string email; 
-        public string city;
-        public string country;
+        public string email;
     }
 }
+
 
 
 

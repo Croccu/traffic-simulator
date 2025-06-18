@@ -10,9 +10,6 @@ public class RegisterLogic : MonoBehaviour
     public TMP_InputField usernameField;
     public TMP_InputField emailField;
     public TMP_InputField passwordField;
-    public TMP_InputField countryField;
-    public TMP_InputField cityField;
-    public TMP_InputField birthdateField; // oodatud formaat: dd/mm/yyyy
     public TMP_Text feedbackText;
     public GameObject feedbackPanel;
 
@@ -28,10 +25,7 @@ public class RegisterLogic : MonoBehaviour
     {
         string username = usernameField.text.Trim();
         string email = emailField.text.Trim();
-        string password = passwordField.text.Trim(); // <- Trim lisatud
-        string country = countryField.text.Trim();
-        string city = cityField.text.Trim();
-        string birthdate = birthdateField.text.Trim();
+        string password = passwordField.text.Trim();
 
         // Kontrollid
         if (string.IsNullOrEmpty(username))
@@ -55,26 +49,16 @@ public class RegisterLogic : MonoBehaviour
             return;
         }
 
-        if (string.IsNullOrEmpty(country) || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(birthdate))
-        {
-            feedbackText.text = "Palun täida kõik väljad (riik, linn, sünnikuupäev)";
-            feedbackPanel.SetActive(true);
-            return;
-        }
-
-        StartCoroutine(SendDataToGoogleSheet(username, email, password, country, city, birthdate));
+        StartCoroutine(SendDataToGoogleSheet(username, email, password));
     }
 
-    private IEnumerator SendDataToGoogleSheet(string username, string email, string password, string country, string city, string birthdate)
+    private IEnumerator SendDataToGoogleSheet(string username, string email, string password)
     {
         var jsonData = new RegisterData
         {
             username = username,
             email = email,
-            password = password,
-            country = country,
-            city = city,
-            birthdate = birthdate
+            password = password
         };
 
         string json = JsonUtility.ToJson(jsonData);
@@ -138,9 +122,6 @@ public class RegisterLogic : MonoBehaviour
         public string username;
         public string email;
         public string password;
-        public string country;
-        public string city;
-        public string birthdate;
     }
 
     [System.Serializable]
@@ -150,5 +131,6 @@ public class RegisterLogic : MonoBehaviour
         public string message;
     }
 }
+
 
 
