@@ -425,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- M\xE4rgi ja foori eemaldamine kaardilt"
+  m_text: "- m\xE4rgi/foori eemaldamine kaardilt"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
   m_sharedMaterial: {fileID: 2128794544483663797, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Kaamera liigutamine '
+  m_text: '- kaamera liigutamine '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
   m_sharedMaterial: {fileID: 2128794544483663797, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- M\xE4rgi ja foori p\xF6\xF6ramine"
+  m_text: "- m\xE4rgi/foori p\xF6\xF6ramine"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
   m_sharedMaterial: {fileID: 2128794544483663797, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
@@ -3768,7 +3768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1085260639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4474,7 +4474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Kaamera suum sisse/v\xE4lja"
+  m_text: "- kaamera suum sisse/v\xE4lja"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
   m_sharedMaterial: {fileID: 2128794544483663797, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
@@ -4719,7 +4719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Nupu aktiveerimine, foori ja m\xE4rgi paigutamine"
+  m_text: "- nupu aktiveerimine, foori/m\xE4rgi paigutamine"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
   m_sharedMaterial: {fileID: 2128794544483663797, guid: 76568c62e88ab45faa23fca7e7f9428e, type: 2}
