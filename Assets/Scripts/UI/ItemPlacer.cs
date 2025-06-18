@@ -11,31 +11,42 @@ public class ItemPlacer : MonoBehaviour
 
     void Update()
     {
-        if (isPlacing && previewObject != null)
+        if (!isPlacing || previewObject == null)
+            return;
+
+        // Follow mouse
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        previewObject.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
+
+        // Rotate with Q / Left Arrow
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q))
+            previewObject.transform.Rotate(0, 0, rotationStep);
+
+        // Rotate with E / Right Arrow
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.E))
+            previewObject.transform.Rotate(0, 0, -rotationStep);
+
+        // Rotate with ScrollWheel + Ctrl/Cmd
+        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftCommand))
         {
-            // Follow mouse
-            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            previewObject.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
-
-            // Rotate with Q / Left Arrow
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q))
-                previewObject.transform.Rotate(0, 0, rotationStep);
-
-            // Rotate with E / Right Arrow
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.E))
-                previewObject.transform.Rotate(0, 0, -rotationStep);
-
-            // Place with left mouse button (LMB)
-            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (Mathf.Abs(scroll) > 0.01f)
             {
-                PlaceItem();
+                float scrollRotationStep = scroll * 45f; // Adjust rotation sensitivity
+                previewObject.transform.Rotate(0, 0, -scrollRotationStep);
             }
+        }
 
-            // Cancel with right mouse button (RMB)
-            if (Input.GetMouseButtonDown(1))
-            {
-                CancelPlacement();
-            }
+        // Place with left mouse button (LMB)
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            PlaceItem();
+        }
+
+        // Cancel with right mouse button (RMB)
+        if (Input.GetMouseButtonDown(1))
+        {
+            CancelPlacement();
         }
     }
 
@@ -61,7 +72,7 @@ public class ItemPlacer : MonoBehaviour
             if (detection != null)
                 detection.gameObject.SetActive(false);
 
-            // Add removable script to allow later deletion
+            // Only add original Removable script (not selection/rotation)
             previewObject.AddComponent<Removable>();
 
             previewObject = null;
