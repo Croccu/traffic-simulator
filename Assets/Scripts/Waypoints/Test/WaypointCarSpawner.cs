@@ -7,8 +7,10 @@ public class WaypointCarSpawner : MonoBehaviour
     public List<GameObject> carPrefabs;
     public float spawnInterval = 3f;
     public float spawnDelay = 1f;
+    public int maxCarsToSpawn = 10; // UUS: max kogus
 
     private bool isSpawning = false;
+    private int carsSpawned = 0; // UUS: loendur
 
     void Start()
     {
@@ -20,6 +22,13 @@ public class WaypointCarSpawner : MonoBehaviour
     {
         if (!isSpawning)
         {
+            carsSpawned = 0; // Alustame nullist
+
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.StartLevelTimer(maxCarsToSpawn);
+            }
+
             InvokeRepeating(nameof(SpawnCar), spawnDelay, spawnInterval);
             isSpawning = true;
         }
@@ -44,6 +53,12 @@ public class WaypointCarSpawner : MonoBehaviour
 
     void SpawnCar()
     {
+        if (carsSpawned >= maxCarsToSpawn)
+        {
+            StopSpawning();
+            return;
+        }
+
         if (carPrefabs.Count == 0)
         {
             Debug.LogWarning("No car prefabs assigned.");
@@ -79,6 +94,8 @@ public class WaypointCarSpawner : MonoBehaviour
         CarController_v3 controller = car.GetComponent<CarController_v3>();
         if (controller != null)
             controller.SetStartNode(entry);
+
+        carsSpawned++; // UUS: suurenda loendurit
     }
 
     public void SetSpawnInterval(float interval)
