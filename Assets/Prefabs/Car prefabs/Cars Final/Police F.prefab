@@ -172,7 +172,8 @@ MonoBehaviour:
   bezierStep: 0.02
   carLayer:
     serializedVersion: 2
-    m_Bits: 0
-  detectionRadius: 2
-  stopDistance: 1
+    m_Bits: 64
+  detectionLength: 1.4
+  detectionWidth: 0.6
+  stopDistance: 0.7
   currentNode: {fileID: 0}
