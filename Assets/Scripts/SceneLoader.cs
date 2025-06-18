@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         Debug.Log("Loading scene: " + sceneName);
     }
+
     public void LoadSceneByIndex(int sceneIndex)
     {
         Debug.Log("Trying to load scene: " + sceneIndex);
@@ -16,4 +17,10 @@ public class SceneLoader : MonoBehaviour
         Debug.Log("Loading scene at index: " + sceneIndex);
     }
 
+    public void ReloadCurrentScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        Debug.Log("Reloading current scene: " + currentScene.name);
+        SceneManager.LoadScene(currentScene.name);
+    }
 }
