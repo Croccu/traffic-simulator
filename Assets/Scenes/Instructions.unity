@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 237252581}
   - component: {fileID: 237252580}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Valgusfoori paigutusnupp
+  m_text: Valgusfoori valiku nupp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77ac65097c55b478aa94e32f97913414, type: 2}
   m_sharedMaterial: {fileID: 2128794544483663797, guid: 77ac65097c55b478aa94e32f97913414, type: 2}
