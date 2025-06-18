@@ -11,31 +11,31 @@ public class ItemPlacer : MonoBehaviour
 
     void Update()
     {
-        if (!isPlacing || previewObject == null)
-            return;
-
-        // Follow mouse
-        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        previewObject.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
-
-        // Rotate with Q / Left Arrow
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q))
-            previewObject.transform.Rotate(0, 0, rotationStep);
-
-        // Rotate with E / Right Arrow
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.E))
-            previewObject.transform.Rotate(0, 0, -rotationStep);
-
-        // Place with left mouse button (LMB)
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (isPlacing && previewObject != null)
         {
-            PlaceItem();
-        }
+            // Follow mouse
+            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            previewObject.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
 
-        // Cancel with right mouse button (RMB)
-        if (Input.GetMouseButtonDown(1))
-        {
-            CancelPlacement();
+            // Rotate with Q / Left Arrow
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q))
+                previewObject.transform.Rotate(0, 0, rotationStep);
+
+            // Rotate with E / Right Arrow
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.E))
+                previewObject.transform.Rotate(0, 0, -rotationStep);
+
+            // Place with left mouse button (LMB)
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+            {
+                PlaceItem();
+            }
+
+            // Cancel with right mouse button (RMB)
+            if (Input.GetMouseButtonDown(1))
+            {
+                CancelPlacement();
+            }
         }
     }
 
@@ -61,6 +61,9 @@ public class ItemPlacer : MonoBehaviour
             if (detection != null)
                 detection.gameObject.SetActive(false);
 
+            // Add removable script to allow later deletion
+            previewObject.AddComponent<Removable>();
+
             previewObject = null;
         }
 
@@ -77,5 +80,10 @@ public class ItemPlacer : MonoBehaviour
 
         isPlacing = false;
         Debug.Log("Placement cancelled.");
+    }
+
+    public bool IsPlacing()
+    {
+        return isPlacing;
     }
 }
