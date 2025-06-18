@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class CameraController : MonoBehaviour
 {
     [Header("Zoom Settings")]
-    [SerializeField] float zoomSpeed = 5f;
+    [SerializeField] float zoomSpeed = 1f;
     [SerializeField] float minZoom = 5f;
     [SerializeField] float maxZoom = 20f;
 
@@ -41,47 +41,52 @@ public class CameraController : MonoBehaviour
 
     void HandleZoom()
     {
+        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftCommand))
+            return;
+
         float scroll = Input.mouseScrollDelta.y;
         if (Mathf.Abs(scroll) < 0.01f)
             return;
 
+        float zoomAmount = scroll * 0.5f;
+
         if (cam.orthographic)
         {
-            float newSize = cam.orthographicSize - scroll * zoomSpeed;
+            float newSize = cam.orthographicSize - zoomAmount;
             cam.orthographicSize = Mathf.Clamp(newSize, minZoom, maxZoom);
         }
         else
         {
-            Vector3 move = transform.forward * scroll * zoomSpeed;
+            Vector3 move = transform.forward * zoomAmount;
             transform.position += move;
         }
     }
 
     void HandlePan()
     {
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-            return;
+        // if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        //     return;
 
-        float speedMultiplier = Input.GetKey(KeyCode.LeftShift) ? 3f : 1f;
+        // float speedMultiplier = Input.GetKey(KeyCode.LeftShift) ? 3f : 1f;
 
-        Vector3 move = Vector3.zero;
-        Vector3 mousePos = Input.mousePosition;
+        // Vector3 move = Vector3.zero;
+        // Vector3 mousePos = Input.mousePosition;
 
-        if (mousePos.x >= Screen.width - panBorderThickness)
-            move.x += 1f;
-        else if (mousePos.x <= panBorderThickness)
-            move.x -= 1f;
+        // if (mousePos.x >= Screen.width - panBorderThickness)
+        //     move.x += 1f;
+        // else if (mousePos.x <= panBorderThickness)
+        //     move.x -= 1f;
 
-        if (mousePos.y >= Screen.height - panBorderThickness)
-            move.y += 1f;
-        else if (mousePos.y <= panBorderThickness)
-            move.y -= 1f;
+        // if (mousePos.y >= Screen.height - panBorderThickness)
+        //     move.y += 1f;
+        // else if (mousePos.y <= panBorderThickness)
+        //     move.y -= 1f;
 
-        if (move.sqrMagnitude > 0f)
-        {
-            Vector3 worldMove = cam.orthographic ? new Vector3(move.x, move.y, 0f) : new Vector3(move.x, 0f, move.y);
-            transform.Translate(worldMove.normalized * panSpeed * speedMultiplier * Time.deltaTime, Space.World);
-        }
+        // if (move.sqrMagnitude > 0f)
+        // {
+        //     Vector3 worldMove = cam.orthographic ? new Vector3(move.x, move.y, 0f) : new Vector3(move.x, 0f, move.y);
+        //     transform.Translate(worldMove.normalized * panSpeed * speedMultiplier * Time.deltaTime, Space.World);
+        // }
     }
 
     void HandleKeyboardPan()
