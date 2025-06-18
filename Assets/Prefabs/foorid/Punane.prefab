@@ -343,7 +343,7 @@ Transform:
   - {fileID: 2361420820179660450}
   - {fileID: 1452111638381291785}
   - {fileID: 5180350392162969153}
-  - {fileID: 9083222429814759009}
+  - {fileID: 7686109720586551101}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3949480422706290597
@@ -406,6 +406,55 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &7132675011600858979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7686109720586551101}
+  - component: {fileID: 8075392053954058767}
+  m_Layer: 0
+  m_Name: TrafficLightControllerRed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7686109720586551101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7132675011600858979}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3087603132470131667}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8075392053954058767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7132675011600858979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced61ddd6b3cd4e69a3202707e05db94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pairedLights:
+  - {fileID: 3949480422706290597}
+  redDuration: 5
+  greenDuration: 5
+  startDelay: 0
 --- !u!1 &8061618631114087438
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,73 +542,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &8125931288759925265
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3087603132470131667}
-    m_Modifications:
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17.850891
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11.488932
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -16.385149
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3212411354747366825, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: m_Name
-      value: TrafficLightController
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014739238307310396, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: startDelay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014739238307310396, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-      propertyPath: 'pairedLights.Array.data[0]'
-      value: 
-      objectReference: {fileID: 3949480422706290597}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
---- !u!4 &9083222429814759009 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1065960962315281520, guid: ef3f79f79aec24857a488b16c7145c46, type: 3}
-  m_PrefabInstance: {fileID: 8125931288759925265}
-  m_PrefabAsset: {fileID: 0}

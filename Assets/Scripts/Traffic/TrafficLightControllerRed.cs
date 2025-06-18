@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class TrafficLightController : MonoBehaviour
+public class TrafficLightControllerRed : MonoBehaviour
 {
     public List<TrafficLightLogic> pairedLights;
 
@@ -29,20 +29,7 @@ public class TrafficLightController : MonoBehaviour
             while (!UiButtonController.IsPlaying)
                 yield return null;
 
-            // RED
-            foreach (var light in pairedLights)
-                light.SetActiveLight(TrafficLightLogic.LightState.Red);
-
-            float redTimer = 0f;
-            while (redTimer < redDuration)
-            {
-                if (!UiButtonController.IsPlaying)
-                    yield return new WaitUntil(() => UiButtonController.IsPlaying);
-                redTimer += Time.deltaTime;
-                yield return null;
-            }
-
-            // GREEN
+            // GREEN (opposite of RED in Green controller)
             foreach (var light in pairedLights)
                 light.SetActiveLight(TrafficLightLogic.LightState.Green);
 
@@ -52,6 +39,19 @@ public class TrafficLightController : MonoBehaviour
                 if (!UiButtonController.IsPlaying)
                     yield return new WaitUntil(() => UiButtonController.IsPlaying);
                 greenTimer += Time.deltaTime;
+                yield return null;
+            }
+
+            // RED (opposite of GREEN in Green controller)
+            foreach (var light in pairedLights)
+                light.SetActiveLight(TrafficLightLogic.LightState.Red);
+
+            float redTimer = 0f;
+            while (redTimer < redDuration)
+            {
+                if (!UiButtonController.IsPlaying)
+                    yield return new WaitUntil(() => UiButtonController.IsPlaying);
+                redTimer += Time.deltaTime;
                 yield return null;
             }
         }

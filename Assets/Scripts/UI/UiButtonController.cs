@@ -15,6 +15,10 @@ public class UiButtonController : MonoBehaviour
 
     public static bool IsPlaying => isPlaying;
 
+    void Awake()
+    {
+        isPlaying = false; // Reset play state on scene load
+    }
     public void ToggleSignPanel()
     {
         if (signPanel != null)
