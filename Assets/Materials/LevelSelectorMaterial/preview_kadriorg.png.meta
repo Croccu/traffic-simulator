@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      preview_kadriorg_0: -2260079865412952020
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

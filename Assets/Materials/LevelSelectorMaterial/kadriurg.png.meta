@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kadriurg_0: 1452250950779455437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
