@@ -10,6 +10,10 @@ public class TrafficLightLogic : MonoBehaviour
 
     public void SetActiveLight(LightState state)
     {
+        // Prevent switching if not playing
+        if (!UiButtonController.IsPlaying)
+            return;
+
         if (state == LightState.Red)
         {
             redLight.SetActive(true);
