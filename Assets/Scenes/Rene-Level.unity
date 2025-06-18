@@ -39423,8 +39423,8 @@ Camera:
   m_GameObject: {fileID: 1877638745}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -39449,7 +39449,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -39474,7 +39474,7 @@ Transform:
   m_GameObject: {fileID: 1877638745}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 12.597059, y: -6.7294116, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39537,12 +39537,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 5
-  minZoom: 5
+  minZoom: 10
   maxZoom: 20
   panSpeed: 0.00001
   panBorderThickness: 10
-  minBounds: {x: -50, y: -50}
-  maxBounds: {x: 50, y: 50}
+  minBounds: {x: -30, y: -50}
+  maxBounds: {x: 20, y: 20}
   keyboardPanSpeed: 50
 --- !u!1 &1882388058
 GameObject:
@@ -39584,7 +39584,7 @@ Transform:
   m_GameObject: {fileID: 1882388058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4323165, y: -7.331611, z: 0.3186476}
+  m_LocalPosition: {x: 13.222317, y: -8.876611, z: 0.3186476}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
