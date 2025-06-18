@@ -12,7 +12,8 @@ public class CarController_v3 : MonoBehaviour
 
     [Header("Detection")]
     public LayerMask carLayer;
-    public float detectionRadius = 2f;
+    public float detectionLength = 4f;
+    public float detectionWidth = 1.5f;
     public float stopDistance = 1f;
 
     private float currentSpeed;
@@ -148,31 +149,20 @@ public class CarController_v3 : MonoBehaviour
 
     void AdjustSpeedBasedOnCarAhead()
     {
-        Vector2 detectionPoint = (Vector2)transform.position + (Vector2)transform.up * (detectionRadius / 2);
-        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint, detectionRadius / 2, carLayer);
+        Vector2 center = (Vector2)transform.position + (Vector2)transform.up * (detectionLength * 0.5f);
+        Vector2 size = new Vector2(detectionWidth, detectionLength);
+        float angle = transform.eulerAngles.z;
 
-        bool carDetected = false;
-        float closestDistance = float.MaxValue;
+        Collider2D hit = Physics2D.OverlapCapsule(center, size, CapsuleDirection2D.Vertical, angle, carLayer);
 
-        foreach (Collider2D col in hits)
+        if (hit != null && hit != selfCollider)
         {
-            if (col != selfCollider)
-            {
-                float dist = Vector2.Distance(transform.position, col.transform.position);
-                if (dist < closestDistance)
-                    closestDistance = dist;
-
-                carDetected = true;
-            }
-        }
-
-        if (carDetected)
-        {
-            if (closestDistance < stopDistance)
+            float dist = Vector2.Distance(transform.position, hit.transform.position);
+            if (dist < stopDistance)
                 currentSpeed = 0f;
             else
             {
-                float t = (closestDistance - stopDistance) / (detectionRadius - stopDistance);
+                float t = (dist - stopDistance) / (detectionLength - stopDistance);
                 currentSpeed = Mathf.Lerp(0f, currentSpeedLimit, t);
             }
         }
@@ -181,6 +171,7 @@ public class CarController_v3 : MonoBehaviour
             currentSpeed = currentSpeedLimit;
         }
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -223,10 +214,17 @@ public class CarController_v3 : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Vector3 center = transform.position + transform.up * (detectionRadius / 2);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(center, detectionRadius / 2);
-    }
+  void OnDrawGizmosSelected()
+  {
+    Vector2 center = (Vector2)transform.position + (Vector2)transform.up * (detectionLength * 0.5f);
+    Vector2 size = new Vector2(detectionWidth, detectionLength);
+    float angle = transform.eulerAngles.z;
+
+    Gizmos.color = new Color(1f, 0.2f, 0f, 0.3f);
+
+    Matrix4x4 rotationMatrix = Matrix4x4.TRS(center, Quaternion.Euler(0, 0, angle), Vector3.one);
+    Gizmos.matrix = rotationMatrix;
+    Gizmos.DrawCube(Vector3.zero, size); // approximate capsule for now
+    Gizmos.matrix = Matrix4x4.identity;
+  }
 }
