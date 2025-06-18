@@ -8,7 +8,9 @@ public class UiButtonController : MonoBehaviour
     [Header("Play/Pause Toggle")]
     public GameObject playImage;
     public GameObject pauseImage;
-    private bool isPlaying = false;
+    private static bool isPlaying = false; // Changed to static
+
+    public static bool IsPlaying => isPlaying; // Public static getter
 
     public void ToggleSignPanel()
     {
@@ -39,15 +41,10 @@ public class UiButtonController : MonoBehaviour
         if (isPlaying)
         {
             Debug.Log("Playing...");
-
         }
         else
         {
             Debug.Log("Paused.");
-
         }
     }
 }
-
-
-

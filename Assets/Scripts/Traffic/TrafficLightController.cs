@@ -25,17 +25,35 @@ public class TrafficLightController : MonoBehaviour
 
         while (true)
         {
+            // Wait until playing
+            while (!UiButtonController.IsPlaying)
+                yield return null;
+
             // RED
             foreach (var light in pairedLights)
                 light.SetActiveLight(TrafficLightLogic.LightState.Red);
 
-            yield return new WaitForSeconds(redDuration);
+            float redTimer = 0f;
+            while (redTimer < redDuration)
+            {
+                if (!UiButtonController.IsPlaying)
+                    yield return new WaitUntil(() => UiButtonController.IsPlaying);
+                redTimer += Time.deltaTime;
+                yield return null;
+            }
 
             // GREEN
             foreach (var light in pairedLights)
                 light.SetActiveLight(TrafficLightLogic.LightState.Green);
 
-            yield return new WaitForSeconds(greenDuration);
+            float greenTimer = 0f;
+            while (greenTimer < greenDuration)
+            {
+                if (!UiButtonController.IsPlaying)
+                    yield return new WaitUntil(() => UiButtonController.IsPlaying);
+                greenTimer += Time.deltaTime;
+                yield return null;
+            }
         }
     }
 }
