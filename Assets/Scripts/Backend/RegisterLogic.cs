@@ -71,7 +71,7 @@ public class RegisterLogic : MonoBehaviour
             byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
             www.uploadHandler = new UploadHandlerRaw(bodyRaw);
             www.downloadHandler = new DownloadHandlerBuffer();
-            www.SetRequestHeader("Content-Type", "application/json");
+            www.SetRequestHeader("Content-Type", "text/plain");
             www.timeout = 10;
 
             yield return www.SendWebRequest();

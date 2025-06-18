@@ -46,7 +46,7 @@ public class LoginLogic : MonoBehaviour
         UnityWebRequest www = new UnityWebRequest(loginApiUrl, "POST");
         www.uploadHandler = new UploadHandlerRaw(bodyRaw);
         www.downloadHandler = new DownloadHandlerBuffer();
-        www.SetRequestHeader("Content-Type", "application/json");
+        www.SetRequestHeader("Content-Type", "text/plain");
 
         yield return www.SendWebRequest();
 
