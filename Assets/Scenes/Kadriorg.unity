@@ -8514,7 +8514,7 @@ MonoBehaviour:
   carPrefabs:
   - {fileID: 1705198939788262373, guid: 4df8dad9a076246738dba2d140fd33fe, type: 3}
   - {fileID: 5504318289018369481, guid: 929f17908a02c4dc9b4de13952a56312, type: 3}
-  spawnInterval: 3
+  spawnInterval: 0.5
   spawnDelay: 1
 --- !u!4 &720413808
 Transform:
