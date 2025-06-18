@@ -2,33 +2,37 @@ using UnityEngine;
 
 public class InstructionsManager : MonoBehaviour
 {
-    [Header("Main Instructions Panel")]
-    public GameObject instructionsPanel;
+    [Header("Instruction Slides")]
+    public GameObject instructionsPanel1;
+    public GameObject instructionsPanel2;
 
-    [Header("Explanation Panels")]
+    [Header("Explanation Panels (only used in Panel 1)")]
     public GameObject tLightExplanation;
     public GameObject signsExplanation;
     public GameObject homeExplanation;
     public GameObject restartExplanation;
     public GameObject playPauseExplanation;
 
-    // Open the full instructions panel
+    private int currentSlide = 1;
+
     public void OpenInstructions()
     {
-        instructionsPanel.SetActive(true);
+        currentSlide = 1;
+        instructionsPanel1.SetActive(true);
+        instructionsPanel2.SetActive(false);
         HideAllExplanations();
     }
 
-    // Close the instructions panel entirely
     public void CloseInstructions()
     {
-        instructionsPanel.SetActive(false);
+        instructionsPanel1.SetActive(false);
+        instructionsPanel2.SetActive(false);
         HideAllExplanations();
     }
 
-    // Show only one explanation at a time
     public void ShowExplanation(string type)
     {
+        if (currentSlide != 1) return; // Explanations only shown on first slide
         HideAllExplanations();
 
         switch (type)
@@ -54,7 +58,6 @@ public class InstructionsManager : MonoBehaviour
         }
     }
 
-    // Helper to disable all explanation panels
     public void HideAllExplanations()
     {
         tLightExplanation.SetActive(false);
@@ -62,6 +65,26 @@ public class InstructionsManager : MonoBehaviour
         homeExplanation.SetActive(false);
         restartExplanation.SetActive(false);
         playPauseExplanation.SetActive(false);
+    }
+
+    public void NextSlide()
+    {
+        if (currentSlide == 1)
+        {
+            instructionsPanel1.SetActive(false);
+            instructionsPanel2.SetActive(true);
+            currentSlide = 2;
+        }
+    }
+
+    public void PreviousSlide()
+    {
+        if (currentSlide == 2)
+        {
+            instructionsPanel2.SetActive(false);
+            instructionsPanel1.SetActive(true);
+            currentSlide = 1;
+        }
     }
 }
 
