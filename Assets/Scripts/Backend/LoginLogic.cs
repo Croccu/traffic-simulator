@@ -52,13 +52,27 @@ public class LoginLogic : MonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
+            Debug.LogError("Request error: " + www.error);
+            Debug.LogError("Raw response: " + www.downloadHandler.text);
             feedbackText.text = "Ühenduse viga.";
             feedbackPanel.SetActive(true);
-            Debug.LogError(www.error);
             yield break;
         }
 
-        LoginResponse response = JsonUtility.FromJson<LoginResponse>(www.downloadHandler.text);
+        Debug.Log("Raw response: " + www.downloadHandler.text);
+
+        LoginResponse response = null;
+        try
+        {
+            response = JsonUtility.FromJson<LoginResponse>(www.downloadHandler.text);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("JSON parse error: " + ex.Message);
+            feedbackText.text = "Serveri vastus ei olnud arusaadav.";
+            feedbackPanel.SetActive(true);
+            yield break;
+        }
 
         if (response.result == "success")
         {
@@ -67,8 +81,6 @@ public class LoginLogic : MonoBehaviour
 
             PlayerPrefs.SetString("LoggedInUser", response.username);
             PlayerPrefs.SetString("LoggedInEmail", response.email);
-            PlayerPrefs.SetString("LoggedInCity", response.city ?? "");
-            PlayerPrefs.SetString("LoggedInCountry", response.country ?? "");
 
             yield return new WaitForSeconds(1.5f);
             feedbackPanel.SetActive(false);
@@ -95,11 +107,10 @@ public class LoginLogic : MonoBehaviour
         public string result;
         public string message;
         public string username;
-        public string email; 
-        public string city;
-        public string country;
+        public string email;
     }
 }
+
 
 
 
