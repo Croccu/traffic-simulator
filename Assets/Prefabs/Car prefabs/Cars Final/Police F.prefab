@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 3
-  accelerationRate: 3
+  accelerationRate: 1.5
   rotationSpeed: 200
   waypointReachThreshold: 0.1
   bezierStep: 0.02
@@ -179,6 +179,9 @@ MonoBehaviour:
   switchCooldown: 1.5
   debugDrawSwitch: 0
   switchDuration: 0.5
+  carLayer:
+    serializedVersion: 2
+    m_Bits: 64
   detectionLength: 1
   detectionWidth: 0.45
   stopDistance: 0.7

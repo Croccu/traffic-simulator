@@ -54,6 +54,8 @@ public class CarEnvironmentTriggers : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log($"{name} hit trigger: {other.name}");
+
         if (other.TryGetComponent(out GiveWayZone giveWay))
         {
             currentGiveWayZone = giveWay;
@@ -75,7 +77,12 @@ public class CarEnvironmentTriggers : MonoBehaviour
             stopReleaseTime = Time.time + stopMarker.stopDuration;
         }
 
-        if (other.CompareTag("TrafficLightTrigger"))
+        // Check for TrafficLightLogic component directly or in parent
+        if (other.TryGetComponent(out TrafficLightLogic trafficLight))
+        {
+            currentTrafficLight = trafficLight;
+        }
+        else
         {
             currentTrafficLight = other.GetComponentInParent<TrafficLightLogic>();
         }
@@ -89,8 +96,8 @@ public class CarEnvironmentTriggers : MonoBehaviour
         if (other.GetComponent<StopZone>() == currentStopZone)
             currentStopZone = null;
 
-        if (other.CompareTag("TrafficLightTrigger") && currentTrafficLight != null &&
-            other.GetComponentInParent<TrafficLightLogic>() == currentTrafficLight)
+        if ((other.GetComponent<TrafficLightLogic>() == currentTrafficLight ||
+             other.GetComponentInParent<TrafficLightLogic>() == currentTrafficLight))
         {
             currentTrafficLight = null;
         }

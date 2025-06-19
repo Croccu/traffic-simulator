@@ -20,6 +20,7 @@ public class CarController_v3 : MonoBehaviour
     public float switchDuration = 0.5f;
 
     [Header("Detection")]
+    public LayerMask carLayer;
     public float detectionLength = 1.4f;
     public float detectionWidth = 0.6f;
     public float stopDistance = 0.7f;
@@ -63,16 +64,37 @@ public class CarController_v3 : MonoBehaviour
     {
         if (!isMoving || bezierPath == null || pathIndex >= bezierPath.Count) return;
 
-        bool blocked = GetComponent<CarEnvironmentTriggers>().IsEnvironmentBlocking();
-        if (blocked == false)
-            GetComponent<CarEnvironmentTriggers>().ClearGiveWayFlagIfPossible();
+        var env = GetComponent<CarEnvironmentTriggers>();
+        var detect = GetComponent<CarDetectionLogic>();
 
-        targetSpeed = blocked ? 0f : currentSpeedLimit;
+        // Stop for traffic signs/lights
+        bool blocked = env.IsEnvironmentBlocking();
+        if (blocked)
+        {
+            currentSpeed = 0f;
+            return;
+        }
+
+        env.ClearGiveWayFlagIfPossible();
+
+        // Check for dangerously close car ahead — full stop override
+        float frontSpeed = detect.GetFrontTargetSpeed(this);
+
+        if (frontSpeed <= 0.05f)
+        {
+            currentSpeed = 0f;
+            return;
+        }
+
+        // Smooth speed control when safe
+        targetSpeed = Mathf.Min(currentSpeedLimit, frontSpeed);
         currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.deltaTime * accelerationRate);
 
-        if (inMergeBlock && GetComponent<CarDetectionLogic>().EvaluateMergeUnblock(this))
+        // Merge logic only if not front-blocked
+        if (inMergeBlock && detect.EvaluateMergeUnblock(this))
             return;
 
+        // Lane switching logic
         if (isSwitchingLanes)
         {
             switchTimer += Time.deltaTime;
@@ -99,20 +121,20 @@ public class CarController_v3 : MonoBehaviour
             return;
         }
 
-        GetComponent<CarDetectionLogic>().AdjustSpeedBasedOnCarAhead(this);
-
-        if (GetComponent<CarDetectionLogic>().IsRearCarTooClose(this))
+        // Rear collision detection
+        if (detect.IsRearCarTooClose(this))
         {
             currentSpeed = 0f;
             return;
         }
 
+        // Deadlock resolution
         if (pathIndex == lastStuckPathIndex)
         {
             timeStuckAtSameNode += Time.deltaTime;
             if (timeStuckAtSameNode > 5f)
             {
-                GetComponent<CarDetectionLogic>().TryLaneSwitchOrExitDeadlock(this);
+                detect.TryLaneSwitchOrExitDeadlock(this);
                 timeStuckAtSameNode = 0f;
             }
         }
@@ -122,6 +144,7 @@ public class CarController_v3 : MonoBehaviour
             lastStuckPathIndex = pathIndex;
         }
 
+        // Movement toward current path point
         Vector3 point = bezierPath[pathIndex];
         float distance = Vector3.Distance(transform.position, point);
 
@@ -131,7 +154,7 @@ public class CarController_v3 : MonoBehaviour
 
             if (pathIndex >= bezierPath.Count)
             {
-                if (currentNode != null && currentNode.isExit && !GetComponent<CarDetectionLogic>().IsBlockedAtEntry(bezierPath, this))
+                if (currentNode != null && currentNode.isExit && !detect.IsBlockedAtEntry(bezierPath, this))
                 {
                     GameManager.instance?.CarDespawned();
                     Destroy(gameObject);
@@ -155,6 +178,7 @@ public class CarController_v3 : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
 
+        // Timeout fallback
         if (currentSpeed <= 0.01f)
         {
             fullStopTimer += Time.deltaTime;
@@ -171,15 +195,18 @@ public class CarController_v3 : MonoBehaviour
         }
     }
 
+
     void AdvanceToNextSegment()
     {
+        var detect = GetComponent<CarDetectionLogic>();
+
         if (currentNode == null || currentNode.outgoingCurves.Count == 0)
         {
             isMoving = false;
             return;
         }
 
-        BezierWaypointSegment nextCurve = GetComponent<CarDetectionLogic>().PickUnoccupiedOrRandomCurve(currentNode.outgoingCurves, this);
+        BezierWaypointSegment nextCurve = detect.PickUnoccupiedOrRandomCurve(currentNode.outgoingCurves, this);
         currentNode = nextCurve.endNode;
         GenerateBezierPathFrom(nextCurve);
         inMergeBlock = true;
@@ -187,13 +214,15 @@ public class CarController_v3 : MonoBehaviour
 
     void GenerateNextBezierPath()
     {
+        var detect = GetComponent<CarDetectionLogic>();
+
         if (currentNode == null || currentNode.outgoingCurves.Count == 0)
         {
             isMoving = false;
             return;
         }
 
-        BezierWaypointSegment segment = GetComponent<CarDetectionLogic>().PickUnoccupiedOrRandomCurve(currentNode.outgoingCurves, this);
+        BezierWaypointSegment segment = detect.PickUnoccupiedOrRandomCurve(currentNode.outgoingCurves, this);
         GenerateBezierPathFrom(segment);
         currentNode = segment.endNode;
         inMergeBlock = true;
