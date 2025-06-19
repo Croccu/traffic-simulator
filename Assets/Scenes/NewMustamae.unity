@@ -72824,9 +72824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minZoom: 5
-  maxZoom: 14.5
-  minBounds: {x: -29, y: -10}
-  maxBounds: {x: 29, y: 10}
+  maxZoom: 12.5
+  minBounds: {x: -25, y: -16}
+  maxBounds: {x: 27, y: 22}
   keyboardPanSpeed: 10
 --- !u!114 &2142391895
 MonoBehaviour:
@@ -73202,9 +73202,9 @@ MonoBehaviour:
   - {fileID: 1393922976095104779, guid: 8eb5cceaae13948c79c41d3ca167ad3c, type: 3}
   - {fileID: 6163381274149785229, guid: 951b6772c9a284cbc9b45c69f78e09f0, type: 3}
   - {fileID: 3975630255661324944, guid: 21b57e860eb47491293e2cd1d421e0a4, type: 3}
-  spawnInterval: 1
+  spawnInterval: 0.2
   spawnDelay: 1
-  maxCarsToSpawn: 10
+  maxCarsToSpawn: 200
 --- !u!4 &2147418435
 Transform:
   m_ObjectHideFlags: 0
@@ -73451,13 +73451,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 5595170433247338666}
   - {fileID: 8248008813119245207}
+  - {fileID: 5595170433247338666}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 174372287}
   - {fileID: 1343122865}
+  - {fileID: 174372287}
 --- !u!1001 &402164728150211129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82059,13 +82059,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008811853968997}
   - {fileID: 5474786903569764208}
+  - {fileID: 8248008811853968997}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 14186327}
   - {fileID: 1878270614}
+  - {fileID: 14186327}
 --- !u!1 &2895262649732039175
 GameObject:
   m_ObjectHideFlags: 0
@@ -87975,13 +87975,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813804141971}
   - {fileID: 8248008813193991987}
+  - {fileID: 8248008813804141971}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 589139213}
   - {fileID: 1135578646}
+  - {fileID: 589139213}
 --- !u!114 &8248008811780204431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88049,13 +88049,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813173112549}
   - {fileID: 8248008813811551888}
+  - {fileID: 8248008813173112549}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1036179191}
   - {fileID: 1293467332}
+  - {fileID: 1036179191}
 --- !u!114 &8248008811853968997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88215,13 +88215,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 6167043966074443619}
   - {fileID: 8248008812066482045}
+  - {fileID: 6167043966074443619}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 739214290}
   - {fileID: 1837805101}
+  - {fileID: 739214290}
 --- !u!114 &8248008811963408617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88707,13 +88707,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813130722880}
   - {fileID: 8248008811977827659}
+  - {fileID: 8248008813130722880}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 676973731}
   - {fileID: 596484639}
+  - {fileID: 676973731}
 --- !u!114 &8248008812292311007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88781,13 +88781,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813369103476}
   - {fileID: 8248008813080152315}
+  - {fileID: 8248008813369103476}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1981112193}
   - {fileID: 1614353101}
+  - {fileID: 1981112193}
 --- !u!114 &8248008812307248704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88889,13 +88889,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008812175706699}
   - {fileID: 8248008813193991987}
+  - {fileID: 8248008812175706699}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1515629927}
   - {fileID: 270579435}
+  - {fileID: 1515629927}
 --- !u!114 &8248008812417271702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89519,13 +89519,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 1210569781718603189}
   - {fileID: 8248008812424122151}
+  - {fileID: 1210569781718603189}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 785268226}
   - {fileID: 1844859398}
+  - {fileID: 785268226}
 --- !u!114 &8248008813008069322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89901,13 +89901,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 7138446096563268011}
   - {fileID: 8248008813811551888}
+  - {fileID: 7138446096563268011}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1284119310}
   - {fileID: 669323278}
+  - {fileID: 1284119310}
 --- !u!114 &8248008813249610264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90135,13 +90135,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 2862255204021532495}
   - {fileID: 8248008812868597788}
+  - {fileID: 2862255204021532495}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1055101886}
   - {fileID: 1293147638}
+  - {fileID: 1055101886}
 --- !u!114 &8248008813566711181
 MonoBehaviour:
   m_ObjectHideFlags: 0
