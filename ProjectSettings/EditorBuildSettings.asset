@@ -47,15 +47,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InstructionsVideo.unity
     guid: 29448f1cfb8524b5487ab4d0594c5708
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RoccaAlMare.unity
     guid: 71c482c83049db8419bacc9b93cf001a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TutorialFinal.unity
     guid: 9692d70e005124ea59f048143f9ef45a
   - enabled: 1
     path: Assets/Scenes/Karl-Rocca.unity
     guid: 57d9d8003560db542af6c1ce84be1193
+  - enabled: 1
+    path: Assets/Scenes/tutorialplswork.unity
+    guid: 668d9591de8b1b84fb7baa761b5eecf4
+  - enabled: 1
+    path: Assets/Scenes/NewMustamae.unity
+    guid: 1b472eb8c94494f2f9e3659d346bb75f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

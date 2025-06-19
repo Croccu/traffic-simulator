@@ -5210,7 +5210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: maxCarsToSpawn
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: carPrefabs.Array.size
@@ -15689,7 +15689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: maxCarsToSpawn
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: carPrefabs.Array.size
@@ -109455,7 +109455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: maxCarsToSpawn
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: carPrefabs.Array.size
@@ -110128,6 +110128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 7349446704333303309, guid: 17f0acd84bf7d454999916491bb38114, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -110142,8 +110146,8 @@ SceneRoots:
   - {fileID: 23323565}
   - {fileID: 2066246142}
   - {fileID: 732619119}
-  - {fileID: 1967240963}
   - {fileID: 302835346}
   - {fileID: 1744437618}
   - {fileID: 1184457789}
   - {fileID: 728720367}
+  - {fileID: 1967240963}
