@@ -3232,7 +3232,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.61006284, g: 0.6004706, b: 0.6004706, a: 1}
+  m_Color: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10531,7 +10531,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.01987653, g: 0.42138356, b: 0.05612633, a: 1}
+  m_Color: {r: 0.11372549, g: 0.5411765, b: 0.09803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13510,7 +13510,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.01987653, g: 0.42138356, b: 0.05612633, a: 1}
+  m_Color: {r: 0.11372549, g: 0.5411765, b: 0.09803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -16070,7 +16070,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.01987653, g: 0.42138356, b: 0.05612633, a: 1}
+  m_Color: {r: 0.11372549, g: 0.5411765, b: 0.09803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19693,7 +19693,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.01987653, g: 0.42138356, b: 0.05612633, a: 1}
+  m_Color: {r: 0.11372549, g: 0.5411765, b: 0.09803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -23990,7 +23990,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.01987653, g: 0.42138356, b: 0.05612633, a: 1}
+  m_Color: {r: 0.11372549, g: 0.5411765, b: 0.09803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -24261,7 +24261,7 @@ PrefabInstance:
       objectReference: {fileID: 1352078549}
     - target: {fileID: 537618323954195773, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 537618323954195773, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
       propertyPath: m_SortingOrder
@@ -24450,6 +24450,18 @@ PrefabInstance:
     - target: {fileID: 7415685555564045157, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844056526445761120, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844056526445761120, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844056526445761120, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 8165193378327229831, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -25975,7 +25987,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.01987653, g: 0.42138356, b: 0.05612633, a: 1}
+  m_Color: {r: 0.11372549, g: 0.5411765, b: 0.09803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -27187,8 +27199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minZoom: 5
   maxZoom: 14.5
-  minBounds: {x: -5, y: -5}
-  maxBounds: {x: 5, y: 5}
+  minBounds: {x: -30, y: -19}
+  maxBounds: {x: 30, y: 19}
   keyboardPanSpeed: 10
 --- !u!114 &1352078547
 MonoBehaviour:
@@ -32156,7 +32168,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.01987653, g: 0.42138356, b: 0.05612633, a: 1}
+  m_Color: {r: 0.11372549, g: 0.5411765, b: 0.09803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -40746,7 +40758,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.01987653, g: 0.42138356, b: 0.05612633, a: 1}
+  m_Color: {r: 0.11372549, g: 0.5411765, b: 0.09803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
