@@ -108,11 +108,15 @@ public class CameraController : MonoBehaviour
 
         if (cam.orthographic)
         {
-            pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
-            pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
+            float vertExtent = cam.orthographicSize;
+            float horzExtent = vertExtent * cam.aspect;
+
+            pos.x = Mathf.Clamp(pos.x, minBounds.x + horzExtent, maxBounds.x - horzExtent);
+            pos.y = Mathf.Clamp(pos.y, minBounds.y + vertExtent, maxBounds.y - vertExtent);
         }
         else
         {
+            // Perspective mode not handled in detail here
             pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
             pos.z = Mathf.Clamp(pos.z, minBounds.y, maxBounds.y); // note: z for depth
         }
