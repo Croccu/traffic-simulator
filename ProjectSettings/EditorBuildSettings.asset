@@ -41,6 +41,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mustamae.unity
     guid: 2780e4e2c5205284aa4a9af910cfaae1
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: ffd1ad526d2fc4b3aad0575e699b0548
+  - enabled: 1
+    path: Assets/Scenes/InstructionsVideo.unity
+    guid: 29448f1cfb8524b5487ab4d0594c5708
+  - enabled: 1
+    path: Assets/Scenes/RoccaAlMare.unity
+    guid: 71c482c83049db8419bacc9b93cf001a
+  - enabled: 1
+    path: Assets/Scenes/TutorialFinal.unity
+    guid: 9692d70e005124ea59f048143f9ef45a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
