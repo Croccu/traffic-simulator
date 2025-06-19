@@ -903,8 +903,8 @@ Camera:
   m_GameObject: {fileID: 434448956}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -954,7 +954,7 @@ Transform:
   m_GameObject: {fileID: 434448956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 960, y: 539, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4024,7 +4024,7 @@ MonoBehaviour:
     sceneName: Rene-Level
   - levelName: ROCCA AL MARE
     previewSprite: {fileID: 1281328236953746545, guid: 41642d7f4f617490aa8105790c5c84a7, type: 3}
-    sceneName: RoccaAlMare
+    sceneName: Karl-Rocca
   - levelName: KADRIORG
     previewSprite: {fileID: -2260079865412952020, guid: 38ee0fb25f319452ab981385a8687714, type: 3}
     sceneName: Kadriorg
