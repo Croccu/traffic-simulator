@@ -11,14 +11,16 @@ public class BezierSplineSpawner : MonoBehaviour
     }
 
     [Header("Spawner Settings")]
-    public List<GameObject> carPrefabs; //Mitu auto prefabi
+    public List<GameObject> carPrefabs;
     public float spawnInterval = 3f;
     public float spawnDelay = 2f;
+    public int maxCarsToSpawn = 10; // NEW: max amount to spawn
 
     [Header("Available Routes")]
     public List<Route> availableRoutes = new List<Route>();
 
     private bool isSpawning = false;
+    private int carsSpawned = 0; // NEW: tracking count
 
     private void Start()
     {
@@ -30,6 +32,14 @@ public class BezierSplineSpawner : MonoBehaviour
     {
         if (!isSpawning)
         {
+            carsSpawned = 0;
+
+            // NEW: Start level timer in GameManager
+            if (GameManager.instance != null)
+            {
+                GameManager.instance?.AddToSpawnTarget(maxCarsToSpawn);
+            }
+
             InvokeRepeating(nameof(SpawnCar), spawnDelay, spawnInterval);
             isSpawning = true;
         }
@@ -54,6 +64,12 @@ public class BezierSplineSpawner : MonoBehaviour
 
     void SpawnCar()
     {
+        if (carsSpawned >= maxCarsToSpawn)
+        {
+            StopSpawning();
+            return;
+        }
+
         if (carPrefabs.Count == 0 || availableRoutes.Count == 0)
         {
             Debug.LogWarning("Spawner setup incomplete.");
@@ -85,6 +101,8 @@ public class BezierSplineSpawner : MonoBehaviour
         {
             Debug.LogError("Car prefab is missing BezierCarController.");
         }
+
+        carsSpawned++; // NEW: increment count
     }
 
     public void SetSpawnInterval(float interval)

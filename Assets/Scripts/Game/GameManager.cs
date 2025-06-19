@@ -5,9 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("Gameplay Tracking")]
     public int carsPassed = 0;
     public int carsDespawned = 0;
-    public int carsToDespawn = 0; // ← saad Spawnerist
+    public int carsToDespawn = 0;
     public float levelTime = 0f;
     private bool isTiming = false;
 
@@ -17,7 +18,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("GameManager Awake");
         if (instance == null) instance = this;
         else Destroy(gameObject);
     }
@@ -30,16 +30,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartLevelTimer(int totalCars)
+    // 👉 Kutsutakse iga spawneri poolt
+    public void AddToSpawnTarget(int count)
     {
-        carsToDespawn = totalCars;
-        carsDespawned = 0;
-        levelTime = 0f;
-        isTiming = true;
-
-        if (levelCompletePanel != null)
+        if (!isTiming)
         {
-            levelCompletePanel.SetActive(false);
+            levelTime = 0f;
+            carsDespawned = 0;
+            isTiming = true;
+        }
+
+        carsToDespawn += count;
+        Debug.Log($"Added {count} cars. Total to despawn: {carsToDespawn}");
+    }
+
+    public void CarDespawned()
+    {
+        carsDespawned++;
+        Debug.Log($"Car despawned. Total: {carsDespawned}/{carsToDespawn}");
+
+        if (carsDespawned >= carsToDespawn)
+        {
+            isTiming = false;
+            ShowScore();
         }
     }
 
@@ -49,20 +62,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Cars Passed: " + carsPassed);
     }
 
-    public void CarDespawned()
-    {
-        carsDespawned++;
-        Debug.Log("Cars Despawned: " + carsDespawned);
-
-        if (carsDespawned >= carsToDespawn)
-        {
-            isTiming = false;
-            Debug.Log("All cars despawned in " + levelTime + " seconds.");
-            ShowScore();
-        }
-    }
-
-     private void ShowScore()
+    private void ShowScore()
     {
         float score = CalculateScore(levelTime, carsToDespawn);
 
@@ -70,7 +70,11 @@ public class GameManager : MonoBehaviour
 
         if (levelCompleteText != null)
         {
-            levelCompleteText.text = $"Level Complete\nTime: {levelTime:F1}s\nScore: {score}";
+            levelCompleteText.text =
+                "LEVEL COMPLETE\n\n" +
+                $"Time: {levelTime:F1} seconds\n" +
+                $"Cars: {carsToDespawn}\n" +
+                $"Score: {score}";
         }
 
         if (levelCompletePanel != null)
@@ -81,8 +85,8 @@ public class GameManager : MonoBehaviour
 
     private float CalculateScore(float totalTime, int carCount)
     {
-        float maxScorePerCar = 100f; // IGA auto eest kuni 100 punkti
-        float timeFactor = Mathf.Max(1f, totalTime); // vältida jagamist nulliga
+        float maxScorePerCar = 100f; // Võib muuta suuremaks, kui soovid
+        float timeFactor = Mathf.Max(1f, totalTime); // Väldib jagamist 0-ga
 
         float score = (maxScorePerCar * carCount) / timeFactor;
         return Mathf.Round(score);
