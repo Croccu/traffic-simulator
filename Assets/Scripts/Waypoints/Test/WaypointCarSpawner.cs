@@ -26,7 +26,7 @@ public class WaypointCarSpawner : MonoBehaviour
 
             if (GameManager.instance != null)
             {
-                GameManager.instance.StartLevelTimer(maxCarsToSpawn);
+                GameManager.instance?.AddToSpawnTarget(maxCarsToSpawn);
             }
 
             InvokeRepeating(nameof(SpawnCar), spawnDelay, spawnInterval);
