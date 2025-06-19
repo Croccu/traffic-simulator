@@ -1,4 +1,4 @@
-# Liiklusemäng
+# Liiklusmäng
 
 ![screenshot](./screenshots/main_menu_preview.png)
 
