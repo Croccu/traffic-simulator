@@ -1,6 +1,6 @@
 # Liiklusmäng
 
-![screenshot](./screenshots/main_menu_preview.png)
+![Landing page](https://drive.google.com/uc?export=view&id=1I62XB1icq_K3zd2irIKz_MHb3RlNnapV)
 
 https://renepruu.github.io/build11/
 ## Lühikirjeldus 
