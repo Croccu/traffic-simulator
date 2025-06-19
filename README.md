@@ -32,6 +32,7 @@ Arendus toimus järgmiste ainete raames:
 - **Unity Engine (6000.0.43f1)** (mängumootor)
 - **Unity WebGL** (renderdus)
 - **Visual Studio Code (1.100.3)** (skriptimine)
+- **Google sheets**
 - **Google sheets Plugin App scripts**
 
 - **Figma** (prototüüpide loomiseks ja UX testimiseks)
