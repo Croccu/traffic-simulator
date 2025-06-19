@@ -45,7 +45,7 @@ Arendus toimus järgmiste ainete raames:
 
 ---
 
-##Autorid
+## Autorid
 
 Projekt on loodud Tryhard Gamesi tiimi poolt:
 
