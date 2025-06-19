@@ -4,7 +4,7 @@ public class OpenYoutube : MonoBehaviour
 {
     public void OpenLink()
     {
-        Application.OpenURL("https://www.youtube.com/watch?v=nIrgVJTXj0k");
+        Application.OpenURL("https://www.youtube.com/watch?v=KpjJFDQ8SgU");
     }
 }
 
