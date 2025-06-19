@@ -66,7 +66,7 @@ Projekt on loodud Tryhard Gamesi tiimi poolt:
 
 ### Paigaldusjuhend
 
-Mängu buildi link:
+#### Mängu buildi link:
 https://renepruu.github.io/build10/
 
 ### Arenduskeskkonna ülesseadmise juhis
@@ -97,7 +97,6 @@ upstream https://github.com/Croccu/traffic-simulator.git
 $ git checkout main
 $ git fetch upstream
 $ git merge upstream/main
-### or: git pull --rebase upstream main
  
 5. Create a feature branch
 $ git checkout -b feature/your-task-name
