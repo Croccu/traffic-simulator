@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: -1649342037761892369}
   - component: {fileID: 4438628289096298321}
   - component: {fileID: 7766415124987658694}
+  - component: {fileID: 6433270615772200283}
+  - component: {fileID: 1814158477737320357}
+  - component: {fileID: 8682776808945577515}
   m_Layer: 6
   m_Name: Truck F
   m_TagString: Car
@@ -167,22 +170,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 3
+  accelerationRate: 3
   rotationSpeed: 200
   waypointReachThreshold: 0.1
   bezierStep: 0.02
-  accelerationRate: 3
-  carLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  detectionLength: 1
-  detectionWidth: 0.45
-  stopDistance: 0.7
   parallelDetectRange: 2
   parallelAngleThreshold: 20
   switchCooldown: 1.5
   debugDrawSwitch: 0
   switchDuration: 0.5
+  detectionLength: 1
+  detectionWidth: 0.45
+  stopDistance: 0.7
   laneMergeCheckRadius: 0.7
   rearDetectLength: 0.7
   rearDetectWidth: 0.45
   currentNode: {fileID: 0}
+  currentSegment: {fileID: 0}
+  currentSpeed: 0
+  currentSpeedLimit: 0
+  isSwitchingLanes: 0
+  inMergeBlock: 0
+  isMoving: 0
+--- !u!114 &6433270615772200283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975630255661324944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafb89b00cc0648479e301a3d615a97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1814158477737320357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975630255661324944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c5c7cbd11664287b0b0b853392f9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8682776808945577515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975630255661324944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cefd017e441244b38e67210772119fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
