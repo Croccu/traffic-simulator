@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
     public int carsToDespawn = 0; // ← saad Spawnerist
     public float levelTime = 0f;
     private bool isTiming = false;
+
+    [Header("UI Elements")]
+    public GameObject levelCompletePanel;
+    public TMP_Text levelCompleteText;
 
     private void Awake()
     {
@@ -31,6 +36,11 @@ public class GameManager : MonoBehaviour
         carsDespawned = 0;
         levelTime = 0f;
         isTiming = true;
+
+        if (levelCompletePanel != null)
+        {
+            levelCompletePanel.SetActive(false);
+        }
     }
 
     public void CarExited()
@@ -52,19 +62,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void ShowScore()
+     private void ShowScore()
     {
-        float score = CalculateScore(levelTime);
-        Debug.Log("Final Score: " + score);
-        // Siin võiksid kutsuda välja UI-teavituse jne.
+        float score = CalculateScore(levelTime, carsToDespawn);
+
+        Debug.Log($"Level Complete – Time: {levelTime:F1}s, Score: {score}");
+
+        if (levelCompleteText != null)
+        {
+            levelCompleteText.text = $"Level Complete\nTime: {levelTime:F1}s\nScore: {score}";
+        }
+
+        if (levelCompletePanel != null)
+        {
+            levelCompletePanel.SetActive(true);
+        }
     }
 
-    private float CalculateScore(float time)
+    private float CalculateScore(float totalTime, int carCount)
     {
-        float startScore = 100f;
-        float decayRate = 1f; // mitu punkti kaotab 1 sekundi jooksul
+        float maxScorePerCar = 100f; // IGA auto eest kuni 100 punkti
+        float timeFactor = Mathf.Max(1f, totalTime); // vältida jagamist nulliga
 
-        float score = startScore - (time * decayRate);
-        return Mathf.Max(0f, Mathf.Round(score)); // ei lase minna alla 0
+        float score = (maxScorePerCar * carCount) / timeFactor;
+        return Mathf.Round(score);
     }
 }
