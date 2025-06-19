@@ -75,9 +75,8 @@ https://renepruu.github.io/build10/
 ### Arenduskeskkonna ülesseadmise juhis
 (Inglise keeles kuna keegi ei kasuta tehnoloogiat eesti keeles)
 
----------------------------
-For CLI
----------------------------
+
+#### For CLI
  
 1. Fork the main repo
 Go to:
@@ -117,9 +116,8 @@ Target: main branch of original repo
  
 
 
----------------------------
-For GitHub Desktop
----------------------------
+
+#### For Github Desktop
  
 1. Fork the main repo
 Go to:
