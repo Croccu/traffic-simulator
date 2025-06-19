@@ -3095,7 +3095,7 @@ GameObject:
   - component: {fileID: 868634191}
   - component: {fileID: 868634190}
   m_Layer: 5
-  m_Name: Logi_sissehead
+  m_Name: opetusHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
