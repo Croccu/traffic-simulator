@@ -48489,6 +48489,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 78304601391389441, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 78304601391389441, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 78304601391389441, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5153147435870205554, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5892887
@@ -48532,6 +48544,18 @@ PrefabInstance:
     - target: {fileID: 6531856467778097701, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
       propertyPath: m_Name
       value: StarterPack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368756909085604337, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1877638747}
+    - target: {fileID: 7368756909085604337, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368756909085604337, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7544864117946691871, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
       propertyPath: m_IsActive

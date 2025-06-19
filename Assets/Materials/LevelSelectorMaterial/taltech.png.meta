@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      taltech_0: -2938282448254526722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
