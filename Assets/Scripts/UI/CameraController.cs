@@ -4,13 +4,13 @@ using UnityEngine.EventSystems;
 public class CameraController : MonoBehaviour
 {
     [Header("Zoom Settings")]
-    [SerializeField] float zoomSpeed = 1f;
+    //[SerializeField] float zoomSpeed = 1f;
     [SerializeField] float minZoom = 5f;
     [SerializeField] float maxZoom = 20f;
 
     [Header("Panning Settings")]
-    [SerializeField] float panSpeed = 10f;
-    [SerializeField] float panBorderThickness = 10f;
+    //[SerializeField] float panSpeed = 10f;
+    //[SerializeField] float panBorderThickness = 10f;
 
     [Header("Movement Bounds")]
     [SerializeField] Vector2 minBounds = new Vector2(-50, -50);
