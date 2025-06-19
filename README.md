@@ -17,7 +17,7 @@ https://renepruu.github.io/build11/
 
 ## Projekti raames
 
-Projekt loodi Tallinna Ülikooli kursuste raames, eesmärgiga arendada mängulist lahendust, mis toetab süsteemse mõtlemise oskusi. Projekti algatajaks ja tellijaks oli Kadri Mettis, digiõpikeskkondade külalisteadur, kes tegutseb Tallinna Ülikooli Haridusteaduste instituudi juures. Mäng toetab tema uurimisideed mõista, kuidas noorte süsteemne mõtlemine avaldub ja areneb läbi praktiliste simulatsioonide.
+Projekt loodi Tallinna Ülikooli kursuste raames, eesmärgiga arendada mängulist lahendust, mis toetab süsteemse mõtlemise oskusi. Projekti algatajaks ja tellijaks oli **Kadri Mettis**, digiõpikeskkondade külalisteadur, kes tegutseb Tallinna Ülikooli Haridusteaduste instituudi juures. Mäng toetab tema uurimisideed mõista, kuidas noorte süsteemne mõtlemine avaldub ja areneb läbi praktiliste simulatsioonide.
 
 Arendus toimus järgmiste ainete raames:
 
