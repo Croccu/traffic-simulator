@@ -654,8 +654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.961, y: -10.1231}
-  m_SizeDelta: {x: 1489.9, y: 1330.6823}
+  m_AnchoredPosition: {x: -0.0092239, y: 0.0010147}
+  m_SizeDelta: {x: 1467.9, y: 730.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044396595
 MonoBehaviour:
@@ -940,7 +940,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 0
-  m_Url: https://www.dropbox.com/scl/fi/r2d990cduoeuq3zr4eofi/Screen-Recording-2025-06-19-at-10.54.14.mp4?rlkey=5gb94fr2s1srknq3rxyqtexmr&raw=1
+  m_Url: https://www.dropbox.com/scl/fi/po40117jdibnm6h8rwxbp/Screen-Recording-2025-06-19-at-11.25.20.mp4?rlkey=tbwn152l6h0qhhmvmjfe3wms0&raw=1
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
