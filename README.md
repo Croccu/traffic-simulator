@@ -69,6 +69,9 @@ Projekt on loodud Tryhard Gamesi tiimi poolt:
 #### Mängu buildi link:
 https://renepruu.github.io/build10/
 
+
+
+
 ### Arenduskeskkonna ülesseadmise juhis
 (Inglise keeles kuna keegi ei kasuta tehnoloogiat eesti keeles)
 
