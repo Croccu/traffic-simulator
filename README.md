@@ -8,7 +8,7 @@ https://renepruu.github.io/build11/
 
 ---
 
-## 🎯 Eesmärk ja lühikirjeldus
+## Eesmärk ja lühikirjeldus
 
 Projekt "Liiklusemäng" loodi, et:
 
@@ -20,7 +20,7 @@ Mäng on mõeldud põhikooli, gümnaasiumi ja autokooli õpilastele ning kõigil
 
 ---
 
-## 🏛 Projekti raames
+## Projekti raames
 
 Projekt loodi **Tallinna Ülikoolis** järgmiste ainete raames:
 
@@ -29,7 +29,7 @@ Projekt loodi **Tallinna Ülikoolis** järgmiste ainete raames:
 
 ---
 
-## ⚙️ Kasutatud tehnoloogiad
+## Kasutatud tehnoloogiad
 
 - **Unity Engine (6000.0.43f1)** (mängumootor)
 - **Unity WebGL** (renderdus)
@@ -46,30 +46,28 @@ Projekt loodi **Tallinna Ülikoolis** järgmiste ainete raames:
 
 ---
 
-## 👤 Autorid
+##Autorid
 
 Projekt on loodud Tryhard Gamesi tiimi poolt:
 
 - **Rico Paum** (Projektijuht, Arendaja)
 - **Karl Luberg** (Mängudisainer, Arendaja)
-- **Rene Pruul** (Testija, Analüütik)
-- **Jan Aaron Einloo** (Dokumentatsioon, Analüütik)
+- **Rene Pruul** (Arendaja, Disainer)
+- **Jan Aaron Einloo** (Arendaja, Disainer)
 - **Marcus Puust** (Arendaja, Disainer)
 
 ---
 
-## 🛠 Paigaldus- ja arendusjuhised
+## Paigaldus- ja arendusjuhised
 
 ### Nõuded
 
 - Unity 2022 või uuem versioon, eelistatavalt mõni Unity 6 versioon
-- Node.js (valikuline, ainult kui soovid ise serveri osa arendada)
-- MySQL server andmebaasi jaoks
 
 ### Paigaldusjuhend
 
 #### Mängu buildi link:
-https://renepruu.github.io/build10/
+https://renepruu.github.io/build11/
 
 
 
