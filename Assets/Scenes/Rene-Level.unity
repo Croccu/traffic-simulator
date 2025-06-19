@@ -97709,8 +97709,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minZoom: 10
   maxZoom: 25
-  minBounds: {x: -30, y: -50}
-  maxBounds: {x: 20, y: 20}
+  minBounds: {x: -80, y: -65}
+  maxBounds: {x: 60, y: 50}
   keyboardPanSpeed: 50
 --- !u!1 &1881134365
 GameObject:
