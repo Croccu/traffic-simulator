@@ -10417,19 +10417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f4e7254b5e848ada162c6253dbb118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointPrefab: {fileID: 3598414509500577361, guid: 7e97d96835e24416e8c9fff787a02921, type: 3}
-  snapRadius: 0.25
-  waypointPrefix: SE-Entry
-  namingIndex: 4
-  useDoubleSuffix: 0
-  clickedPoints: []
-  curvatureOffset: 0
-  controlXOffset: 0
-  curveIndex: 1
-  readyToConfirm: 0
-  spaceHeld: 0
-  handleId: -1
-  lastControlPoint: {x: 0, y: 0, z: 0}
 --- !u!4 &286081204
 Transform:
   m_ObjectHideFlags: 0
@@ -31065,6 +31052,8 @@ MonoBehaviour:
   carsDespawned: 0
   carsToDespawn: 0
   levelTime: 0
+  levelCompletePanel: {fileID: 0}
+  levelCompleteText: {fileID: 0}
 --- !u!4 &915624516
 Transform:
   m_ObjectHideFlags: 0
@@ -72835,9 +72824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minZoom: 5
-  maxZoom: 10
-  minBounds: {x: -7, y: -6}
-  maxBounds: {x: 10, y: 10}
+  maxZoom: 14.5
+  minBounds: {x: -29, y: -10}
+  maxBounds: {x: 29, y: 10}
   keyboardPanSpeed: 10
 --- !u!114 &2142391895
 MonoBehaviour:
@@ -73334,13 +73323,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 7030877960662312563}
   - {fileID: 8670467179311391911}
+  - {fileID: 7030877960662312563}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1825144721}
   - {fileID: 1875618747}
+  - {fileID: 1825144721}
 --- !u!1 &120269182463950147
 GameObject:
   m_ObjectHideFlags: 0
@@ -73462,13 +73451,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813119245207}
   - {fileID: 5595170433247338666}
+  - {fileID: 8248008813119245207}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1343122865}
   - {fileID: 174372287}
+  - {fileID: 1343122865}
 --- !u!1001 &402164728150211129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73580,6 +73569,18 @@ PrefabInstance:
     - target: {fileID: 7002695146389988443, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
       propertyPath: 'spawners.Array.data[3]'
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844056526445761120, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844056526445761120, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844056526445761120, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 9174937189767462293, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
       propertyPath: availableRoutes.Array.data[0].spline
@@ -82058,13 +82059,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 5474786903569764208}
   - {fileID: 8248008811853968997}
+  - {fileID: 5474786903569764208}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1878270614}
   - {fileID: 14186327}
+  - {fileID: 1878270614}
 --- !u!1 &2895262649732039175
 GameObject:
   m_ObjectHideFlags: 0
@@ -87974,13 +87975,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813193991987}
   - {fileID: 8248008813804141971}
+  - {fileID: 8248008813193991987}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1135578646}
   - {fileID: 589139213}
+  - {fileID: 1135578646}
 --- !u!114 &8248008811780204431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88048,13 +88049,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813811551888}
   - {fileID: 8248008813173112549}
+  - {fileID: 8248008813811551888}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1293467332}
   - {fileID: 1036179191}
+  - {fileID: 1293467332}
 --- !u!114 &8248008811853968997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88086,13 +88087,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813633254262}
   - {fileID: 4768672715319135611}
+  - {fileID: 8248008813633254262}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1971756109}
   - {fileID: 1363393061}
+  - {fileID: 1971756109}
 --- !u!114 &8248008811864490487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88252,13 +88253,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008812791993198}
   - {fileID: 8248008813676944095}
+  - {fileID: 8248008812791993198}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1600661943}
   - {fileID: 973226162}
+  - {fileID: 1600661943}
 --- !u!114 &8248008811980061543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88378,13 +88379,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813552824813}
   - {fileID: 7757723813550060095}
+  - {fileID: 8248008813552824813}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 755587882}
   - {fileID: 2014513115}
+  - {fileID: 755587882}
 --- !u!114 &8248008812019021327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88504,13 +88505,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813119245207}
   - {fileID: 8248008813615683484}
+  - {fileID: 8248008813119245207}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 341814959}
   - {fileID: 1853899745}
+  - {fileID: 341814959}
 --- !u!114 &8248008812156685240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88524,13 +88525,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 5595170433247338666}
   - {fileID: 8248008813615683484}
+  - {fileID: 5595170433247338666}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 694115735}
   - {fileID: 866299243}
+  - {fileID: 694115735}
 --- !u!114 &8248008812172226735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88706,13 +88707,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008811977827659}
   - {fileID: 8248008813130722880}
+  - {fileID: 8248008811977827659}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 596484639}
   - {fileID: 676973731}
+  - {fileID: 596484639}
 --- !u!114 &8248008812292311007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89518,13 +89519,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008812424122151}
   - {fileID: 1210569781718603189}
+  - {fileID: 8248008812424122151}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1844859398}
   - {fileID: 785268226}
+  - {fileID: 1844859398}
 --- !u!114 &8248008813008069322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89754,13 +89755,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008812983669520}
   - {fileID: 5955995423875759549}
+  - {fileID: 8248008812983669520}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1992272900}
   - {fileID: 1671789990}
+  - {fileID: 1992272900}
 --- !u!114 &8248008813130722880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89900,13 +89901,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813811551888}
   - {fileID: 7138446096563268011}
+  - {fileID: 8248008813811551888}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 669323278}
   - {fileID: 1284119310}
+  - {fileID: 669323278}
 --- !u!114 &8248008813249610264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90298,13 +90299,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextNodes:
-  - {fileID: 8248008813080152315}
   - {fileID: 2519909603878560550}
+  - {fileID: 8248008813080152315}
   isEntry: 0
   isExit: 0
   outgoingCurves:
-  - {fileID: 1767720499}
   - {fileID: 2070340159}
+  - {fileID: 1767720499}
 --- !u!114 &8248008813705280347
 MonoBehaviour:
   m_ObjectHideFlags: 0
