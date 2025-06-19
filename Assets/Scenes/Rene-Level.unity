@@ -41501,6 +41501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarterPack2
       objectReference: {fileID: 0}
+    - target: {fileID: 7544864117946691871, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7972386925776847108, guid: 588640668653622428e8f74a4eb7f5ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
