@@ -24255,6 +24255,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 537618323954195773, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1352078549}
+    - target: {fileID: 537618323954195773, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 537618323954195773, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 758752176617689918, guid: 30c6f0407bc509c42b6f872743ded3c6, type: 3}
       propertyPath: prefabToPlace
       value: 
@@ -41437,6 +41449,8 @@ MonoBehaviour:
   carsDespawned: 0
   carsToDespawn: 0
   levelTime: 0
+  levelCompletePanel: {fileID: 0}
+  levelCompleteText: {fileID: 0}
 --- !u!4 &2076951066
 Transform:
   m_ObjectHideFlags: 0
