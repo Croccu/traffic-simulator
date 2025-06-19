@@ -39,6 +39,7 @@ public class CarController_v3 : MonoBehaviour
     public float rearDetectWidth = 0.6f;
 
     public WaypointNode currentNode;
+    public BezierWaypointSegment currentSegment;
 
     private float currentSpeed;
     private float currentSpeedLimit;
@@ -66,6 +67,8 @@ public class CarController_v3 : MonoBehaviour
 
     private float timeStuckAtSameNode = 0f;
     private int lastStuckPathIndex = -1;
+
+    private float fullStopTimer = 0f;
 
     //For debugging
     private bool hasLoggedStuck = false;
@@ -108,49 +111,63 @@ public class CarController_v3 : MonoBehaviour
 
         if (inMergeBlock)
         {
-      if (pathIndex > 3 || !IsBlockedAtEntry(bezierPath))
-      {
-        inMergeBlock = false;
-        blockedTimer = 0f;
-      }
-      else
-      {
-        Collider2D hit = Physics2D.OverlapCapsule(
-            (Vector2)transform.position + (Vector2)transform.up * (detectionLength * 0.5f),
-            new Vector2(detectionWidth, detectionLength),
-            CapsuleDirection2D.Vertical,
-            transform.eulerAngles.z,
-            carLayer
-        );
+            if (pathIndex > 3 || !IsBlockedAtEntry(bezierPath))
+            {
+                inMergeBlock = false;
+                blockedTimer = 0f;
+            }
+            else
+            {
+                Collider2D hit = Physics2D.OverlapCapsule(
+                    (Vector2)transform.position + (Vector2)transform.up * (detectionLength * 0.5f),
+                    new Vector2(detectionWidth, detectionLength),
+                    CapsuleDirection2D.Vertical,
+                    transform.eulerAngles.z,
+                    carLayer
+                );
 
-        if (hit != null && hit != selfCollider)
-        {
-          CarController_v3 carAhead = hit.GetComponent<CarController_v3>();
-          if (carAhead == this) return;
+                bool physicallyClear = (hit == null || hit == selfCollider);
+                if (!physicallyClear)
+                {
+                    CarController_v3 carAhead = hit.GetComponent<CarController_v3>();
+                    if (carAhead == this) return;
 
-          float dist = Vector2.Distance(transform.position, hit.transform.position);
-          if (carAhead == null || carAhead.pathIndex > this.pathIndex + 5 || dist > 1.5f)
-          {
-            inMergeBlock = false;
-            blockedTimer = 0f;
-          }
-        }
+                    // Directional check
+                    if (carAhead != null)
+                    {
+                        Vector2 myForward = transform.up;
+                        Vector2 theirForward = carAhead.transform.up;
 
-        if (inMergeBlock)
-        {
-          blockedTimer += Time.deltaTime;
-          if (blockedTimer > 3f && !hasLoggedMergeBlock)
-            Debug.LogWarning($"{name} STUCK BLOCK (>3s) at merge entry — check logic or path");
-          hasLoggedMergeBlock = true;
-          currentSpeed = 0f;
-          return;
-        }
-        else {
-            hasLoggedMergeBlock = false;
-        }
+                        float dirDot = Vector2.Dot(myForward.normalized, theirForward.normalized);
+                        if (dirDot < 0.5f)
+                        {
+                            // Oncoming car — ignore
+                            return;
+                        }
+                    }
+
+                    float dist = Vector2.Distance(transform.position, hit.transform.position);
+                    if (carAhead == null || carAhead.pathIndex > this.pathIndex + 5 || dist > 1.5f)
+                    {
+                        inMergeBlock = false;
+                        blockedTimer = 0f;
+                    }
+                }
+
+                if (inMergeBlock)
+                {
+                    blockedTimer += Time.deltaTime;
+                    if (blockedTimer > 3f && !hasLoggedMergeBlock)
+                        Debug.LogWarning($"{name} STUCK BLOCK (>3s) at merge entry — check logic or path");
+                    hasLoggedMergeBlock = true;
+                    currentSpeed = 0f;
+                    return;
+                }
+                else {
+                    hasLoggedMergeBlock = false;
+                }
             }
         }
-
 
         if (isSwitchingLanes)
         {
@@ -186,7 +203,6 @@ public class CarController_v3 : MonoBehaviour
             return;
         }
 
-        // 🛠 Suggestion 3: deadlock timer
         if (pathIndex == lastStuckPathIndex)
         {
             timeStuckAtSameNode += Time.deltaTime;
@@ -213,7 +229,6 @@ public class CarController_v3 : MonoBehaviour
             {
                 if (currentNode != null && currentNode.isExit)
                 {
-                    // 🛠 Suggestion 4: only despawn if not blocked
                     if (!IsBlockedAtEntry(bezierPath))
                     {
                         GameManager.instance?.CarDespawned();
@@ -239,16 +254,29 @@ public class CarController_v3 : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
 
-        if (currentSpeed <= 0.01f && !hasLoggedStuck)
+        if (currentSpeed <= 0.01f)
         {
-            Debug.Log($"{name} is STUCK or STALLED — Path index: {pathIndex}, Node: {currentNode?.name}");
-            hasLoggedStuck = true;
+            fullStopTimer += Time.deltaTime;
+            if (fullStopTimer > 6f)
+            {
+                Debug.LogWarning($"{name} DESPAWN after 6s stall");
+                GameManager.instance?.CarDespawned();
+                Destroy(gameObject);
+            }
+
+            if (!hasLoggedStuck)
+            {
+                Debug.Log($"{name} is STUCK or STALLED — Path index: {pathIndex}, Node: {currentNode?.name}");
+                hasLoggedStuck = true;
+            }
         }
-        if (currentSpeed > 0.01f)
+        else
         {
+            fullStopTimer = 0f;
             hasLoggedStuck = false;
         }
     }
+
 
     void TryLaneSwitchOrExitDeadlock()
     {
@@ -313,6 +341,8 @@ public class CarController_v3 : MonoBehaviour
 
     void GenerateBezierPathFrom(BezierWaypointSegment segment)
     {
+        currentSegment = segment;
+
         Vector3 p0 = segment.transform.position;
         Vector3 p1 = segment.controlPoint;
         Vector3 p2 = segment.endNode.transform.position;
@@ -339,6 +369,23 @@ public class CarController_v3 : MonoBehaviour
 
         if (hit != null && hit != selfCollider)
         {
+            CarController_v3 carAhead = hit.GetComponent<CarController_v3>();
+
+            // Ignore if not same segment
+            if (carAhead != null && carAhead.currentSegment != this.currentSegment)
+                return;
+
+            // Directional check: make sure it's forward-moving
+            if (carAhead != null)
+            {
+                Vector2 myForward = transform.up;
+                Vector2 theirForward = carAhead.transform.up;
+                float dirDot = Vector2.Dot(myForward.normalized, theirForward.normalized);
+
+                if (dirDot < 0.75f)
+                    return;
+            }
+
             float dist = Vector2.Distance(transform.position, hit.transform.position);
 
             if (Time.time - lastSwitchTime > switchCooldown)
@@ -367,16 +414,17 @@ public class CarController_v3 : MonoBehaviour
             else
             {
                 hasLoggedFrontStop = false;
-
                 float t = (dist - stopDistance) / (detectionLength - stopDistance);
                 currentSpeed = Mathf.Lerp(0f, currentSpeedLimit, t);
             }
         }
         else
         {
+            hasLoggedFrontStop = false;
             currentSpeed = currentSpeedLimit;
         }
     }
+
 
 
     bool IsRearCarTooClose()
@@ -425,6 +473,7 @@ public class CarController_v3 : MonoBehaviour
     {
         isSwitchingLanes = true;
         switchTimer = 0f;
+        currentSegment = segment;
 
         Vector3 p0 = segment.transform.position;
         Vector3 p1 = segment.controlPoint;
@@ -475,14 +524,34 @@ public class CarController_v3 : MonoBehaviour
             int idx = Mathf.FloorToInt((i / (float)checkCount) * path.Count);
             Vector3 pos = path[idx];
             Collider2D[] hits = Physics2D.OverlapCircleAll(pos, laneMergeCheckRadius, carLayer);
+
             foreach (var col in hits)
             {
-                if (col != null && col != selfCollider)
-                    return true;
+                if (col == null || col == selfCollider)
+                    continue;
+
+                CarController_v3 other = col.GetComponent<CarController_v3>();
+                if (other == null)
+                    continue;
+
+                // Ignore unrelated segments
+                if (other.currentSegment != this.currentSegment)
+                    continue;
+
+                // Ignore opposite-direction cars
+                Vector2 myForward = transform.up;
+                Vector2 theirForward = other.transform.up;
+                float dot = Vector2.Dot(myForward.normalized, theirForward.normalized);
+                if (dot < 0.75f)
+                    continue;
+
+                return true; // Blocked by valid same-segment, same-direction car
             }
         }
         return false;
     }
+
+
 
     BezierWaypointSegment FindParallelOpenSegment()
     {

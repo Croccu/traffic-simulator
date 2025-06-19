@@ -14058,10 +14058,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carPrefabs:
-  - {fileID: 1705198939788262373, guid: 4df8dad9a076246738dba2d140fd33fe, type: 3}
+  - {fileID: 7345793621993324290, guid: cc2bf7ba26a5d40ee86b96c4634654ce, type: 3}
   - {fileID: 5504318289018369481, guid: 929f17908a02c4dc9b4de13952a56312, type: 3}
-  spawnInterval: 0.5
+  - {fileID: 8729908685443266730, guid: fed21443bb2b34f0cb9255cdb08b2286, type: 3}
+  - {fileID: 1393922976095104779, guid: 8eb5cceaae13948c79c41d3ca167ad3c, type: 3}
+  - {fileID: 6163381274149785229, guid: 951b6772c9a284cbc9b45c69f78e09f0, type: 3}
+  - {fileID: 3975630255661324944, guid: 21b57e860eb47491293e2cd1d421e0a4, type: 3}
+  spawnInterval: 1
   spawnDelay: 1
+  maxCarsToSpawn: 150
 --- !u!4 &720413808
 Transform:
   m_ObjectHideFlags: 0
@@ -23420,11 +23425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f4e7254b5e848ada162c6253dbb118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointPrefab: {fileID: 3598414509500577361, guid: 7e97d96835e24416e8c9fff787a02921, type: 3}
-  snapRadius: 0.25
-  waypointPrefix: Est-South a
-  namingIndex: 146
-  useDoubleSuffix: 0
 --- !u!4 &1151132661
 Transform:
   m_ObjectHideFlags: 0
@@ -27173,11 +27173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73697b5c46dbabcf8eec57c189b14747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 5
   minZoom: 5
   maxZoom: 14.5
-  panSpeed: 10
-  panBorderThickness: 10
   minBounds: {x: -5, y: -5}
   maxBounds: {x: 5, y: 5}
   keyboardPanSpeed: 10
@@ -41438,6 +41435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carsPassed: 0
   carsDespawned: 0
+  carsToDespawn: 0
+  levelTime: 0
 --- !u!4 &2076951066
 Transform:
   m_ObjectHideFlags: 0
