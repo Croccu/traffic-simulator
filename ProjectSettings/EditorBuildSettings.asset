@@ -53,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialFinal.unity
     guid: 9692d70e005124ea59f048143f9ef45a
+  - enabled: 1
+    path: Assets/Scenes/Karl-Rocca.unity
+    guid: 57d9d8003560db542af6c1ce84be1193
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
