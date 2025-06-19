@@ -2,7 +2,7 @@
 
 ![screenshot](./screenshots/main_menu_preview.png)
 
-**Liiklusemäng** on hariduslik veebimäng, mis aitab arendada süsteemset mõtlemist liikluskorralduse ja liiklusohutuse teemadel. Mängija ülesandeks on kujundada liiklussõlmi ja määrata liiklusreegleid, et simuleeritud liiklus kulgeks sujuvalt ning turvaliselt. Tegemist on interaktiivse ja visuaalselt lihtsa lahendusega, mis aitab mõista, kuidas üksikud otsused mõjutavad kogu liiklussüsteemi toimimist.
+**Liiklusemäng** on interaktiivne veebimäng, mis aitab arendada süsteemset mõtlemist liikluskorralduse teemade. Mängija ülesandeks on kujundada liiklussõlmi ja määrata liiklusreegleid, et simuleeritud liiklus kulgeks sujuvalt ning effektiivselt. Tegemist on interaktiivse ja visuaalselt lihtsa lahendusega, mis aitab mõista, kuidas üksikud otsused mõjutavad kogu liiklussüsteemi toimimist.
 
 ---
 
@@ -22,18 +22,23 @@ Mäng on mõeldud põhikooli, gümnaasiumi ja autokooli õpilastele ning kõigil
 
 Projekt loodi **Tallinna Ülikoolis** järgmiste ainete raames:
 
-- **Interaktsioonidisain** (juhendaja: *Kadri Mettis*)
+- **Interaktsioonidisain** (juhendaja: *Mati Mõttus*)
 - **Infosüsteemide analüüs ja modelleerimine** (juhendaja: *Merle Laurits*)
 
 ---
 
 ## ⚙️ Kasutatud tehnoloogiad
 
-- **Unity WebGL** (mängumootor, renderdus)
-- **JavaScript + HTML/CSS** (veebipõhine liides, paigutus)
-- **SQL / MySQL** (andmete salvestamine, skooride ja kasutajate haldus)
+- **Unity Engine (6000.0.43f1)** (mängumootor)
+- **Unity WebGL** (renderdus)
+- **Visual Studio Code (1.100.3)** (skriptimine)
+- **Google sheets Plugin App scripts**
+
 - **Figma** (prototüüpide loomiseks ja UX testimiseks)
+- **Adobe Illustrator(29.5.1)** (visuaalsete assetite tegemiseks)
 - **Google Forms / Drive / Prezi** (kasutajauuringud, dokumentatsioon)
+
+- **ChatGPT 4o** (Hoidis terve arendusteekonna vältel kätt)
 
 > Märkus: täpsed versioonid sõltuvad kohalikust arenduskeskkonnast.
 
@@ -47,7 +52,7 @@ Projekt on loodud Tryhard Gamesi tiimi poolt:
 - **Karl Luberg** (Mängudisainer, Arendaja)
 - **Rene Pruul** (Testija, Analüütik)
 - **Jan Aaron Einloo** (Dokumentatsioon, Analüütik)
-- **Marcus Puust** (Arendaja, UX)
+- **Marcus Puust** (Arendaja, Disainer)
 
 ---
 
@@ -55,7 +60,7 @@ Projekt on loodud Tryhard Gamesi tiimi poolt:
 
 ### Nõuded
 
-- Unity 2022 või uuem versioon
+- Unity 2022 või uuem versioon, eelistatavalt mõni Unity 6 versioon
 - Node.js (valikuline, ainult kui soovid ise serveri osa arendada)
 - MySQL server andmebaasi jaoks
 
