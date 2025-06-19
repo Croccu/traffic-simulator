@@ -192,7 +192,7 @@ Projekt on avatud MIT litsentsi alusel. Vaata lähemalt [LICENSE](./LICENSE).
 ## 📚 Täiendav info
 
 - [Figma prototüüp](https://www.figma.com/design/5BSsOugXiLhEiof8pULHBc/Liiklusem%C3%A4ng)
-- [Veebidemo link]([https://renepruu.github.io/build11/])
+- [Veebidemo link](https://renepruu.github.io/build11/)
 - [Prezi esitlus](https://prezi.com/view/bpvVDy2bS3WXhmVmxJkx/)
 
 ---
