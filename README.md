@@ -3,20 +3,17 @@
 ![screenshot](./screenshots/main_menu_preview.png)
 
 https://renepruu.github.io/build11/
+## Lühikirjeldus 
 
-**Liiklusmäng** on interaktiivne veebipõhine mäng, mis arendab süsteemset mõtlemist liikluskorralduse kontekstis. Mängija ülesandeks on kujundada ristmikke ja määrata liiklusreegleid ehk paigutada foore ja erinevaid liiklusmärke, et tagada sujuv ja efektiivne liiklus simuleeritud keskkonnas. Tegemist on visuaalselt lihtsa, kuid sisult süvitsi mineva lahendusega, mis aitab mõista, kuidas iga otsus mõjutab kogu liiklussüsteemi toimimist tervikuna.
+**Liiklusmäng** on interaktiivne veebipõhine mäng, mis arendab süsteemset mõtlemist liikluskorralduse kontekstis. Mängija ülesandeks on kujundada liiklusreegleid, paigutades foore ja erinevaid liiklusmärke mitmest ristmikust koosnevale liiklussõlmestikule, et tagada sujuv ja efektiivne liiklus simuleeritud keskkonnas. Tegemist on visuaalselt lihtsa, kuid sisult süvitsi mineva lahendusega, mis aitab mõista, kuidas iga otsus mõjutab kogu liiklussüsteemi toimimist tervikuna.
 
 ---
 
-## Eesmärk ja lühikirjeldus
+## Eesmärk 
 
-Projekt "Liiklusemäng" loodi, et:
-
-- Lahendada õpilaste raskusi süsteemse liiklusmõtlemise omandamisel.
-- Pakkuda interaktiivset õppelahendust, mis on kaasahaarav ja praktiline.
-- Anda võimalus ohutult eksperimenteerida erinevate liikluslahendustega.
-
-Mäng on mõeldud põhikooli, gümnaasiumi ja autokooli õpilastele ning kõigile, kes soovivad interaktiivselt õppida liikluskorralduse põhimõtteid.
+- Toetada süsteemse mõtlemise kujunemist liikluskorralduse kontekstis
+- Selgitada mängulisel ja kaasahaaraval viisil liikluse toimimist kui terviklikku süsteemi
+- Pakkuda võimalust katsetada erinevaid lahendusi ja näha nende mõju simuleeritud liiklusolukordades
 
 ---
 
