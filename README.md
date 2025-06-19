@@ -189,12 +189,13 @@ Projekt on avatud MIT litsentsi alusel. Vaata lähemalt [LICENSE](./LICENSE).
 
 ---
 
-## 📚 Täiendav info
+## 📚 Täiendavad lingid projektiga seotud materjalidele
 
-- [Figma prototüüp](https://www.figma.com/design/5BSsOugXiLhEiof8pULHBc/Liiklusem%C3%A4ng)
 - [Veebidemo link](https://renepruu.github.io/build11/)
+- [Figma prototüüp](https://www.figma.com/design/5BSsOugXiLhEiof8pULHBc/Liiklusem%C3%A4ng)
 - [Prezi esitlus](https://prezi.com/view/bpvVDy2bS3WXhmVmxJkx/)
-
----
+- [Sissejuhatus infosüsteemidesse](https://docs.google.com/document/d/1LNtNr72fMrSppHDV45TJLYcnOFPgbixE/edit?usp=sharing&ouid=103216231339667950297&rtpof=true&sd=true)
+- [Interaktsiooni disasin](https://docs.google.com/document/d/1u-axbPffR5I8O48bkq8m4Gepizkos4wbvJiAW9CmlyY/edit?usp=sharing)
+- [Tarkvara testimise alused](https://docs.google.com/document/d/1_cWNAN8EC3KtosiyOwMPet9T9YZzeTLw/edit?usp=sharing&ouid=103216231339667950297&rtpof=true&sd=true)
 
 Valminud 2025. aastal Tallinna Ülikoolis.
