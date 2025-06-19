@@ -66,37 +66,107 @@ Projekt on loodud Tryhard Gamesi tiimi poolt:
 
 ### Paigaldusjuhend
 
-1. **Klooni repo:**
 
-```bash
-git clone https://github.com/Croccu/traffic-sim-demo.git
-cd traffic-sim-demo
-```
+### Arenduskeskkonna ülesseadmise juhis
+(Inglise keeles kuna keegi ei kasuta tehnoloogiat eesti keeles)
 
-2. **Käivita Unity projekt:**
+---------------------------
+For CLI
+---------------------------
+ 
+1. Fork the main repo
+Go to:
+https://github.com/Croccu/traffic-simulator.git
+Click "Fork" (top-right) creates your own copy
+ 
+2. Clone your fork
+$ git clone https://github.com/yourusername/traffic-simulator.git
+$ cd traffic-simulator
 
-Ava projekt Unity Hubis ja buildi WebGL versioon. Build-failid asuvad `Build/` kaustas.
+3. Add the original repo as 'upstream'
+$ git remote add upstream https://github.com/Croccu/traffic-simulator.git
+Check remotes:
+$ git remote -v
+Should show:
+origin https://github.com/yourusername/traffic-simulator.git
+upstream https://github.com/Croccu/traffic-simulator.git
+ 
+4. Keep your fork in sync
+$ git checkout main
+$ git fetch upstream
+$ git merge upstream/main
+# or: git pull --rebase upstream main
+ 
+5. Create a feature branch
+$ git checkout -b feature/your-task-name
+ 
+6. Make changes, then commit 
+$ git add .
+$ git commit -m "Describe what you changed"
+ 
+7. Push to your fork
+$ git push origin feature/your-task-name
+ 
+8. Open a Pull Request
+Go to your fork click "Compare & Pull Request"
+Target: main branch of original repo
+ 
 
-3. **(Valikuline) Käivita lokaalne andmebaas:**
 
-Kopeeri andmebaasitabelid:
+---------------------------
+For GitHub Desktop
+---------------------------
+ 
+1. Fork the main repo
+Go to:
+https://github.com/Croccu/traffic-simulator
+Click "Fork" (top-right) creates your own copy under your GitHub account.
+ 
+2. Clone your fork using GitHub Desktop
+- Open GitHub Desktop
+- File > Clone Repository
+- Select your fork (not the original)
+- Choose a local folder and click "Clone"
+ 
+3. Add the original repo as 'upstream' (optional, in terminal)
+Open Terminal inside your project folder:
+$ git remote add upstream https://github.com/Croccu/traffic-simulator.git
+ 
+4. Sync your fork before working
+In GitHub Desktop:
+- Switch to 'main' branch
+- Repository > Open in Terminal
+Then run:
+$ git fetch upstream
+$ git merge upstream/main
+(or: $ git pull --rebase upstream main)
+ 
+5. Create a new branch for your feature
+In GitHub Desktop:
+- Branch > New Branch
+- Name it e.g. feature/curved-road
+- Switch to that branch
+ 
+6. Make changes in Unity
+- Save changes
+- Check GitHub Desktop to see file changes
+ 
+7. Commit and push your changes
+- Write a short summary of the change
+- Click "Commit to [your branch]"
+- Click "Push origin"
+ 
+8. Open a Pull Request
+- GitHub Desktop will show "Create Pull Request"
+- Target: the original repo's `main` branch
 
-```sql
--- Näide
-CREATE TABLE user (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(20),
-  email VARCHAR(50),
-  password VARCHAR(20),
-  country VARCHAR(20),
-  city VARCHAR(20),
-  date_of_birth DATE
-);
-```
-
-4. **Testimiseks ava `index.html` brauseris** või lae üles lihtsasse Node/Express serverisse.
-
----
+-------------------------------------------------
+Unity-specific tips:
+- Never commit Library/, Build/, or .vs/ folders
+- Always use .gitignore for Unity
+- Pull before you push
+- Use separate branches per feature
+-------------------------------------------------
 
 ## 📂 Struktuur
 
