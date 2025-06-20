@@ -2,7 +2,7 @@
 
 ![Landing page](https://drive.google.com/uc?export=view&id=1I62XB1icq_K3zd2irIKz_MHb3RlNnapV)
 
-https://renepruu.github.io/build13/ Lõplik build
+https://renepruu.github.io/build13/ (Lõpp versioon)
 
 ## Lühikirjeldus 
 
