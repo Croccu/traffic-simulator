@@ -5209,8 +5209,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
+      propertyPath: spawnDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
+      propertyPath: spawnInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: maxCarsToSpawn
-      value: 12
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: carPrefabs.Array.size
@@ -15689,7 +15697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: maxCarsToSpawn
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: carPrefabs.Array.size
@@ -109455,7 +109463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: maxCarsToSpawn
-      value: 11
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7182571345318243122, guid: 5e7ff8a6526b92d419a1eda3403ee21f, type: 3}
       propertyPath: carPrefabs.Array.size

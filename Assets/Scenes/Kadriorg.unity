@@ -13730,9 +13730,9 @@ MonoBehaviour:
   - {fileID: 1393922976095104779, guid: 8eb5cceaae13948c79c41d3ca167ad3c, type: 3}
   - {fileID: 6163381274149785229, guid: 951b6772c9a284cbc9b45c69f78e09f0, type: 3}
   - {fileID: 3975630255661324944, guid: 21b57e860eb47491293e2cd1d421e0a4, type: 3}
-  spawnInterval: 1
+  spawnInterval: 0.5
   spawnDelay: 1
-  maxCarsToSpawn: 150
+  maxCarsToSpawn: 200
 --- !u!4 &720413808
 Transform:
   m_ObjectHideFlags: 0
